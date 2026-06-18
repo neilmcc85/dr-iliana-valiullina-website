@@ -255,14 +255,21 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Language Lesson"
+                        "name": "Legal English Lesson"
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Law Tutoring"
+                        "name": "Professional Language Lesson"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "5-Lesson Language Packages"
                     }
                 }
             ]
@@ -580,7 +587,19 @@
             <div class="mb-10">
                 <div class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">ONLINE LANGUAGE LESSONS</div>
                 <h2 class="section-heading text-5xl md:text-[56px] leading-none tracking-normal text-[#0D3B66] mt-2">Language Lessons for Academics, Lawyers &amp; Professionals</h2>
-                <p class="mt-4 text-[#4B5563] max-w-3xl">Build the language you need for academic publishing, legal practice, presentations, interviews, and professional life. Lessons are tailored to your goals and can focus on English, Legal English, Academic English, Russian, or Spanish legal and academic communication.</p>
+                <p class="mt-4 text-[#4B5563] max-w-3xl">Build the language you need for academic publishing, legal practice, presentations, interviews, and professional life. Lessons are tailored to your goals and can focus on Academic English, Legal English, or professional communication in English, Russian, Tatar, or Bashkort.</p>
+            </div>
+
+            <div class="mb-10 bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 md:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div>
+                    <div class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">START HERE</div>
+                    <h3 class="mt-2 text-3xl font-semibold tracking-normal text-[#0D3B66]">Free 15-Minute Consultation</h3>
+                    <p class="mt-3 text-sm md:text-base leading-relaxed text-[#4B5563] max-w-3xl">A short introductory call to discuss your goals, current level, preferred language, and the best lesson format for you. This is not a full lesson; it helps us choose the right path before you book a paid session.</p>
+                </div>
+                <button type="button" onclick="openBooking('freeConsultation')" class="inline-flex items-center justify-center gap-x-2 px-6 py-3.5 rounded-2xl bg-[#0D3B66] text-white font-semibold text-sm hover:bg-[#0A2F52] transition-colors">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Book Free Consultation</span>
+                </button>
             </div>
 
             <div class="mb-10 grid md:grid-cols-3 gap-6">
@@ -611,98 +630,45 @@
                     <div class="w-12 h-12 rounded-2xl bg-[#B89778]/10 flex items-center justify-center mb-5">
                         <i class="fa-solid fa-language text-xl text-[#B89778]"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">Russian or Spanish</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563] flex-1">Professional, academic, and legal communication for learners who need precise language in real contexts.</p>
-                    <button type="button" onclick="openBooking('russianSpanish')" class="mt-6 inline-flex items-center justify-center gap-x-2 px-5 py-3 rounded-2xl border border-[#0D3B66] text-[#0D3B66] font-semibold text-sm hover:bg-[#0D3B66] hover:text-white transition-colors">
-                        <span>Book Online</span>
+                    <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">Professional Language Lesson</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563] flex-1">Personalized support in English, Russian, Tatar, or Bashkort for speaking confidence, workplace communication, interviews, presentations, writing, and precise vocabulary.</p>
+                    <button type="button" onclick="openBooking('professionalLanguage')" class="mt-6 inline-flex items-center justify-center gap-x-2 px-5 py-3 rounded-2xl border border-[#0D3B66] text-[#0D3B66] font-semibold text-sm hover:bg-[#0D3B66] hover:text-white transition-colors">
+                        <span>Book Professional Lesson</span>
                     </button>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-6">
-                
-                <!-- Law Tutoring -->
-                <div class="service-card bg-white border border-[#E5E2D9] rounded-3xl p-8 md:p-9 flex flex-col">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <div class="inline-flex px-4 py-1 bg-[#0D3B66]/5 text-[#0D3B66] rounded-2xl text-xs font-semibold tracking-wider">LAW TUTORING</div>
-                            <h3 class="mt-4 text-3xl font-semibold tracking-normal text-[#0D3B66]">International &amp; Comparative Law</h3>
-                        </div>
-                        <i class="fa-solid fa-gavel text-4xl text-[#B89778]/70"></i>
-                    </div>
-
-                    <ul class="mt-8 space-y-[13px] text-[15px] flex-1">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>International Public Law</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>EU Law &amp; European Human Rights</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Human Rights Law &amp; ECHR Jurisprudence</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>AI, Technology &amp; the Law</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Comparative Law &amp; Legal Linguistics</span></li>
-                    </ul>
-
-                    <div class="mt-auto pt-8">
-                        <button type="button"
-                           onclick="openBooking('lawTutoring')"
-                           class="inline-flex w-full md:w-auto items-center justify-center gap-x-3 px-8 py-4 rounded-3xl font-semibold bg-[#0D3B66] text-white hover:bg-[#0A2F52] transition-all text-sm tracking-wide">
-                            <span>BOOK A LAW TUTORING SESSION</span>
-                        </button>
-                        <p class="mt-4 text-xs text-[#6B7280]">Online worldwide • In-person sessions available in select locations by arrangement</p>
-                    </div>
-                </div>
-
-                <!-- Language Lessons -->
-                <div class="service-card bg-white border border-[#E5E2D9] rounded-3xl p-8 md:p-9 flex flex-col">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <div class="inline-flex px-4 py-1 bg-[#B89778]/10 text-[#B89778] rounded-2xl text-xs font-semibold tracking-wider">LANGUAGE INSTRUCTION</div>
-                            <h3 class="mt-4 text-3xl font-semibold tracking-normal text-[#0D3B66]">Languages for Academics &amp; Professionals</h3>
-                        </div>
-                        <i class="fa-solid fa-comments text-4xl text-[#B89778]/70"></i>
-                    </div>
-
-                    <ul class="mt-8 space-y-[13px] text-[15px] flex-1">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Academic English (writing &amp; presentation)</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Legal English for Lawyers &amp; Scholars</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Russian for Professionals &amp; Academics</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>English for Academic Publishing</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-[#B89778] mt-1.5 text-sm"></i> <span>Spanish Legal &amp; Academic Communication</span></li>
-                    </ul>
-
-                    <div class="mt-auto pt-8">
-                        <button type="button"
-                           onclick="openBooking('languageTrial')"
-                           class="inline-flex w-full md:w-auto items-center justify-center gap-x-3 px-8 py-4 rounded-3xl font-semibold btn-gold text-white hover:bg-[#A37E5E] transition-all text-sm tracking-wide">
-                            <span>BOOK A LANGUAGE SESSION</span>
-                        </button>
-                        <p class="mt-4 text-xs text-[#6B7280]">Individual or small-group • Flexible scheduling • All levels welcome</p>
-                    </div>
-                </div>
+            <div class="mt-12 mb-6">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">LESSON PACKAGES</div>
+                <h3 class="mt-2 text-3xl font-semibold tracking-normal text-[#0D3B66]">Five-Session Packages</h3>
+                <p class="mt-3 text-sm md:text-base leading-relaxed text-[#4B5563] max-w-3xl">Choose a package when you want steady progress over several sessions. The first session is booked online; the remaining four are arranged directly after the first meeting.</p>
             </div>
-            
+
             <div class="mt-8 grid lg:grid-cols-3 gap-6">
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-7">
-                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Start Here</div>
-                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">Trial Lesson</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">A focused first session to assess goals, level, schedule, and the best learning plan.</p>
-                    <button type="button" onclick="openBooking('languageTrial')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
-                        Book trial <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Professional</div>
+                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">5-Lesson Language Package</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Five personalized lessons in English, Russian, Tatar, or Bashkort for professional, academic, cultural, or personal communication.</p>
+                    <button type="button" onclick="openBooking('professionalPackage')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
+                        Book package <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </div>
 
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-7">
-                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Flexible</div>
-                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">Single Session</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Useful for interview preparation, a presentation rehearsal, document review, or one-off coaching.</p>
-                    <button type="button" onclick="openBooking('singleSession')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
-                        Book session <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Academic</div>
+                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">5-Lesson Academic English Package</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Five Academic English sessions for writing, publication preparation, thesis work, presentations, and research communication.</p>
+                    <button type="button" onclick="openBooking('academicPackage')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
+                        Book package <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </div>
 
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-7">
-                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Best Progress</div>
-                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">Lesson Package</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">A structured programme for steady improvement in legal, academic, or professional communication.</p>
-                    <button type="button" onclick="openBooking('lessonPackage')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
-                        Choose package <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <div class="text-xs uppercase tracking-[2px] text-[#B89778] font-semibold">Legal</div>
+                    <h3 class="mt-2 text-xl font-semibold text-[#0D3B66]">5-Lesson Legal English Package</h3>
+                    <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Five Legal English sessions for legal vocabulary, case discussion, writing, oral argument, client communication, and legal research contexts.</p>
+                    <button type="button" onclick="openBooking('legalPackage')" class="mt-5 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
+                        Book package <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </div>
             </div>
@@ -930,10 +896,13 @@
                                     <select id="inquiry-type" name="inquiryType" required 
                                             class="form-input w-full bg-white border border-[#D1D5DB] rounded-2xl px-5 py-3.5 text-base text-[#374151]">
                                         <option value="">Select an option...</option>
+                                        <option value="Free 15-Minute Consultation">Free 15-Minute Consultation</option>
                                         <option value="Academic English Lesson">Academic English Lesson</option>
                                         <option value="Legal English Lesson">Legal English Lesson</option>
-                                        <option value="Russian / Spanish Lesson">Russian / Spanish Lesson</option>
-                                        <option value="Law Tutoring Inquiry">Law Tutoring Inquiry</option>
+                                        <option value="Professional Language Lesson">Professional Language Lesson</option>
+                                        <option value="5-Lesson Language Package">5-Lesson Language Package</option>
+                                        <option value="5-Lesson Academic English Package">5-Lesson Academic English Package</option>
+                                        <option value="5-Lesson Legal English Package">5-Lesson Legal English Package</option>
                                         <option value="Language Lessons Inquiry">Language Lessons Inquiry</option>
                                         <option value="Research Collaboration">Research Collaboration</option>
                                         <option value="Speaking / Guest Lecture">Speaking / Guest Lecture Invitation</option>
@@ -1018,12 +987,12 @@
             formEndpoint: '',
             bookingLinks: {
                 academicEnglish: 'https://cal.com/iliana-valiullina/academic',
-                legalEnglish: '',
-                russianSpanish: '',
-                languageTrial: 'https://cal.com/iliana-valiullina/trial',
-                singleSession: 'https://cal.com/iliana-valiullina/language-lesson',
-                lessonPackage: '',
-                lawTutoring: ''
+                legalEnglish: 'https://cal.com/iliana-valiullina/legal-english-lesson',
+                professionalLanguage: 'https://cal.com/iliana-valiullina/language-lesson',
+                freeConsultation: 'https://cal.com/iliana-valiullina/free-15-minute-consultation',
+                professionalPackage: 'https://cal.com/iliana-valiullina/5-lesson-language-package',
+                academicPackage: 'https://cal.com/iliana-valiullina/5-lesson-academic-english-package',
+                legalPackage: 'https://cal.com/iliana-valiullina/5-lesson-legal-english-package'
             }
         };
 
@@ -1192,23 +1161,23 @@
 
         function openBooking(bookingType) {
             const bookingLabels = {
+                freeConsultation: 'Free 15-Minute Consultation',
                 academicEnglish: 'Academic English Lesson',
                 legalEnglish: 'Legal English Lesson',
-                russianSpanish: 'Russian / Spanish Lesson',
-                languageTrial: 'Language Lessons Inquiry',
-                singleSession: 'Language Lessons Inquiry',
-                lessonPackage: 'Language Lessons Inquiry',
-                lawTutoring: 'Law Tutoring Inquiry'
+                professionalLanguage: 'Professional Language Lesson',
+                professionalPackage: '5-Lesson Language Package',
+                academicPackage: '5-Lesson Academic English Package',
+                legalPackage: '5-Lesson Legal English Package'
             };
 
             const bookingMessages = {
+                freeConsultation: 'I would like to book a free 15-minute consultation.',
                 academicEnglish: 'I would like to book an Academic English lesson.',
                 legalEnglish: 'I would like to book a Legal English lesson.',
-                russianSpanish: 'I would like to book a Russian or Spanish lesson.',
-                languageTrial: 'I would like to book a trial language lesson.',
-                singleSession: 'I would like to book a single language session.',
-                lessonPackage: 'I would like to book a language lesson package.',
-                lawTutoring: 'I would like to book a law tutoring session.'
+                professionalLanguage: 'I would like to book a professional language lesson.',
+                professionalPackage: 'I would like to book a 5-lesson professional language package.',
+                academicPackage: 'I would like to book a 5-lesson Academic English package.',
+                legalPackage: 'I would like to book a 5-lesson Legal English package.'
             };
 
             const url = SITE_CONFIG.bookingLinks[bookingType];
