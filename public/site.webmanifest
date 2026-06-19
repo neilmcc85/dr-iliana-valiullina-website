@@ -1,0 +1,17 @@
+{
+  "name": "Dr. Iliana Valiullina",
+  "short_name": "Dr. Valiullina",
+  "description": "International law scholar offering Academic English, Legal English, professional language lessons, and research collaboration.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#0D3B66",
+  "icons": [
+    {
+      "src": "/images/logo-v2.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg"
+    }
+  ]
+}
