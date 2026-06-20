@@ -1,2 +1,3 @@
 site-deploy.zip
 .wrangler/
+node_modules/

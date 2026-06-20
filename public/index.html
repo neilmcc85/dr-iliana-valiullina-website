@@ -25,199 +25,8 @@
     <meta name="twitter:image" content="https://drilianavaliullina.com/images/logo-v2.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
-
-        :root {
-            --navy: #0D3B66;
-            --gold: #B89778;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-
-        .heading-serif {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 700;
-            letter-spacing: 0;
-        }
-
-        .section-heading {
-            font-family: 'Playfair Display', Georgia, serif;
-            letter-spacing: 0;
-        }
-
-        .nav-link {
-            transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .nav-link:hover {
-            color: #0D3B66;
-        }
-
-        .academic-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .academic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-        }
-
-        .navy-text {
-            color: #0D3B66;
-        }
-
-        .gold-accent {
-            color: #B89778;
-        }
-
-        .btn-primary {
-            background-color: #0D3B66;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-primary:hover {
-            background-color: #0A2F52;
-            transform: translateY(-1px);
-        }
-
-        .btn-gold {
-            background-color: #B89778;
-            color: white;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-gold:hover {
-            background-color: #A37E5E;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            border: 1px solid #0D3B66;
-            color: #0D3B66;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-outline:hover {
-            background-color: #0D3B66;
-            color: white;
-        }
-
-        .elegant-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #E5E2D9, transparent);
-        }
-
-        .publication-item {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .publication-item:hover {
-            background-color: #FAF9F6;
-        }
-
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .expertise-icon {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .academic-card:hover .expertise-icon {
-            transform: scale(1.05);
-        }
-
-        .nav-active {
-            color: #0D3B66;
-            font-weight: 500;
-        }
-
-        .minimal-shadow {
-            box-shadow: 0 10px 15px -3px rgb(13 59 102 / 0.05), 0 4px 6px -4px rgb(13 59 102 / 0.05);
-        }
-
-        .prose-academic {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: #374151;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-
-        .form-input {
-            transition: all 0.2s ease;
-        }
-        
-        .form-input:focus {
-            border-color: #0D3B66;
-            box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.08);
-            outline: none;
-        }
-
-        .gold-underline {
-            position: relative;
-        }
-        
-        .gold-underline:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 42px;
-            height: 1.5px;
-            background-color: #B89778;
-        }
-
-        .section {
-            scroll-margin-top: 80px;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -48px;
-            left: 16px;
-            z-index: 100;
-            background: #0D3B66;
-            color: white;
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: top 0.2s ease;
-        }
-
-        .skip-link:focus {
-            top: 16px;
-            outline: 3px solid #B89778;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid rgba(184, 151, 120, 0.75);
-            outline-offset: 3px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="/css/site.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -280,6 +89,32 @@
     </script>
 </head>
 <body class="bg-[#FAF9F6] text-[#2D3748] antialiased">
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+        <symbol id="icon-calendar-check" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V9h14v11ZM10.5 17.5 7 14l1.4-1.4 2.1 2.1 5.1-5.1L17 11l-6.5 6.5Z"/></symbol>
+        <symbol id="icon-bars" viewBox="0 0 24 24"><path fill="currentColor" d="M4 7h16v2H4V7Zm0 4h16v2H4v-2Zm0 4h16v2H4v-2Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path fill="currentColor" d="m18.3 5.71-1.41-1.42L12 9.17 7.11 4.29 5.7 5.71 10.59 10.6 5.7 15.49l1.41 1.42L12 12.03l4.89 4.88 1.41-1.42-4.89-4.89 4.89-4.89Z"/></symbol>
+        <symbol id="icon-globe" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.17a15.7 15.7 0 0 0-1.2-5.03A8.03 8.03 0 0 1 19.93 11ZM12 4c.96 0 2.35 1.68 3.12 5H8.88C9.65 5.68 11.04 4 12 4ZM4.07 11a8.03 8.03 0 0 1 3.37-5.03A15.7 15.7 0 0 0 6.24 11H4.07Zm2.17 2h3.17c.24 1.85.72 3.57 1.37 5.03A8.03 8.03 0 0 1 6.24 13Zm5.59 5.03c-.65-1.46-1.13-3.18-1.37-5.03h3.17c-.24 1.85-.72 3.57-1.37 5.03A8.03 8.03 0 0 1 11.83 18.03ZM8.88 11h6.24c-.24-1.85-.72-3.57-1.37-5.03H10.25c-.65 1.46-1.13 3.18-1.37 5.03Zm6.88 7.03c.77-3.32 2.16-5 3.12-5 .96 0 2.35 1.68 3.12 5h-6.24Zm1.49-7.03c.24-1.85.72-3.57 1.37-5.03A8.03 8.03 0 0 1 19.93 13h-3.17Z"/></symbol>
+        <symbol id="icon-scale" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 4 9v12h16V9l-8-6Zm0 2.18 6 4.5V19H6v-9.32l6-4.5ZM8 16h2v2H8v-2Zm6 0h2v2h-2v-2Z"/></symbol>
+        <symbol id="icon-robot" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h3a3 3 0 0 1 3 3v1h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v1a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-1H3a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h1v-1a3 3 0 0 1 3-3h3V5.73A2 2 0 0 1 12 2Zm-5 7a1 1 0 0 0-1 1v1h12v-1a1 1 0 0 0-1-1H7Zm-2 5v3h14v-3H5Zm4 1.5A1.5 1.5 0 1 1 7.5 16 1.5 1.5 0 0 1 9 14.5Zm6 0A1.5 1.5 0 1 1 13.5 16 1.5 1.5 0 0 1 15 14.5Z"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 17.05-5.7-5.7 1.41-1.41 4.29 4.29 9.59-9.59 1.41 1.41-11 11Z"/></symbol>
+        <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5v2h9.59L4 17.59 5.41 19 16 8.41V18h2V5H5Z"/></symbol>
+        <symbol id="icon-language" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a7.95 7.95 0 0 1-3.53-.82 17.6 17.6 0 0 0 4.53-1.68c.18.34.35.69.5 1.05A7.96 7.96 0 0 1 12 20Zm-5.47-2.18c.15-.36.32-.71.5-1.05a17.6 17.6 0 0 0 4.53 1.68A7.95 7.95 0 0 1 12 20a7.96 7.96 0 0 1-5.47-2.18ZM4 12c0-.66.08-1.3.23-1.91.45.08.92.13 1.41.15-.05.58-.08 1.17-.08 1.76s.03 1.18.08 1.76c-.49.02-.96.07-1.41.15A7.96 7.96 0 0 1 4 12Zm8-8c.66 0 1.3.08 1.91.23-.08.45-.13.92-.15 1.41-.58-.05-1.17-.08-1.76-.08s-1.18.03-1.76.08c-.02-.49-.07-.96-.15-1.41A7.96 7.96 0 0 1 12 4Zm5.24 1.59c.05.58.08 1.17.08 1.76s-.03 1.18-.08 1.76c.49-.02.96-.07 1.41-.15.15.61.23 1.25.23 1.91s-.08 1.3-.23 1.91c-.45-.08-.92-.13-1.41-.15.05-.58.08-1.17.08-1.76s-.03-1.18-.08-1.76c.49-.02.96-.07 1.41-.15.15-.61.23-1.25.23-1.91s-.08-1.3-.23-1.91c-.45.08-.92.13-1.41.15ZM12 8.41c.59 0 1.17.03 1.76.08-.02.49-.07.96-.15 1.41a17.6 17.6 0 0 0-3.22 0c-.08-.45-.13-.92-.15-1.41.59-.05 1.17-.08 1.76-.08Zm-3.53 2.82a15.7 15.7 0 0 1 1.2 5.03H7.07a8.03 8.03 0 0 1 1.4-5.03Zm3.53 5.03c-.59 0-1.17-.03-1.76-.08.02-.49.07-.96.15-1.41a17.6 17.6 0 0 0 3.22 0c.08.45.13.92.15 1.41-.59.05-1.17.08-1.76.08Zm3.53-5.03a8.03 8.03 0 0 1 1.4 5.03h-2.6a15.7 15.7 0 0 1 1.2-5.03Z"/></symbol>
+        <symbol id="icon-pencil" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25ZM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83Z"/></symbol>
+        <symbol id="icon-layers" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 2 7l10 5 10-5-10-5Zm0 8.5L4.21 7 12 3.5 19.79 7 12 10.5Zm0 2.5 10-5v6l-10 5-10-5v-6l10 5Zm0 4.5 10-5v6l-10 5-10-5v-6l10 5Z"/></symbol>
+        <symbol id="icon-book-open" viewBox="0 0 24 24"><path fill="currentColor" d="M21 5a2 2 0 0 0-2-2H9.5A2.5 2.5 0 0 0 7 5.5V19a2.5 2.5 0 0 1 2.5-2.5H19v-2H9.5A4.5 4.5 0 0 0 5 19.5V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v14h-2V5Z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V9h14v11Z"/></symbol>
+        <symbol id="icon-credit-card" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 4v2h16V8H4Zm0 4v6h16v-6H4Z"/></symbol>
+        <symbol id="icon-video" viewBox="0 0 24 24"><path fill="currentColor" d="M17 10.5V7a2 2 0 0 0-2-2H5A2 2 0 0 0 3 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3.5l4 2.5V8l-4 2.5Z"/></symbol>
+        <symbol id="icon-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3Zm0 18.5c-3.15-1.16-6-5.19-6-9.5V6.3l6-2.25 6 2.25V11c0 4.31-2.85 8.34-6 9.5Z"/></symbol>
+        <symbol id="icon-check-circle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 5.1-5.1 1.4 1.4-6.5 6.5Z"/></symbol>
+        <symbol id="icon-pencil-square" viewBox="0 0 24 24"><path fill="currentColor" d="M5 19h2.59L19.7 6.89l-2.59-2.59L5 16.41V19Zm14.71-9.29-1.41-1.41-1.83 1.83 1.41 1.41 1.83-1.83ZM3 21v-6.59l11.46-11.46a2 2 0 0 1 2.83 0l2.59 2.59a2 2 0 0 1 0 2.83L5.59 21H3Z"/></symbol>
+        <symbol id="icon-document" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm-1 2.5L18.5 10H13V4.5ZM8 13h8v2H8v-2Zm0 4h8v2H8v-2Z"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.5 10.5v7H6.2v-7h2.3Zm-1.15-2.3c.75 0 1.35-.6 1.35-1.35S8.1 5.5 7.35 5.5 6 6.1 6 6.85 6.6 8.2 7.35 8.2ZM18 17.5h-2.3v-3.4c0-.8-.02-1.85-1.13-1.85-1.13 0-1.3.88-1.3 1.8v3.45H10.9v-7h2.2v.95h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.52v3.73Z"/></symbol>
+        <symbol id="icon-id-card" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 14H4V6h16v12ZM8 8.5A2.5 2.5 0 1 1 8 13.5 2.5 2.5 0 0 1 8 8.5Zm6 6H6v-1.2c0-1.33 2.67-2.05 4-2.05s4 .72 4 2.05V14.5Z"/></symbol>
+        <symbol id="icon-graduation-cap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 8.18L5.15 9 12 5.82 18.85 9 12 11.18ZM4 18v2h16v-2H4Z"/></symbol>
+        <symbol id="icon-database" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3C7.03 3 3 4.34 3 6v12c0 1.66 4.03 3 9 3s9-1.34 9-3V6c0-1.66-4.03-3-9-3Zm0 2c4.42 0 7 .95 7 1s-2.58 1-7 1-7-.95-7-1 2.58-1 7-1Zm0 14c-4.42 0-7-.95-7-1v-2.05c1.76.86 4.33 1.3 7 1.3s5.24-.44 7-1.3V18c0 1.05-2.58 2-7 2Zm0-5c-4.42 0-7-.95-7-1v-2.05c1.76.86 4.33 1.3 7 1.3s5.24-.44 7-1.3V13c0 1.05-2.58 2-7 2Z"/></symbol>
+        <symbol id="icon-spinner" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8Z"/></symbol>
+    </svg>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E5E2D9]" aria-label="Main navigation">
@@ -302,7 +137,6 @@
                     <a href="#research" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Research</a>
                     <a href="#teaching" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Teaching</a>
                     <a href="#services" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Language Lessons</a>
-                    <a href="#reviews" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Reviews</a>
                     <a href="#publications" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Publications</a>
                     <a href="#contact" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Contact</a>
                 </div>
@@ -315,7 +149,7 @@
                     </a>
                     <a href="#services" 
                        class="px-6 py-2.5 text-sm font-semibold rounded-2xl text-white btn-primary flex items-center gap-x-2 shadow-sm">
-                        <i class="fa-solid fa-calendar-check text-sm"></i>
+                        <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
                         <span>Book a Lesson</span>
                     </a>
                 </div>
@@ -326,7 +160,7 @@
                         aria-label="Toggle menu"
                         aria-controls="mobile-menu"
                         aria-expanded="false">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-bars"/></svg>
                 </button>
             </div>
         </div>
@@ -338,14 +172,13 @@
                 <a href="#research" class="mobile-nav-link py-1 text-[#4B5563]">Research &amp; Expertise</a>
                 <a href="#teaching" class="mobile-nav-link py-1 text-[#4B5563]">Teaching</a>
                 <a href="#services" class="mobile-nav-link py-1 text-[#4B5563]">Language Lessons</a>
-                <a href="#reviews" class="mobile-nav-link py-1 text-[#4B5563]">Reviews</a>
                 <a href="#publications" class="mobile-nav-link py-1 text-[#4B5563]">Publications</a>
                 <a href="#contact" class="mobile-nav-link py-1 text-[#4B5563]">Contact</a>
                 
                 <div class="pt-4 border-t border-[#E5E2D9] flex flex-col gap-y-3">
                     <a href="#contact" class="w-full text-center py-3 text-sm font-semibold rounded-2xl border border-[#0D3B66] text-[#0D3B66]">Get in touch</a>
                     <a href="#services" class="w-full text-center py-3 text-sm font-semibold rounded-2xl bg-[#0D3B66] text-white flex items-center justify-center gap-x-2">
-                        <i class="fa-solid fa-calendar-check"></i>
+                        <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
                         <span>Book a Lesson</span>
                     </a>
                 </div>
@@ -380,7 +213,7 @@
                     <div class="mt-9 flex flex-wrap items-center gap-4">
                         <a href="#services" 
                            class="inline-flex items-center justify-center gap-x-3 px-8 py-4 text-base font-semibold rounded-3xl text-white btn-primary shadow-sm">
-                            <i class="fa-solid fa-calendar-check"></i>
+                            <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
                             <span>Book a Language Lesson</span>
                         </a>
                         
@@ -392,9 +225,9 @@
 
                     <div class="mt-8 flex items-center gap-x-6 text-sm text-[#6B7280]">
                         <div class="flex items-center -space-x-1">
-                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><i class="fa-solid fa-globe text-[10px] text-[#0D3B66]"></i></div>
-                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><i class="fa-solid fa-balance-scale text-[10px] text-[#0D3B66]"></i></div>
-                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><i class="fa-solid fa-robot text-[10px] text-[#0D3B66]"></i></div>
+                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><svg class="icon icon-xs text-[#0D3B66]" aria-hidden="true"><use href="#icon-globe"/></svg></div>
+                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><svg class="icon icon-xs text-[#0D3B66]" aria-hidden="true"><use href="#icon-scale"/></svg></div>
+                            <div class="w-6 h-6 rounded-full bg-[#0D3B66]/10 border border-white flex items-center justify-center ring-1 ring-white"><svg class="icon icon-xs text-[#0D3B66]" aria-hidden="true"><use href="#icon-robot"/></svg></div>
                         </div>
                         <span class="text-xs tracking-wide">International scholar • 3 doctoral-level qualifications</span>
                     </div>
@@ -419,7 +252,7 @@
                         <!-- Subtle corner badge -->
                         <div class="absolute top-6 right-6 px-3 py-1 bg-white/90 backdrop-blur rounded-2xl border border-[#E5E2D9]">
                             <div class="flex items-center gap-x-1.5">
-                                <i class="fa-solid fa-check text-[#B89778] text-xs"></i>
+                                <svg class="icon icon-xs text-[#B89778]" aria-hidden="true"><use href="#icon-check"/></svg>
                                 <span class="text-[10px] font-medium text-[#4B5563]">Online lessons available</span>
                             </div>
                         </div>
@@ -479,7 +312,7 @@
                 </div>
                 <a href="https://scholar.google.com/citations?user=RKDOioEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" 
                    class="mt-4 md:mt-0 inline-flex items-center text-sm font-semibold text-[#0D3B66] hover:text-[#B89778] transition-colors">
-                    View full profile on Google Scholar <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                    View full profile on Google Scholar <svg class="icon icon-sm ml-2" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
                 </a>
             </div>
 
@@ -487,7 +320,7 @@
                 <!-- Card 1 -->
                 <div class="academic-card group bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7">
                     <div class="expertise-icon w-12 h-12 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-globe text-2xl text-[#0D3B66]"></i>
+                        <svg class="icon icon-2xl text-[#0D3B66]" aria-hidden="true"><use href="#icon-globe"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold tracking-normal text-[#0D3B66]">International Public Law</h3>
                     <p class="mt-4 text-[14.5px] leading-relaxed text-[#4B5563]">
@@ -498,7 +331,7 @@
                 <!-- Card 2 -->
                 <div class="academic-card group bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7">
                     <div class="expertise-icon w-12 h-12 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-balance-scale text-2xl text-[#0D3B66]"></i>
+                        <svg class="icon icon-2xl text-[#0D3B66]" aria-hidden="true"><use href="#icon-scale"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold tracking-normal text-[#0D3B66]">Human Rights</h3>
                     <p class="mt-4 text-[14.5px] leading-relaxed text-[#4B5563]">
@@ -509,7 +342,7 @@
                 <!-- Card 3 -->
                 <div class="academic-card group bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7">
                     <div class="expertise-icon w-12 h-12 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-robot text-2xl text-[#0D3B66]"></i>
+                        <svg class="icon icon-2xl text-[#0D3B66]" aria-hidden="true"><use href="#icon-robot"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold tracking-normal text-[#0D3B66]">AI Regulation &amp; Governance</h3>
                     <p class="mt-4 text-[14.5px] leading-relaxed text-[#4B5563]">
@@ -520,7 +353,7 @@
                 <!-- Card 4 -->
                 <div class="academic-card group bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7">
                     <div class="expertise-icon w-12 h-12 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-language text-2xl text-[#0D3B66]"></i>
+                        <svg class="icon icon-2xl text-[#0D3B66]" aria-hidden="true"><use href="#icon-language"/></svg>
                     </div>
                     <h3 class="text-xl font-semibold tracking-normal text-[#0D3B66]">Multilingualism &amp; Minority Rights</h3>
                     <p class="mt-4 text-[14.5px] leading-relaxed text-[#4B5563]">
@@ -592,6 +425,7 @@
                 <div class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">ONLINE LANGUAGE LESSONS</div>
                 <h2 class="section-heading text-5xl md:text-[56px] leading-none tracking-normal text-[#0D3B66] mt-2">Language Lessons for Academics, Lawyers &amp; Professionals</h2>
                 <p class="mt-4 text-[#4B5563] max-w-3xl">Build the language you need for academic publishing, legal practice, presentations, interviews, and professional life. Lessons are tailored to your goals and can focus on Academic English, Legal English, or professional communication in English, Russian, Tatar, or Bashkort.</p>
+                <p class="mt-3 text-sm text-[#6B7280]">Before you book, please read the <a href="#policies" class="font-semibold text-[#0D3B66] hover:text-[#B89778] transition-colors">booking policies</a> for rescheduling, refunds, and privacy.</p>
             </div>
 
             <div class="mb-10 bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 md:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
@@ -601,7 +435,7 @@
                     <p class="mt-3 text-sm md:text-base leading-relaxed text-[#4B5563] max-w-3xl">A short introductory call to discuss your goals, current level, preferred language, and the best lesson format for you. This is not a full lesson; it helps us choose the right path before you book a paid session.</p>
                 </div>
                 <button type="button" onclick="openBooking('freeConsultation')" class="inline-flex items-center justify-center gap-x-2 px-6 py-3.5 rounded-2xl bg-[#0D3B66] text-white font-semibold text-sm hover:bg-[#0A2F52] transition-colors">
-                    <i class="fa-solid fa-calendar-check"></i>
+                    <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
                     <span>Book Free Consultation</span>
                 </button>
             </div>
@@ -609,7 +443,7 @@
             <div class="mb-10 grid md:grid-cols-3 gap-6 items-stretch">
                 <div class="service-card bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 flex flex-col h-full">
                     <div class="w-12 h-12 rounded-2xl bg-[#B89778]/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-pen-nib text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-pencil"/></svg>
                     </div>
                     <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">Academic English</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563] flex-1">For journal articles, conference talks, grant applications, thesis chapters, and academic correspondence.</p>
@@ -620,7 +454,7 @@
 
                 <div class="service-card bg-[#0D3B66] text-white rounded-3xl p-7 flex flex-col h-full minimal-shadow">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-scale-balanced text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-scale"/></svg>
                     </div>
                     <div class="inline-flex w-fit px-3 py-1 bg-white/10 rounded-2xl text-[11px] font-semibold tracking-wider text-[#F7E7D6] mb-4">MOST REQUESTED</div>
                     <h3 class="text-2xl font-semibold tracking-normal">Legal English</h3>
@@ -632,7 +466,7 @@
 
                 <div class="service-card bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 flex flex-col h-full">
                     <div class="w-12 h-12 rounded-2xl bg-[#B89778]/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-language text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-language"/></svg>
                     </div>
                     <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">Professional Language Lesson</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563] flex-1">Personalized support in English, Russian, Tatar, or Bashkort for speaking confidence, workplace communication, interviews, presentations, writing, and precise vocabulary.</p>
@@ -651,7 +485,7 @@
             <div class="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
                 <div class="service-card bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 flex flex-col h-full">
                     <div class="w-12 h-12 rounded-2xl bg-[#B89778]/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-layer-group text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-layers"/></svg>
                     </div>
                     <div class="inline-flex w-fit px-3 py-1 bg-[#0D3B66]/5 text-[#0D3B66] rounded-2xl text-[11px] font-semibold tracking-wider mb-4">PROFESSIONAL</div>
                     <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">5-Lesson Language Package</h3>
@@ -663,7 +497,7 @@
 
                 <div class="service-card bg-[#0D3B66] text-white rounded-3xl p-7 flex flex-col h-full minimal-shadow">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-scale-balanced text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-scale"/></svg>
                     </div>
                     <div class="inline-flex w-fit px-3 py-1 bg-white/10 rounded-2xl text-[11px] font-semibold tracking-wider text-[#F7E7D6] mb-4">LEGAL</div>
                     <h3 class="text-2xl font-semibold tracking-normal">5-Lesson Legal English Package</h3>
@@ -675,7 +509,7 @@
 
                 <div class="service-card bg-[#FAF9F6] border border-[#E5E2D9] rounded-3xl p-7 flex flex-col h-full">
                     <div class="w-12 h-12 rounded-2xl bg-[#B89778]/10 flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-book-open text-xl text-[#B89778]"></i>
+                        <svg class="icon icon-xl text-[#B89778]" aria-hidden="true"><use href="#icon-book-open"/></svg>
                     </div>
                     <div class="inline-flex w-fit px-3 py-1 bg-[#0D3B66]/5 text-[#0D3B66] rounded-2xl text-[11px] font-semibold tracking-wider mb-4">ACADEMIC</div>
                     <h3 class="text-2xl font-semibold tracking-normal text-[#0D3B66]">5-Lesson Academic English Package</h3>
@@ -688,6 +522,7 @@
 
             <div class="mt-8 text-center">
                 <p class="text-sm text-[#4B5563]">All sessions are tailored to your goals. I work with students, practicing lawyers, researchers, and professionals across jurisdictions.</p>
+                <p class="mt-3 text-sm"><a href="#policies" class="font-semibold text-[#0D3B66] hover:text-[#B89778] transition-colors">View booking policies</a></p>
             </div>
         </div>
     </section>
@@ -704,7 +539,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-6">
                     <div class="w-10 h-10 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-calendar-days text-[#0D3B66]"></i>
+                        <svg class="icon icon-lg text-[#0D3B66]" aria-hidden="true"><use href="#icon-calendar"/></svg>
                     </div>
                     <h3 class="font-semibold text-[#0D3B66]">Rescheduling</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Lessons may be rescheduled with at least 24 hours' notice. Please use the booking confirmation link whenever possible.</p>
@@ -712,7 +547,7 @@
 
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-6">
                     <div class="w-10 h-10 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-credit-card text-[#0D3B66]"></i>
+                        <svg class="icon icon-lg text-[#0D3B66]" aria-hidden="true"><use href="#icon-credit-card"/></svg>
                     </div>
                     <h3 class="font-semibold text-[#0D3B66]">Payments &amp; Refunds</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Missed sessions or cancellations with less than 24 hours' notice are non-refundable. Package lessons must be used within the agreed period.</p>
@@ -720,7 +555,7 @@
 
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-6">
                     <div class="w-10 h-10 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-video text-[#0D3B66]"></i>
+                        <svg class="icon icon-lg text-[#0D3B66]" aria-hidden="true"><use href="#icon-video"/></svg>
                     </div>
                     <h3 class="font-semibold text-[#0D3B66]">Online Lessons</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Lessons are delivered online unless otherwise agreed. Please join from a quiet place with a stable internet connection.</p>
@@ -728,7 +563,7 @@
 
                 <div class="bg-white border border-[#E5E2D9] rounded-3xl p-6">
                     <div class="w-10 h-10 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-shield-halved text-[#0D3B66]"></i>
+                        <svg class="icon icon-lg text-[#0D3B66]" aria-hidden="true"><use href="#icon-shield"/></svg>
                     </div>
                     <h3 class="font-semibold text-[#0D3B66]">Privacy</h3>
                     <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Information shared through booking, email, or lessons is used only to arrange and deliver services. Client materials are treated confidentially.</p>
@@ -736,40 +571,6 @@
             </div>
 
             <p class="mt-6 text-xs leading-relaxed text-[#6B7280] max-w-4xl">Payments and scheduling may be processed by third-party platforms such as Cal.com and Stripe. Their own privacy and payment terms also apply when you book or pay through those services.</p>
-        </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews" class="section max-w-7xl mx-auto px-6 py-16 md:py-20 border-t border-[#E5E2D9]">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-5 gap-x-12 gap-y-10 items-start">
-                <div class="lg:col-span-2">
-                    <div class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">STUDENT FEEDBACK</div>
-                    <h2 class="section-heading text-5xl md:text-6xl tracking-normal text-[#0D3B66] mt-3 leading-none">Verified<br>reviews.</h2>
-                    <p class="mt-5 text-[#4B5563] leading-relaxed">Former students and clients are invited to leave feedback after a completed lesson, package, or academic collaboration.</p>
-                </div>
-
-                <div class="lg:col-span-3 grid md:grid-cols-2 gap-6">
-                    <div class="bg-white border border-[#E5E2D9] rounded-3xl p-7">
-                        <div class="w-12 h-12 rounded-2xl bg-[#0D3B66]/5 flex items-center justify-center mb-5">
-                            <i class="fa-solid fa-circle-check text-xl text-[#0D3B66]"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-[#0D3B66]">How verification works</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-[#4B5563]">Reviews are checked against completed bookings or collaborations before publication. This keeps the feedback useful, genuine, and relevant for future students.</p>
-                    </div>
-
-                    <div class="bg-[#0D3B66] text-white rounded-3xl p-7 minimal-shadow">
-                        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5">
-                            <i class="fa-solid fa-pen-to-square text-xl text-[#B89778]"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Leave a review</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-white/80">Share what you studied, what improved, and what future students should know about the lesson experience.</p>
-                        <button type="button" onclick="requestReview()" class="mt-6 inline-flex w-full items-center justify-center gap-x-2 px-5 py-3 rounded-2xl bg-[#B89778] text-white font-semibold text-sm hover:bg-[#A37E5E] transition-colors">
-                            <span>Submit Review</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -784,7 +585,7 @@
                 <a href="https://scholar.google.com/citations?user=RKDOioEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" 
                    class="group inline-flex items-center text-sm font-semibold text-[#0D3B66] hover:text-[#B89778]">
                     VIEW COMPLETE LIST ON GOOGLE SCHOLAR 
-                    <i class="fa-solid fa-arrow-up-right-from-square ml-2 group-hover:translate-x-0.5 transition"></i>
+                    <svg class="icon icon-2xl text-[#0D3B66]" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
                 </a>
             </div>
 
@@ -797,7 +598,7 @@
                         <div class="text-xs text-[#6B7280] mt-0.5">Monograph • Mir Nauki Publishing</div>
                     </div>
                     <div class="flex-shrink-0 text-xs text-[#B89778] font-medium flex items-center gap-x-1.5">
-                        PDF <i class="fa-solid fa-file-pdf"></i>
+                        PDF <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-document"/></svg>
                     </div>
                 </a>
 
@@ -866,7 +667,7 @@
                 <a href="https://scholar.google.com/citations?user=RKDOioEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" 
                    class="inline-flex items-center gap-x-2 px-6 py-3 text-sm font-medium border border-[#0D3B66] text-[#0D3B66] rounded-3xl hover:bg-[#0D3B66] hover:text-white transition-colors">
                     <span>View all publications &amp; citations</span>
-                    <i class="fa-solid fa-external-link-alt text-xs"></i>
+                    <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
                 </a>
             </div>
         </div>
@@ -901,21 +702,30 @@
                             <div class="text-xs tracking-widest font-semibold text-[#6B7280] mb-3">ACADEMIC PROFILES</div>
                             <div class="flex flex-wrap gap-x-6 gap-y-4 text-sm">
                                 <a href="https://www.linkedin.com/in/iliana-valiullina-b05b73306/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 text-[#0D3B66] hover:text-[#B89778]">
-                                    <i class="fa-brands fa-linkedin text-lg"></i> <span class="font-medium">LinkedIn</span>
+                                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-linkedin"/></svg> <span class="font-medium">LinkedIn</span>
                                 </a>
                                 <a href="https://orcid.org/0009-0009-2380-5155" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 text-[#0D3B66] hover:text-[#B89778]">
-                                    <i class="fa-solid fa-id-card text-lg"></i> <span class="font-medium">ORCID</span>
+                                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-id-card"/></svg> <span class="font-medium">ORCID</span>
                                 </a>
                                 <a href="https://scholar.google.com/citations?user=RKDOioEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 text-[#0D3B66] hover:text-[#B89778]">
-                                    <i class="fa-solid fa-graduation-cap text-lg"></i> <span class="font-medium">Google Scholar</span>
+                                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-graduation-cap"/></svg> <span class="font-medium">Google Scholar</span>
                                 </a>
                                 <a href="https://www.cienciavitae.pt/portal/7D1D-908C-0821" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 text-[#0D3B66] hover:text-[#B89778]">
-                                    <i class="fa-solid fa-globe text-lg"></i> <span class="font-medium">CiênciaVitae</span>
+                                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-globe"/></svg> <span class="font-medium">CiênciaVitae</span>
                                 </a>
                                 <a href="https://www.webofscience.com/wos/author/record/MFJ-0852-2025" target="_blank" rel="noopener noreferrer" class="flex items-center gap-x-2 text-[#0D3B66] hover:text-[#B89778]">
-                                    <i class="fa-solid fa-database text-lg"></i> <span class="font-medium">WoS ResearcherID</span>
+                                    <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-database"/></svg> <span class="font-medium">WoS ResearcherID</span>
                                 </a>
                             </div>
+                        </div>
+
+                        <div>
+                            <div class="text-xs tracking-widest font-semibold text-[#6B7280] mb-2">CLIENT FEEDBACK</div>
+                            <p class="text-sm text-[#4B5563] leading-relaxed">Completed a lesson or collaboration?</p>
+                            <button type="button" onclick="requestReview()" class="mt-3 inline-flex items-center gap-x-2 text-sm font-semibold text-[#0D3B66] hover:text-[#B89778] transition-colors">
+                                <svg class="icon icon-lg text-[#B89778]" aria-hidden="true"><use href="#icon-pencil-square"/></svg>
+                                <span>Leave feedback</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -986,7 +796,7 @@
                     <!-- Success State -->
                     <div id="success-message" class="hidden bg-[#F8F7F4] border border-[#E5E2D9] rounded-3xl p-10 text-center">
                         <div class="mx-auto w-14 h-14 rounded-full bg-[#B89778]/10 flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-check text-[#B89778] text-3xl"></i>
+                            <svg class="icon icon-3xl text-[#B89778]" aria-hidden="true"><use href="#icon-check"/></svg>
                         </div>
                         <h3 class="text-2xl font-semibold text-[#0D3B66]">Thank you. Your message has been sent.</h3>
                         <p class="mt-3 text-[#4B5563]">I will personally review your inquiry and respond within 48 hours.</p>
@@ -1018,7 +828,7 @@
                     <a href="#research" class="hover:text-[#0D3B66]">Research</a>
                     <a href="#teaching" class="hover:text-[#0D3B66]">Teaching</a>
                     <a href="#services" class="hover:text-[#0D3B66]">Language Lessons</a>
-                    <a href="#reviews" class="hover:text-[#0D3B66]">Reviews</a>
+                    <button type="button" onclick="requestReview()" class="hover:text-[#0D3B66]">Leave feedback</button>
                     <a href="#policies" class="hover:text-[#0D3B66]">Policies</a>
                     <a href="#publications" class="hover:text-[#0D3B66]">Publications</a>
                     <a href="#contact" class="hover:text-[#0D3B66]">Contact</a>
@@ -1046,12 +856,8 @@
             }
         };
 
-        // Tailwind script configuration
-        function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent-gold', '#B89778');
-            
-            // Any additional Tailwind runtime config if needed
-        }
+        const MENU_OPEN_ICON = '<svg class="icon icon-2xl" aria-hidden="true"><use href="#icon-x"/></svg>';
+        const MENU_CLOSED_ICON = '<svg class="icon icon-lg" aria-hidden="true"><use href="#icon-bars"/></svg>';
 
         // Mobile menu
         function setupMobileMenu() {
@@ -1063,11 +869,11 @@
                 isOpen = !isOpen;
                 if (isOpen) {
                     mobileMenu.classList.remove('hidden');
-                    menuBtn.innerHTML = '<i class="fa-solid fa-times text-2xl"></i>';
+                    menuBtn.innerHTML = MENU_OPEN_ICON;
                     menuBtn.setAttribute('aria-expanded', 'true');
                 } else {
                     mobileMenu.classList.add('hidden');
-                    menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                    menuBtn.innerHTML = MENU_CLOSED_ICON;
                     menuBtn.setAttribute('aria-expanded', 'false');
                 }
             });
@@ -1076,7 +882,7 @@
             document.querySelectorAll('.mobile-nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
-                    menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                    menuBtn.innerHTML = MENU_CLOSED_ICON;
                     menuBtn.setAttribute('aria-expanded', 'false');
                     isOpen = false;
                 });
@@ -1122,7 +928,7 @@
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = `
                     <span class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-spinner fa-spin"></i> 
+                        <svg class="icon icon-lg spinner" aria-hidden="true"><use href="#icon-spinner"/></svg>
                         <span>Sending...</span>
                     </span>
                 `;
@@ -1274,7 +1080,7 @@
                     const menuBtn = document.getElementById('mobile-menu-btn');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
-                        menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                        menuBtn.innerHTML = MENU_CLOSED_ICON;
                         menuBtn.setAttribute('aria-expanded', 'false');
                     }
                 }
@@ -1283,7 +1089,6 @@
 
         // Initialize everything
         function initializeWebsite() {
-            initializeTailwind();
             setupMobileMenu();
             setupSmoothScroll();
             setupContactForm();

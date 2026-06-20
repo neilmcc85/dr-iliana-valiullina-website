@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0D3B66;
+  --gold: #B89778;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.heading-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: 0;
+}
+
+.nav-link {
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  color: #0D3B66;
+}
+
+.academic-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.academic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+}
+
+.navy-text {
+  color: #0D3B66;
+}
+
+.gold-accent {
+  color: #B89778;
+}
+
+.btn-primary {
+  background-color: #0D3B66;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  background-color: #0A2F52;
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background-color: #B89778;
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+  background-color: #A37E5E;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1px solid #0D3B66;
+  color: #0D3B66;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-outline:hover {
+  background-color: #0D3B66;
+  color: white;
+}
+
+.elegant-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E5E2D9, transparent);
+}
+
+.publication-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.publication-item:hover {
+  background-color: #FAF9F6;
+}
+
+.service-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expertise-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.academic-card:hover .expertise-icon {
+  transform: scale(1.05);
+}
+
+.nav-active {
+  color: #0D3B66;
+  font-weight: 500;
+}
+
+.minimal-shadow {
+  box-shadow: 0 10px 15px -3px rgb(13 59 102 / 0.05), 0 4px 6px -4px rgb(13 59 102 / 0.05);
+}
+
+.prose-academic {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.form-input {
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #0D3B66;
+  box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.08);
+  outline: none;
+}
+
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 42px;
+  height: 1.5px;
+  background-color: #B89778;
+}
+
+.section {
+  scroll-margin-top: 80px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 16px;
+  z-index: 100;
+  background: #0D3B66;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid #B89778;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.icon-xs {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.icon-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.icon-lg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.icon-xl {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-2xl {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-3xl {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(184, 151, 120, 0.75);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
