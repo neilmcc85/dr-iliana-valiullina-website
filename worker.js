@@ -2,12 +2,22 @@ const CONTACT_EMAIL = 'contact@drilianavaliullina.com';
 const FROM_EMAIL = 'Dr. Iliana Valiullina <contact@drilianavaliullina.com>';
 const MAX_FIELD_LENGTH = 2000;
 
+const TELEGRAM_LINKS = {
+    consultation:
+        'https://cal.com/iliana-valiullina/free-15-minute-consultation?utm_source=telegram&utm_medium=bot&utm_campaign=start',
+    website: 'https://drilianavaliullina.com/?utm_source=telegram&utm_medium=bot&utm_campaign=start'
+};
+
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
 
         if (url.pathname === '/api/contact') {
             return handleContactRequest(request, env);
+        }
+
+        if (url.pathname === '/api/telegram') {
+            return handleTelegramWebhook(request, env);
         }
 
         return env.ASSETS.fetch(request);
@@ -87,6 +97,85 @@ async function handleContactRequest(request, env) {
     }
 
     return jsonResponse({ ok: true });
+}
+
+async function handleTelegramWebhook(request, env) {
+    if (request.method === 'GET') {
+        return new Response('Telegram webhook endpoint is active.', {
+            status: 200,
+            headers: { 'Content-Type': 'text/plain' }
+        });
+    }
+
+    if (request.method !== 'POST') {
+        return new Response('Method not allowed', { status: 405 });
+    }
+
+    if (!env.TELEGRAM_BOT_TOKEN) {
+        console.error('Telegram webhook received but TELEGRAM_BOT_TOKEN is not configured.');
+        return new Response('ok', { status: 200 });
+    }
+
+    if (
+        env.TELEGRAM_WEBHOOK_SECRET &&
+        request.headers.get('X-Telegram-Bot-Api-Secret-Token') !== env.TELEGRAM_WEBHOOK_SECRET
+    ) {
+        return new Response('unauthorized', { status: 401 });
+    }
+
+    let update;
+    try {
+        update = await request.json();
+    } catch {
+        return new Response('ok', { status: 200 });
+    }
+
+    const message = update.message;
+    if (!message?.text || !message.chat?.id) {
+        return new Response('ok', { status: 200 });
+    }
+
+    const command = message.text.trim().split(/\s+/)[0].toLowerCase();
+
+    if (command === '/start' || command === '/help' || command === '/book') {
+        await sendTelegramMessage(env.TELEGRAM_BOT_TOKEN, message.chat.id, buildTelegramWelcomeMessage());
+    }
+
+    return new Response('ok', { status: 200 });
+}
+
+function buildTelegramWelcomeMessage() {
+    return [
+        '<b>Dr. Iliana Valiullina</b>',
+        'Legal English · Academic English · International Law',
+        '',
+        'Online lessons for lawyers, academics, and professionals.',
+        'Languages: English, Russian, Tatar, Bashkort.',
+        '',
+        '<b>Free 15-minute consultation</b> (intro call, not a full lesson):',
+        `<a href="${TELEGRAM_LINKS.consultation}">Book on Cal.com</a>`,
+        '',
+        'Website:',
+        `<a href="${TELEGRAM_LINKS.website}">drilianavaliullina.com</a>`
+    ].join('\n');
+}
+
+async function sendTelegramMessage(token, chatId, text) {
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: 'HTML',
+            disable_web_page_preview: false
+        })
+    });
+
+    if (!response.ok) {
+        const details = await response.text();
+        console.error('Telegram sendMessage error:', details);
+    }
 }
 
 function cleanField(value) {
