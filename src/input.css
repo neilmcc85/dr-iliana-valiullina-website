@@ -227,6 +227,31 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+.booking-picker-shell {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .booking-picker-shell {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .booking-picker-nav {
+    width: 18rem;
+    max-width: 20rem;
+    flex-shrink: 0;
+    border-bottom: 0;
+    border-right: 1px solid #E5E2D9;
+  }
+
+  .booking-picker-calendar {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
