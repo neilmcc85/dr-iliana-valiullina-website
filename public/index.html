@@ -1015,22 +1015,38 @@
             }, 80);
         }
 
-        function openFreeConsultationBooking() {
-            const calLink = 'iliana-valiullina/free-15-minute-consultation';
-            if (window.Cal && Cal.ns && Cal.ns['free-15-minute-consultation']) {
-                Cal.ns['free-15-minute-consultation']('modal', {
+        function openCalBookingModal(namespace, calLink, fallbackUrl) {
+            if (window.Cal && Cal.ns && Cal.ns[namespace]) {
+                Cal.ns[namespace]('modal', {
                     calLink,
                     config: { layout: 'month_view', theme: 'light' },
                 });
                 return;
             }
 
-            window.open(SITE_CONFIG.bookingLinks.freeConsultation, '_blank', 'noopener,noreferrer');
+            window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function openFreeConsultationBooking() {
+            openCalBookingModal(
+                'free-15-minute-consultation',
+                'iliana-valiullina/free-15-minute-consultation',
+                SITE_CONFIG.bookingLinks.freeConsultation
+            );
         }
 
         function openBooking(bookingType) {
             if (bookingType === 'freeConsultation') {
                 openFreeConsultationBooking();
+                return;
+            }
+
+            if (bookingType === 'legalEnglish') {
+                openCalBookingModal(
+                    'legal-english-lesson',
+                    'iliana-valiullina/legal-english-lesson',
+                    SITE_CONFIG.bookingLinks.legalEnglish
+                );
                 return;
             }
 
@@ -1150,15 +1166,18 @@
             };
         })(window, 'https://app.cal.com/embed/embed.js', 'init');
         Cal('init', 'free-15-minute-consultation', { origin: 'https://app.cal.com' });
+        Cal('init', 'legal-english-lesson', { origin: 'https://app.cal.com' });
         Cal.config = Cal.config || {};
         Cal.config.forwardQueryParams = true;
-        Cal.ns['free-15-minute-consultation']('ui', {
-            cssVarsPerTheme: {
-                light: { 'cal-brand': '#0D3B66' },
-                dark: { 'cal-brand': '#0D3B66' },
-            },
-            hideEventTypeDetails: false,
-            layout: 'month_view',
+        ['free-15-minute-consultation', 'legal-english-lesson'].forEach(function (namespace) {
+            Cal.ns[namespace]('ui', {
+                cssVarsPerTheme: {
+                    light: { 'cal-brand': '#0D3B66' },
+                    dark: { 'cal-brand': '#0D3B66' },
+                },
+                hideEventTypeDetails: false,
+                layout: 'month_view',
+            });
         });
     </script>
 </body>
