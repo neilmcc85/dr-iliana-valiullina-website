@@ -64,8 +64,8 @@
                 <a href="#book-consultation" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-3xl text-white btn-primary shadow-sm">
                     Book free 15-minute consultation
                 </a>
-                <a href="/#services" class="inline-flex items-center justify-center px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-colors">
-                    View all lesson types
+                <a href="#book-all" class="inline-flex items-center justify-center px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-colors">
+                    All lesson types
                 </a>
             </div>
 
@@ -98,30 +98,22 @@
             </div>
         </section>
 
-        <section class="bg-[#FAF9F6]">
-            <div class="max-w-5xl mx-auto px-6 py-12 md:py-14">
-                <h2 class="section-heading text-3xl md:text-4xl text-[#0D3B66]">Choose your lesson</h2>
-                <p class="mt-3 text-[#4B5563] max-w-2xl">All sessions are online, one to one, and tailored to your goals.</p>
+        <section id="book-all" class="bg-[#FAF9F6] border-t border-[#E5E2D9] scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-6 py-12 md:py-14">
+                <h2 class="section-heading text-3xl md:text-4xl text-[#0D3B66]">Book any lesson or package</h2>
+                <p class="mt-3 text-[#4B5563] max-w-2xl">Choose what you need on the left — the calendar updates on the right. Not sure? Pick the free consultation first.</p>
 
-                <div class="mt-8 grid md:grid-cols-3 gap-6">
-                    <div class="service-card border border-[#E5E2D9] rounded-3xl p-6 bg-[#FAF9F6]">
-                        <h3 class="text-xl font-semibold text-[#0D3B66]">Legal English</h3>
-                        <p class="mt-3 text-sm text-[#4B5563] leading-relaxed">For lawyers and law students — contracts, cases, legal writing, and oral argument.</p>
-                        <button type="button" onclick="openLessonBooking('legalEnglish')" class="mt-5 inline-flex w-full justify-center px-4 py-3 text-sm font-semibold rounded-2xl bg-[#0D3B66] text-white hover:bg-[#0A2F52]">Book Legal English</button>
-                    </div>
-                    <div class="service-card border border-[#E5E2D9] rounded-3xl p-6 bg-[#FAF9F6]">
-                        <h3 class="text-xl font-semibold text-[#0D3B66]">Academic English</h3>
-                        <p class="mt-3 text-sm text-[#4B5563] leading-relaxed">For researchers — journal articles, thesis work, conferences, and grant applications.</p>
-                        <button type="button" onclick="openLessonBooking('academicEnglish')" class="mt-5 inline-flex w-full justify-center px-4 py-3 text-sm font-semibold rounded-2xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white">Book Academic English</button>
-                    </div>
-                    <div class="service-card border border-[#E5E2D9] rounded-3xl p-6 bg-[#FAF9F6]">
-                        <h3 class="text-xl font-semibold text-[#0D3B66]">Professional language</h3>
-                        <p class="mt-3 text-sm text-[#4B5563] leading-relaxed">English, Russian, Tatar, or Bashkort for meetings, presentations, and workplace communication.</p>
-                        <button type="button" onclick="openLessonBooking('professionalLanguage')" class="mt-5 inline-flex w-full justify-center px-4 py-3 text-sm font-semibold rounded-2xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white">Book lesson</button>
+                <div class="mt-8 rounded-3xl border border-[#E5E2D9] bg-white overflow-hidden shadow-sm">
+                    <div class="grid lg:grid-cols-[minmax(15rem,17rem)_1fr] min-h-[36rem]">
+                        <nav id="booking-picker" class="border-b lg:border-b-0 lg:border-r border-[#E5E2D9] bg-[#FAF9F6] p-4 lg:p-5 flex flex-col gap-1" aria-label="Lesson types"></nav>
+                        <div class="p-2 sm:p-4 bg-[#FAF9F6] min-h-[32rem]">
+                            <p id="booking-picker-summary" class="px-2 pt-2 pb-3 text-sm text-[#4B5563] lg:hidden"></p>
+                            <div id="cal-unified-embed" class="w-full min-h-[30rem]"></div>
+                        </div>
                     </div>
                 </div>
 
-                <p class="mt-8 text-center text-sm text-[#6B7280]">Not sure which is right? <a href="#book-consultation" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">Start with a free consultation</a>.</p>
+                <p class="mt-4 text-sm text-[#6B7280]">Calendar not loading? Use the <a href="#book-consultation" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">free consultation calendar</a> above or <a href="/#services" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">view lessons on the main site</a>.</p>
             </div>
         </section>
 
@@ -146,43 +138,118 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        const LESSONS_BOOKING = {
-            legalEnglish: {
-                namespace: 'legal-english-lesson',
-                calLink: 'iliana-valiullina/legal-english-lesson',
-                fallback: 'https://cal.com/iliana-valiullina/legal-english-lesson?utm_source=site&utm_medium=lessons&utm_campaign=legal-english-fallback'
+        const BOOKING_OPTIONS = [
+            {
+                id: 'freeConsultation',
+                label: 'Free 15-minute consultation',
+                hint: 'Free · intro call',
+                calLink: 'iliana-valiullina/free-15-minute-consultation'
             },
-            academicEnglish: {
-                namespace: 'academic',
-                calLink: 'iliana-valiullina/academic',
-                fallback: 'https://cal.com/iliana-valiullina/academic?utm_source=site&utm_medium=lessons&utm_campaign=academic-fallback'
+            {
+                id: 'legalEnglish',
+                label: 'Legal English lesson',
+                hint: '1 hr · lawyers & law students',
+                calLink: 'iliana-valiullina/legal-english-lesson'
             },
-            professionalLanguage: {
-                namespace: 'language-lesson',
-                calLink: 'iliana-valiullina/language-lesson',
-                fallback: 'https://cal.com/iliana-valiullina/language-lesson?utm_source=site&utm_medium=lessons&utm_campaign=language-fallback'
+            {
+                id: 'academicEnglish',
+                label: 'Academic English lesson',
+                hint: '1 hr · researchers & PhDs',
+                calLink: 'iliana-valiullina/academic'
+            },
+            {
+                id: 'professionalLanguage',
+                label: 'Professional language lesson',
+                hint: '1 hr · EN / RU / Tatar / Bashkort',
+                calLink: 'iliana-valiullina/language-lesson'
+            },
+            {
+                id: 'legalPackage',
+                label: '5-lesson Legal English package',
+                hint: '5 sessions · legal English',
+                calLink: 'iliana-valiullina/5-lesson-legal-english-package'
+            },
+            {
+                id: 'academicPackage',
+                label: '5-lesson Academic English package',
+                hint: '5 sessions · academic English',
+                calLink: 'iliana-valiullina/5-lesson-academic-english-package'
+            },
+            {
+                id: 'professionalPackage',
+                label: '5-lesson language package',
+                hint: '5 sessions · professional language',
+                calLink: 'iliana-valiullina/5-lesson-language-package'
             }
-        };
+        ];
 
-        function openCalBookingModal(namespace, calLink, fallbackUrl) {
-            if (window.Cal && Cal.ns && Cal.ns[namespace]) {
-                Cal.ns[namespace]('modal', {
-                    calLink,
-                    config: { layout: 'month_view', theme: 'light' },
-                });
-                return;
-            }
+        let activeBookingId = 'freeConsultation';
 
-            window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+        function getBookingOption(id) {
+            return BOOKING_OPTIONS.find(function (option) { return option.id === id; });
         }
 
-        function openLessonBooking(bookingType) {
-            const booking = LESSONS_BOOKING[bookingType];
-            if (!booking) {
+        function setActivePickerButton(id) {
+            document.querySelectorAll('[data-booking-option]').forEach(function (button) {
+                const isActive = button.getAttribute('data-booking-option') === id;
+                button.setAttribute('aria-current', isActive ? 'true' : 'false');
+                button.classList.toggle('bg-white', isActive);
+                button.classList.toggle('border-[#0D3B66]', isActive);
+                button.classList.toggle('text-[#0D3B66]', isActive);
+                button.classList.toggle('shadow-sm', isActive);
+                button.classList.toggle('border-transparent', !isActive);
+                button.classList.toggle('text-[#4B5563]', !isActive);
+            });
+
+            const summary = document.getElementById('booking-picker-summary');
+            const option = getBookingOption(id);
+            if (summary && option) {
+                summary.textContent = option.label + ' · ' + option.hint;
+            }
+        }
+
+        function loadUnifiedEmbed(id) {
+            const option = getBookingOption(id);
+            if (!option || !window.Cal || !Cal.ns || !Cal.ns['lessons-booking']) {
                 return;
             }
 
-            openCalBookingModal(booking.namespace, booking.calLink, booking.fallback);
+            activeBookingId = id;
+            setActivePickerButton(id);
+
+            const container = document.getElementById('cal-unified-embed');
+            container.innerHTML = '';
+
+            Cal.ns['lessons-booking']('inline', {
+                elementOrSelector: '#cal-unified-embed',
+                calLink: option.calLink,
+                config: {
+                    layout: 'month_view',
+                    useSlotsViewOnSmallScreen: 'true',
+                    theme: 'light'
+                }
+            });
+        }
+
+        function initBookingPicker() {
+            const nav = document.getElementById('booking-picker');
+            if (!nav) {
+                return;
+            }
+
+            BOOKING_OPTIONS.forEach(function (option) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.setAttribute('data-booking-option', option.id);
+                button.className = 'w-full text-left rounded-2xl border px-4 py-3 transition-colors border-transparent hover:bg-white/80';
+                button.innerHTML = '<span class="block text-sm font-semibold leading-snug">' + option.label + '</span><span class="block mt-1 text-xs text-[#6B7280]">' + option.hint + '</span>';
+                button.addEventListener('click', function () {
+                    loadUnifiedEmbed(option.id);
+                });
+                nav.appendChild(button);
+            });
+
+            loadUnifiedEmbed(activeBookingId);
         }
     </script>
     <script>
@@ -217,21 +284,19 @@
         Cal.config = Cal.config || {};
         Cal.config.forwardQueryParams = true;
 
-        const CAL_EMBED_NAMESPACES = [
-            'free-15-minute-consultation',
-            'legal-english-lesson',
-            'academic',
-            'language-lesson'
-        ];
+        Cal('init', 'free-15-minute-consultation', { origin: 'https://app.cal.com' });
+        Cal('init', 'lessons-booking', { origin: 'https://app.cal.com' });
 
-        CAL_EMBED_NAMESPACES.forEach(function (namespace) {
-            Cal('init', namespace, { origin: 'https://app.cal.com' });
-            Cal.ns[namespace]('ui', {
+        [
+            { namespace: 'free-15-minute-consultation', hideDetails: false },
+            { namespace: 'lessons-booking', hideDetails: true }
+        ].forEach(function (embed) {
+            Cal.ns[embed.namespace]('ui', {
                 cssVarsPerTheme: {
                     light: { 'cal-brand': '#0D3B66' },
                     dark: { 'cal-brand': '#0D3B66' },
                 },
-                hideEventTypeDetails: false,
+                hideEventTypeDetails: embed.hideDetails,
                 layout: 'month_view',
             });
         });
@@ -241,6 +306,12 @@
             config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true', theme: 'light' },
             calLink: 'iliana-valiullina/free-15-minute-consultation',
         });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBookingPicker);
+        } else {
+            initBookingPicker();
+        }
     </script>
 </body>
 </html>
