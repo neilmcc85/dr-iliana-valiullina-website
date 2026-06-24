@@ -853,6 +853,36 @@
                 professionalPackage: 'https://cal.com/iliana-valiullina/5-lesson-language-package',
                 academicPackage: 'https://cal.com/iliana-valiullina/5-lesson-academic-english-package',
                 legalPackage: 'https://cal.com/iliana-valiullina/5-lesson-legal-english-package'
+            },
+            calBookingModals: {
+                freeConsultation: {
+                    namespace: 'free-15-minute-consultation',
+                    calLink: 'iliana-valiullina/free-15-minute-consultation'
+                },
+                academicEnglish: {
+                    namespace: 'academic',
+                    calLink: 'iliana-valiullina/academic'
+                },
+                legalEnglish: {
+                    namespace: 'legal-english-lesson',
+                    calLink: 'iliana-valiullina/legal-english-lesson'
+                },
+                professionalLanguage: {
+                    namespace: 'language-lesson',
+                    calLink: 'iliana-valiullina/language-lesson'
+                },
+                professionalPackage: {
+                    namespace: '5-lesson-language-package',
+                    calLink: 'iliana-valiullina/5-lesson-language-package'
+                },
+                academicPackage: {
+                    namespace: '5-lesson-academic-english-package',
+                    calLink: 'iliana-valiullina/5-lesson-academic-english-package'
+                },
+                legalPackage: {
+                    namespace: '5-lesson-legal-english-package',
+                    calLink: 'iliana-valiullina/5-lesson-legal-english-package'
+                }
             }
         };
 
@@ -1027,26 +1057,10 @@
             window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
         }
 
-        function openFreeConsultationBooking() {
-            openCalBookingModal(
-                'free-15-minute-consultation',
-                'iliana-valiullina/free-15-minute-consultation',
-                SITE_CONFIG.bookingLinks.freeConsultation
-            );
-        }
-
         function openBooking(bookingType) {
-            if (bookingType === 'freeConsultation') {
-                openFreeConsultationBooking();
-                return;
-            }
-
-            if (bookingType === 'legalEnglish') {
-                openCalBookingModal(
-                    'legal-english-lesson',
-                    'iliana-valiullina/legal-english-lesson',
-                    SITE_CONFIG.bookingLinks.legalEnglish
-                );
+            const modal = SITE_CONFIG.calBookingModals[bookingType];
+            if (modal) {
+                openCalBookingModal(modal.namespace, modal.calLink, SITE_CONFIG.bookingLinks[bookingType]);
                 return;
             }
 
@@ -1165,11 +1179,18 @@
                 p(cal, ar);
             };
         })(window, 'https://app.cal.com/embed/embed.js', 'init');
-        Cal('init', 'free-15-minute-consultation', { origin: 'https://app.cal.com' });
-        Cal('init', 'legal-english-lesson', { origin: 'https://app.cal.com' });
         Cal.config = Cal.config || {};
         Cal.config.forwardQueryParams = true;
-        ['free-15-minute-consultation', 'legal-english-lesson'].forEach(function (namespace) {
+        Object.values({
+            freeConsultation: 'free-15-minute-consultation',
+            academicEnglish: 'academic',
+            legalEnglish: 'legal-english-lesson',
+            professionalLanguage: 'language-lesson',
+            professionalPackage: '5-lesson-language-package',
+            academicPackage: '5-lesson-academic-english-package',
+            legalPackage: '5-lesson-legal-english-package'
+        }).forEach(function (namespace) {
+            Cal('init', namespace, { origin: 'https://app.cal.com' });
             Cal.ns[namespace]('ui', {
                 cssVarsPerTheme: {
                     light: { 'cal-brand': '#0D3B66' },
