@@ -232,6 +232,12 @@ textarea:focus-visible {
   flex-direction: column;
 }
 
+.lessons-landing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 @media (min-width: 768px) {
   .booking-picker-shell {
     flex-direction: row;
@@ -247,6 +253,25 @@ textarea:focus-visible {
   }
 
   .booking-picker-calendar {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lessons-landing-grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .lessons-landing-intro {
+    width: 16.5rem;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+
+  .lessons-landing-booking {
     flex: 1 1 0%;
     min-width: 0;
   }

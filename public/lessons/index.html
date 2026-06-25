@@ -39,7 +39,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
 
     <header class="border-b border-[#E5E2D9] bg-[#FAF9F6]/95 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
             <a href="/" class="flex items-center gap-x-3">
                 <img src="/images/logo-v2.jpg" alt="" class="w-9 h-9 rounded-full border border-[#B89778] object-contain" width="36" height="36">
                 <span class="font-semibold text-[#0D3B66] text-sm md:text-base">Dr. Iliana Valiullina</span>
@@ -51,59 +51,41 @@
     </header>
 
     <main id="main-content">
-        <section class="max-w-5xl mx-auto px-6 pt-12 pb-8 md:pt-16 md:pb-10">
-            <p class="uppercase tracking-[3px] text-xs font-semibold text-[#B89778]">ONLINE LANGUAGE LESSONS</p>
-            <h1 class="heading-serif text-4xl md:text-6xl text-[#0D3B66] mt-3 leading-tight max-w-3xl">
-                Legal &amp; Academic English with a law professor
-            </h1>
-            <p class="mt-5 text-lg md:text-xl text-[#4B5563] max-w-2xl leading-relaxed">
-                I am Dr. Iliana Valiullina — Associate Professor of International Law and Human Rights. I help lawyers, academics, and professionals speak and write English with precision for practice, publishing, and professional life.
-            </p>
-
-            <div class="mt-8">
-                <a href="#book-all" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-3xl text-white btn-primary shadow-sm">
-                    Book free 15-minute consultation
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-[#6B7280]">The consultation is a short intro call — not a full lesson. We discuss your goals and the best format before you book a paid session.</p>
-
-            <div class="mt-10 grid grid-cols-3 gap-4 max-w-lg text-center md:text-left">
-                <div>
-                    <div class="stat-number text-3xl font-semibold text-[#0D3B66]">3</div>
-                    <div class="text-[10px] tracking-wider text-[#6B7280] font-medium mt-1">DOCTORAL DEGREES</div>
+        <section id="book-all" class="lessons-landing max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-10 md:pt-6 scroll-mt-16">
+            <div class="lessons-landing-grid">
+                <div class="lessons-landing-intro">
+                    <p class="uppercase tracking-[3px] text-[11px] font-semibold text-[#B89778]">ONLINE LANGUAGE LESSONS</p>
+                    <h1 class="heading-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-[#0D3B66] mt-2 leading-tight">
+                        Legal &amp; Academic English with a law professor
+                    </h1>
+                    <p class="mt-3 text-sm sm:text-base text-[#4B5563] leading-relaxed">
+                        Dr. Iliana Valiullina — Associate Professor of International Law. Online one-to-one lessons for lawyers, academics, and professionals.
+                    </p>
+                    <p class="mt-3 text-xs sm:text-sm text-[#6B7280] leading-relaxed">
+                        New here? Keep <strong class="font-semibold text-[#0D3B66]">free consultation</strong> selected, pick a time, and book.
+                    </p>
+                    <p class="mt-4 text-[11px] sm:text-xs tracking-wide text-[#6B7280] uppercase">
+                        3 doctoral degrees · 37+ publications · 10+ years in academia
+                    </p>
                 </div>
-                <div>
-                    <div class="stat-number text-3xl font-semibold text-[#0D3B66]">37+</div>
-                    <div class="text-[10px] tracking-wider text-[#6B7280] font-medium mt-1">PUBLICATIONS</div>
-                </div>
-                <div>
-                    <div class="stat-number text-3xl font-semibold text-[#0D3B66]">10+</div>
-                    <div class="text-[10px] tracking-wider text-[#6B7280] font-medium mt-1">YEARS IN ACADEMIA</div>
-                </div>
-            </div>
-        </section>
 
-        <section id="book-all" class="bg-white border-y border-[#E5E2D9] scroll-mt-20">
-            <div class="max-w-6xl mx-auto px-6 py-12 md:py-14">
-                <h2 class="section-heading text-3xl md:text-4xl text-[#0D3B66]">Book a lesson</h2>
-                <p class="mt-3 text-[#4B5563] max-w-2xl">Choose what you need on the left — the calendar updates on the right. New here? Start with the <strong class="font-semibold text-[#0D3B66]">free consultation</strong> (selected by default).</p>
-
-                <div class="mt-8 rounded-3xl border border-[#E5E2D9] bg-white overflow-hidden shadow-sm">
-                    <div class="booking-picker-shell flex flex-col md:flex-row md:items-stretch min-h-[36rem]">
-                        <nav id="booking-picker" class="booking-picker-nav md:w-72 lg:w-80 md:shrink-0 border-b md:border-b-0 md:border-r border-[#E5E2D9] bg-[#FAF9F6] p-4 md:p-5 flex flex-col gap-1" aria-label="Lesson types"></nav>
-                        <div class="booking-picker-calendar flex-1 min-w-0 p-2 sm:p-4 bg-[#FAF9F6] min-h-[32rem]">
-                            <p id="booking-picker-summary" class="px-2 pt-2 pb-3 text-sm text-[#4B5563] md:hidden"></p>
-                            <div id="cal-unified-embed" class="w-full min-h-[30rem]"></div>
+                <div class="lessons-landing-booking">
+                    <div class="rounded-3xl border border-[#E5E2D9] bg-white overflow-hidden shadow-sm">
+                        <div class="booking-picker-shell flex flex-col md:flex-row md:items-stretch min-h-[34rem] lg:min-h-[36rem]">
+                            <nav id="booking-picker" class="booking-picker-nav md:w-64 lg:w-72 md:shrink-0 border-b md:border-b-0 md:border-r border-[#E5E2D9] bg-[#FAF9F6] p-3 md:p-4 flex flex-col gap-1 max-h-none md:max-h-[36rem] md:overflow-y-auto" aria-label="Lesson types"></nav>
+                            <div class="booking-picker-calendar flex-1 min-w-0 p-2 sm:p-3 bg-[#FAF9F6] min-h-[28rem] md:min-h-[34rem]">
+                                <p id="booking-picker-summary" class="px-2 pt-2 pb-3 text-sm text-[#4B5563] md:hidden"></p>
+                                <div id="cal-unified-embed" class="w-full min-h-[26rem] md:min-h-[32rem]"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <p class="mt-4 text-sm text-[#6B7280]">Calendar not loading? <a href="https://cal.com/iliana-valiullina/free-15-minute-consultation?utm_source=site&amp;utm_medium=lessons&amp;utm_campaign=free-consult-fallback" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">Open booking on Cal.com</a> or <a href="/#services" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">view lessons on the main site</a>.</p>
+                    <p class="mt-3 text-xs sm:text-sm text-[#6B7280]">Calendar not loading? <a href="https://cal.com/iliana-valiullina/free-15-minute-consultation?utm_source=site&amp;utm_medium=lessons&amp;utm_campaign=free-consult-fallback" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">Open on Cal.com</a> · <a href="/#policies" class="font-semibold text-[#0D3B66] hover:text-[#B89778]">Booking policies</a></p>
+                </div>
             </div>
         </section>
 
-        <section class="max-w-5xl mx-auto px-6 py-12 md:py-14 bg-[#FAF9F6]">
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-12 bg-[#FAF9F6] border-t border-[#E5E2D9]">
             <h2 class="section-heading text-2xl md:text-3xl text-[#0D3B66]">Who I work with</h2>
             <ul class="mt-5 space-y-3 text-[#4B5563] max-w-2xl">
                 <li>• Lawyers, in-house counsel, and law students</li>
