@@ -10,6 +10,17 @@
     <title>Online Courses in Russian Law | Dr. Iliana Valiullina</title>
     <link rel="icon" type="image/jpeg" href="/images/logo-v2.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap">
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem('site-theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            } catch {
+                document.documentElement.dataset.theme = 'light';
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="bg-[#FAF9F6] text-[#2D3748] antialiased">
@@ -46,6 +57,8 @@
                     <a href="/#contact" class="px-5 py-2.5 text-sm font-semibold rounded-2xl btn-outline border-[#0D3B66] hover:bg-[#0D3B66] hover:text-white">Get in touch</a>
                     <a href="/lessons/" class="px-6 py-2.5 text-sm font-semibold rounded-2xl text-white btn-primary shadow-sm">Book a Lesson</a>
                 </div>
+                <button type="button" class="theme-toggle inline-flex items-center justify-center px-3 py-2 text-sm font-semibold rounded-2xl border border-[#D1D5DB] text-[#0D3B66] hover:bg-[#F1EDE4] transition-colors" aria-label="Switch to dark mode" aria-pressed="false">Dark</button>
+
                 <button id="mobile-menu-btn" class="md:hidden px-4 py-2 text-sm font-semibold rounded-2xl border border-[#0D3B66] text-[#0D3B66]" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">Menu</button>
             </div>
         </div>
@@ -122,6 +135,58 @@
                 menuBtn.setAttribute('aria-expanded', String(!isOpen));
             });
         }
+    </script>
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const storageKey = 'site-theme';
+
+            function storedTheme() {
+                try {
+                    return localStorage.getItem(storageKey);
+                } catch {
+                    return null;
+                }
+            }
+
+            function systemTheme() {
+                return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function activeTheme() {
+                return storedTheme() || systemTheme();
+            }
+
+            function setTheme(theme, persist) {
+                root.dataset.theme = theme;
+                root.style.colorScheme = theme;
+                if (persist) {
+                    try {
+                        localStorage.setItem(storageKey, theme);
+                    } catch {}
+                }
+                document.querySelectorAll('.theme-toggle').forEach((button) => {
+                    const isDark = theme === 'dark';
+                    button.textContent = isDark ? 'Light' : 'Dark';
+                    button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+                    button.setAttribute('aria-pressed', String(isDark));
+                });
+            }
+
+            setTheme(activeTheme(), false);
+
+            document.querySelectorAll('.theme-toggle').forEach((button) => {
+                button.addEventListener('click', () => {
+                    setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
+                });
+            });
+
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                    if (!storedTheme()) setTheme(systemTheme(), false);
+                });
+            }
+        })();
     </script>
 </body>
 </html>

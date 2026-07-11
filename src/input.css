@@ -5,10 +5,18 @@
 :root {
   --navy: #0D3B66;
   --gold: #B89778;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --navy: #E8C9A7;
+  --gold: #D7B18B;
+  color-scheme: dark;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .heading-serif {
@@ -77,6 +85,10 @@ body {
 .btn-outline:hover {
   background-color: #0D3B66;
   color: white;
+}
+
+.theme-toggle {
+  min-width: 4rem;
 }
 
 .elegant-divider {
@@ -225,6 +237,148 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid rgba(184, 151, 120, 0.75);
   outline-offset: 3px;
+}
+
+html[data-theme="dark"] body {
+  background-color: #081827;
+  color: #E8EEF5;
+}
+
+html[data-theme="dark"] .bg-\[\#FAF9F6\],
+html[data-theme="dark"] .bg-\[\#FAF9F6\]\/95,
+html[data-theme="dark"] .bg-\[\#F8F7F4\] {
+  background-color: #081827 !important;
+}
+
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .bg-white\/90,
+html[data-theme="dark"] .hover\:bg-white:hover,
+html[data-theme="dark"] .hover\:bg-white\/80:hover {
+  background-color: #102337 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#E5E2D9\],
+html[data-theme="dark"] .hover\:bg-\[\#F1EDE4\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#FAF9F6\]:hover {
+  background-color: #183047 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#0D3B66\] {
+  background-color: #123F68 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#0D3B66\]\/5,
+html[data-theme="dark"] .bg-\[\#0D3B66\]\/10 {
+  background-color: rgba(215, 177, 139, 0.12) !important;
+}
+
+html[data-theme="dark"] .bg-\[\#B89778\],
+html[data-theme="dark"] .btn-gold {
+  background-color: #B89778 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#B89778\]\/10 {
+  background-color: rgba(184, 151, 120, 0.16) !important;
+}
+
+html[data-theme="dark"] .text-\[\#0D3B66\],
+html[data-theme="dark"] .navy-text,
+html[data-theme="dark"] .nav-active {
+  color: #E8C9A7 !important;
+}
+
+html[data-theme="dark"] .text-\[\#2D3748\],
+html[data-theme="dark"] .text-\[\#374151\],
+html[data-theme="dark"] .text-\[\#4B5563\],
+html[data-theme="dark"] .prose-academic {
+  color: #D8E2EC !important;
+}
+
+html[data-theme="dark"] .text-\[\#6B7280\],
+html[data-theme="dark"] .text-\[\#0D3B66\]\/60 {
+  color: #AAB7C4 !important;
+}
+
+html[data-theme="dark"] .text-\[\#B89778\],
+html[data-theme="dark"] .gold-accent {
+  color: #D7B18B !important;
+}
+
+html[data-theme="dark"] .text-white,
+html[data-theme="dark"] .text-white\/80 {
+  color: #F7F1EA !important;
+}
+
+html[data-theme="dark"] .text-white\/70 {
+  color: rgba(247, 241, 234, 0.74) !important;
+}
+
+html[data-theme="dark"] .border-\[\#E5E2D9\],
+html[data-theme="dark"] .border-\[\#D1D5DB\],
+html[data-theme="dark"] .border-white,
+html[data-theme="dark"] .hover\:border-\[\#E5E2D9\]:hover {
+  border-color: #263B50 !important;
+}
+
+html[data-theme="dark"] .border-\[\#0D3B66\],
+html[data-theme="dark"] .btn-outline {
+  border-color: #D7B18B !important;
+}
+
+html[data-theme="dark"] .btn-primary {
+  background-color: #D7B18B !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .hover\:bg-\[\#0A2F52\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#0D3B66\]:hover {
+  background-color: #C69A72 !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .btn-outline {
+  color: #E8C9A7 !important;
+}
+
+html[data-theme="dark"] .btn-outline:hover,
+html[data-theme="dark"] .hover\:text-white:hover {
+  background-color: #D7B18B !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background-color: #102337;
+  border-color: #D7B18B !important;
+  color: #E8C9A7 !important;
+}
+
+html[data-theme="dark"] .form-input,
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: #102337;
+  color: #E8EEF5;
+}
+
+html[data-theme="dark"] .placeholder\:text-\[\#9CA3AF\]::placeholder {
+  color: #8FA0B2 !important;
+}
+
+html[data-theme="dark"] .elegant-divider {
+  background: linear-gradient(to right, transparent, #263B50, transparent);
+}
+
+html[data-theme="dark"] .academic-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .minimal-shadow {
+  box-shadow: 0 18px 35px -18px rgba(0, 0, 0, 0.75);
+}
+
+html[data-theme="dark"] img {
+  filter: saturate(0.95) contrast(1.02);
 }
 
 .booking-picker-shell {
