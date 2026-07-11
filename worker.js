@@ -1,6 +1,28 @@
 const CONTACT_EMAIL = 'contact@drilianavaliullina.com';
 const FROM_EMAIL = 'Dr. Iliana Valiullina <contact@drilianavaliullina.com>';
 const MAX_FIELD_LENGTH = 2000;
+const SPAM_PHRASES = [
+    'advertising',
+    'backlink',
+    'backlinks',
+    'business proposal',
+    'digital marketing',
+    'domain authority',
+    'guest post',
+    'lead generation',
+    'marketing agency',
+    'rank higher',
+    'ranking on google',
+    'seo',
+    'search engine optimization',
+    'social media marketing',
+    'sponsored post',
+    'web design',
+    'web designer',
+    'website design',
+    'website redesign',
+    'website traffic'
+];
 
 const TELEGRAM_LINKS = {
     consultation:
@@ -52,6 +74,10 @@ async function handleContactRequest(request, env) {
 
     if (!fullName || !isValidEmail(email) || !message) {
         return jsonResponse({ error: 'Please complete all required fields' }, 400);
+    }
+
+    if (isLikelySpam({ fullName, email, inquiryType, message })) {
+        return jsonResponse({ ok: true });
     }
 
     const subject = `Website inquiry: ${inquiryType} from ${fullName}`;
@@ -184,6 +210,18 @@ function cleanField(value) {
 
 function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isLikelySpam({ fullName, email, inquiryType, message }) {
+    const combined = `${fullName} ${email} ${inquiryType} ${message}`.toLowerCase();
+    const linkCount = (combined.match(/https?:\/\//g) || []).length + (combined.match(/\bwww\./g) || []).length;
+    const spamPhraseCount = SPAM_PHRASES.filter((phrase) => combined.includes(phrase)).length;
+
+    if (spamPhraseCount >= 1 && linkCount >= 1) return true;
+    if (spamPhraseCount >= 2) return true;
+    if (linkCount >= 3) return true;
+
+    return false;
 }
 
 function escapeHtml(value) {
