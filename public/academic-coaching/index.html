@@ -92,9 +92,31 @@
             </div>
         </section>
     </main>
+    <footer class="border-t border-[#E5E2D9] bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-5 text-sm">
+                <div class="text-[#6B7280]">
+                    © <span id="current-year"></span> Dr. Iliana Valiullina. All rights reserved.
+                </div>
+                <div class="flex flex-wrap gap-x-7 gap-y-2 text-[#4B5563]">
+                    <a href="/#about" class="hover:text-[#0D3B66]">About</a>
+                    <a href="/#research" class="hover:text-[#0D3B66]">Research</a>
+                    <a href="/#teaching" class="hover:text-[#0D3B66]">Teaching</a>
+                    <a href="/#services" class="hover:text-[#0D3B66]">Services</a>
+                    <a href="/lessons/#policies" class="hover:text-[#0D3B66]">Booking policies</a>
+                    <a href="/#contact" class="hover:text-[#0D3B66]">Contact</a>
+                </div>
+                <div class="text-[#6B7280] text-xs md:text-sm">
+                    Designed with care for academic excellence
+                </div>
+            </div>
+        </div>
+    </footer>
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
         if (menuBtn && mobileMenu) {
             menuBtn.addEventListener('click', () => {
                 const isOpen = !mobileMenu.classList.contains('hidden');
