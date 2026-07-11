@@ -4,13 +4,13 @@
 
 :root {
   --navy: #0D3B66;
-  --gold: #B89778;
+  --gold: #C2A34F;
   color-scheme: light;
 }
 
 html[data-theme="dark"] {
-  --navy: #E8C9A7;
-  --gold: #D7B18B;
+  --navy: #EED389;
+  --gold: #E4C56F;
   color-scheme: dark;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .gold-accent {
-  color: #B89778;
+  color: #C2A34F;
 }
 
 .btn-primary {
@@ -66,13 +66,13 @@ body {
 }
 
 .btn-gold {
-  background-color: #B89778;
+  background-color: #C2A34F;
   color: white;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-gold:hover {
-  background-color: #A37E5E;
+  background-color: #A98432;
   transform: translateY(-1px);
 }
 
@@ -88,7 +88,9 @@ body {
 }
 
 .theme-toggle {
-  min-width: 4rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 1;
 }
 
 .elegant-divider {
@@ -156,7 +158,7 @@ body {
   left: 0;
   width: 42px;
   height: 1.5px;
-  background-color: #B89778;
+  background-color: #C2A34F;
 }
 
 .section {
@@ -178,7 +180,7 @@ body {
 
 .skip-link:focus {
   top: 16px;
-  outline: 3px solid #B89778;
+  outline: 3px solid #C2A34F;
 }
 
 .icon {
@@ -272,19 +274,19 @@ html[data-theme="dark"] .bg-\[\#0D3B66\]\/10 {
   background-color: rgba(215, 177, 139, 0.12) !important;
 }
 
-html[data-theme="dark"] .bg-\[\#B89778\],
+html[data-theme="dark"] .bg-\[\#C2A34F\],
 html[data-theme="dark"] .btn-gold {
-  background-color: #B89778 !important;
+  background-color: #C2A34F !important;
 }
 
-html[data-theme="dark"] .bg-\[\#B89778\]\/10 {
+html[data-theme="dark"] .bg-\[\#C2A34F\]\/10 {
   background-color: rgba(184, 151, 120, 0.16) !important;
 }
 
 html[data-theme="dark"] .text-\[\#0D3B66\],
 html[data-theme="dark"] .navy-text,
 html[data-theme="dark"] .nav-active {
-  color: #E8C9A7 !important;
+  color: #EED389 !important;
 }
 
 html[data-theme="dark"] .text-\[\#2D3748\],
@@ -299,9 +301,9 @@ html[data-theme="dark"] .text-\[\#0D3B66\]\/60 {
   color: #AAB7C4 !important;
 }
 
-html[data-theme="dark"] .text-\[\#B89778\],
+html[data-theme="dark"] .text-\[\#C2A34F\],
 html[data-theme="dark"] .gold-accent {
-  color: #D7B18B !important;
+  color: #E4C56F !important;
 }
 
 html[data-theme="dark"] .text-white,
@@ -322,35 +324,35 @@ html[data-theme="dark"] .hover\:border-\[\#E5E2D9\]:hover {
 
 html[data-theme="dark"] .border-\[\#0D3B66\],
 html[data-theme="dark"] .btn-outline {
-  border-color: #D7B18B !important;
+  border-color: #E4C56F !important;
 }
 
 html[data-theme="dark"] .btn-primary {
-  background-color: #D7B18B !important;
+  background-color: #E4C56F !important;
   color: #081827 !important;
 }
 
 html[data-theme="dark"] .btn-primary:hover,
 html[data-theme="dark"] .hover\:bg-\[\#0A2F52\]:hover,
 html[data-theme="dark"] .hover\:bg-\[\#0D3B66\]:hover {
-  background-color: #C69A72 !important;
+  background-color: #D3AD52 !important;
   color: #081827 !important;
 }
 
 html[data-theme="dark"] .btn-outline {
-  color: #E8C9A7 !important;
+  color: #EED389 !important;
 }
 
 html[data-theme="dark"] .btn-outline:hover,
 html[data-theme="dark"] .hover\:text-white:hover {
-  background-color: #D7B18B !important;
+  background-color: #E4C56F !important;
   color: #081827 !important;
 }
 
 html[data-theme="dark"] .theme-toggle {
   background-color: #102337;
-  border-color: #D7B18B !important;
-  color: #E8C9A7 !important;
+  border-color: #E4C56F !important;
+  color: #EED389 !important;
 }
 
 html[data-theme="dark"] .form-input,
