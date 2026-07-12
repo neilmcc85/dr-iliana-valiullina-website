@@ -32,6 +32,7 @@ body {
 
 .nav-link {
   transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -91,6 +92,34 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   line-height: 1;
+}
+
+@media (min-width: 768px) and (max-width: 1420px) {
+  html[lang="ru"] nav .max-w-7xl {
+    max-width: 100%;
+  }
+
+  html[lang="ru"] nav .gap-x-7 {
+    column-gap: 1.05rem;
+  }
+
+  html[lang="ru"] nav .gap-x-4 {
+    column-gap: 0.65rem;
+  }
+
+  html[lang="ru"] nav .nav-link {
+    font-size: 0.8125rem;
+  }
+
+  html[lang="ru"] nav a[href="/ru/#contact"],
+  html[lang="ru"] nav a[href="/ru/#services"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  html[lang="ru"] nav a[href="/ru/#services"] span {
+    white-space: nowrap;
+  }
 }
 
 .elegant-divider {
