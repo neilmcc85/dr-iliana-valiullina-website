@@ -1,6 +1,12 @@
 const CONTACT_EMAIL = 'contact@drilianavaliullina.com';
 const FROM_EMAIL = 'Dr. Iliana Valiullina <contact@drilianavaliullina.com>';
 const MAX_FIELD_LENGTH = 2000;
+const BLOCKED_EMAILS = [
+    'devansh@designapp.in'
+];
+const BLOCKED_EMAIL_DOMAINS = [
+    'designapp.in'
+];
 const SPAM_PHRASES = [
     'advertising',
     'android app',
@@ -9,24 +15,37 @@ const SPAM_PHRASES = [
     'backlink',
     'backlinks',
     'business proposal',
+    'connect better with their customers',
+    'cost details',
     'custom software',
+    'custom mobile app',
+    'custom mobile apps',
     'development agency',
     'digital marketing',
     'domain authority',
+    'google 1st page',
+    'google first page',
     'guest post',
     'hire developers',
     'ios app',
     'lead generation',
     'marketing agency',
+    'major search engines',
     'mobile app',
+    'price seo packages',
+    'price, seo packages',
     'rank higher',
     'ranking on google',
     'saas development',
     'seo',
+    'seo offers',
+    'seo packages',
     'search engine optimization',
+    'share examples and cost details',
     'social media marketing',
     'software development',
     'sponsored post',
+    'targeted visitors',
     'web design',
     'web designer',
     'website design',
@@ -224,9 +243,13 @@ function isValidEmail(value) {
 
 function isLikelySpam({ fullName, email, inquiryType, message }) {
     const combined = `${fullName} ${email} ${inquiryType} ${message}`.toLowerCase();
+    const normalizedEmail = email.toLowerCase();
+    const emailDomain = normalizedEmail.split('@')[1] || '';
     const linkCount = (combined.match(/https?:\/\//g) || []).length + (combined.match(/\bwww\./g) || []).length;
     const spamPhraseCount = SPAM_PHRASES.filter((phrase) => combined.includes(phrase)).length;
 
+    if (BLOCKED_EMAILS.includes(normalizedEmail)) return true;
+    if (BLOCKED_EMAIL_DOMAINS.includes(emailDomain)) return true;
     if (spamPhraseCount >= 1 && linkCount >= 1) return true;
     if (spamPhraseCount >= 2) return true;
     if (linkCount >= 3) return true;

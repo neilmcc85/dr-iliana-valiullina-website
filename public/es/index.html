@@ -630,7 +630,7 @@
                     <div class="mt-10 space-y-8">
                         <div>
                             <div class="text-xs tracking-widest font-semibold text-[#6B7280]">CORREO</div>
-                            <a href="mailto:contact@drilianavaliullina.com" class="block mt-1 text-xl font-medium text-[#0D3B66] hover:text-[#C2A34F]">contact@drilianavaliullina.com</a>
+                            <p class="block mt-1 text-xl font-medium text-[#0D3B66]">Utilice el formulario seguro de abajo</p>
                             <p class="text-xs text-[#6B7280] mt-1">Método preferido para consultas formales</p>
                         </div>
 
@@ -790,7 +790,7 @@
 
     <script>
         const SITE_CONFIG = {
-            contactEmail: 'contact@drilianavaliullina.com',
+            contactEmail: ['contact', 'drilianavaliullina.com'].join('@'),
             formEndpoint: '/api/contact',
             bookingLinks: {
                 academicEnglish: 'https://cal.com/iliana-valiullina/academic',
