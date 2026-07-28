@@ -276,7 +276,7 @@
                             <span>Explore Services</span>
                         </a>
                         
-                        <a href="#contact" 
+                        <a href="/lessons/" 
                            class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
                             Book a Consultation
                         </a>
@@ -802,45 +802,6 @@
         const SITE_CONFIG = {
             contactEmail: ['contact', 'drilianavaliullina.com'].join('@'),
             formEndpoint: '/api/contact',
-            bookingLinks: {
-                academicEnglish: 'https://cal.com/iliana-valiullina/academic',
-                legalEnglish: 'https://cal.com/iliana-valiullina/legal-english-lesson',
-                professionalLanguage: 'https://cal.com/iliana-valiullina/language-lesson',
-                freeConsultation: 'https://cal.com/iliana-valiullina/free-15-minute-consultation',
-                professionalPackage: 'https://cal.com/iliana-valiullina/5-lesson-language-package',
-                academicPackage: 'https://cal.com/iliana-valiullina/5-lesson-academic-english-package',
-                legalPackage: 'https://cal.com/iliana-valiullina/5-lesson-legal-english-package'
-            },
-            calBookingModals: {
-                freeConsultation: {
-                    namespace: 'free-15-minute-consultation',
-                    calLink: 'iliana-valiullina/free-15-minute-consultation'
-                },
-                academicEnglish: {
-                    namespace: 'academic',
-                    calLink: 'iliana-valiullina/academic'
-                },
-                legalEnglish: {
-                    namespace: 'legal-english-lesson',
-                    calLink: 'iliana-valiullina/legal-english-lesson'
-                },
-                professionalLanguage: {
-                    namespace: 'language-lesson',
-                    calLink: 'iliana-valiullina/language-lesson'
-                },
-                professionalPackage: {
-                    namespace: '5-lesson-language-package',
-                    calLink: 'iliana-valiullina/5-lesson-language-package'
-                },
-                academicPackage: {
-                    namespace: '5-lesson-academic-english-package',
-                    calLink: 'iliana-valiullina/5-lesson-academic-english-package'
-                },
-                legalPackage: {
-                    namespace: '5-lesson-legal-english-package',
-                    calLink: 'iliana-valiullina/5-lesson-legal-english-package'
-                }
-            }
         };
 
         const MENU_OPEN_ICON = '<svg class="icon icon-2xl" aria-hidden="true"><use href="#icon-x"/></svg>';
@@ -1002,54 +963,6 @@
             }, 80);
         }
 
-        function openCalBookingModal(namespace, calLink, fallbackUrl) {
-            if (window.Cal && Cal.ns && Cal.ns[namespace]) {
-                Cal.ns[namespace]('modal', {
-                    calLink,
-                    config: { layout: 'month_view', theme: 'light' },
-                });
-                return;
-            }
-
-            window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
-        }
-
-        function openBooking(bookingType) {
-            const modal = SITE_CONFIG.calBookingModals[bookingType];
-            if (modal) {
-                openCalBookingModal(modal.namespace, modal.calLink, SITE_CONFIG.bookingLinks[bookingType]);
-                return;
-            }
-
-            const bookingLabels = {
-                freeConsultation: 'Free 15-Minute Consultation',
-                academicEnglish: 'Academic English Lesson',
-                legalEnglish: 'Legal English Lesson',
-                professionalLanguage: 'Professional Language Lesson',
-                professionalPackage: '5-Lesson Language Package',
-                academicPackage: '5-Lesson Academic English Package',
-                legalPackage: '5-Lesson Legal English Package'
-            };
-
-            const bookingMessages = {
-                freeConsultation: 'I would like to book a free 15-minute consultation.',
-                academicEnglish: 'I would like to book an Academic English lesson.',
-                legalEnglish: 'I would like to book a Legal English lesson.',
-                professionalLanguage: 'I would like to book a professional language lesson.',
-                professionalPackage: 'I would like to book a 5-lesson professional language package.',
-                academicPackage: 'I would like to book a 5-lesson Academic English package.',
-                legalPackage: 'I would like to book a 5-lesson Legal English package.'
-            };
-
-            const url = SITE_CONFIG.bookingLinks[bookingType];
-            if (url) {
-                window.open(url, '_blank', 'noopener,noreferrer');
-                return;
-            }
-
-            prefillInquiry(bookingLabels[bookingType] || 'Language Lessons Inquiry', bookingMessages[bookingType] || '');
-        }
-
         function requestReview() {
             prefillInquiry(
                 'Verified Review / Testimonial',
@@ -1106,57 +1019,6 @@
 
         // Boot
         document.addEventListener('DOMContentLoaded', initializeWebsite);
-    </script>
-    <script>
-        (function (C, A, L) {
-            let p = function (a, ar) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                    cal.ns = {};
-                    cal.q = cal.q || [];
-                    d.head.appendChild(d.createElement('script')).src = A;
-                    cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
-                    const namespace = ar[1];
-                    api.q = api.q || [];
-                    if (typeof namespace === 'string') {
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ['initNamespace', namespace]);
-                    } else {
-                        p(cal, ar);
-                    }
-                    return;
-                }
-                p(cal, ar);
-            };
-        })(window, 'https://app.cal.com/embed/embed.js', 'init');
-        Cal.config = Cal.config || {};
-        Cal.config.forwardQueryParams = true;
-        Object.values({
-            freeConsultation: 'free-15-minute-consultation',
-            academicEnglish: 'academic',
-            legalEnglish: 'legal-english-lesson',
-            professionalLanguage: 'language-lesson',
-            professionalPackage: '5-lesson-language-package',
-            academicPackage: '5-lesson-academic-english-package',
-            legalPackage: '5-lesson-legal-english-package'
-        }).forEach(function (namespace) {
-            Cal('init', namespace, { origin: 'https://app.cal.com' });
-            Cal.ns[namespace]('ui', {
-                cssVarsPerTheme: {
-                    light: { 'cal-brand': '#0D3B66' },
-                    dark: { 'cal-brand': '#0D3B66' },
-                },
-                hideEventTypeDetails: false,
-                layout: 'month_view',
-            });
-        });
     </script>
     <script>
         (() => {
