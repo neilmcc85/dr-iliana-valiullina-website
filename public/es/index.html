@@ -741,6 +741,14 @@
                                 <textarea id="message" name="message" rows="5" required placeholder="Please describe your goals, timeline, and any relevant background..."
                                           class="form-input w-full bg-white border border-[#D1D5DB] rounded-3xl px-5 py-4 text-base placeholder:text-[#9CA3AF] resize-y"></textarea>
                             </div>
+                            
+                            <label class="flex items-start gap-x-3 text-sm text-[#4B5563] leading-relaxed cursor-pointer">
+                                <input type="checkbox" name="privacyConsent" value="yes" required
+                                       class="mt-1 h-4 w-4 rounded border-[#D1D5DB] text-[#0D3B66] focus:ring-[#C2A34F]">
+                                <span>I agree to the processing of my details as described in the
+                                    <a href="/privacy/" class="font-semibold text-[#0D3B66] hover:text-[#C2A34F]" onclick="event.stopPropagation()">Privacy Policy</a>.</span>
+                            </label>
+
                             <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
                             <button type="submit" 
@@ -789,6 +797,10 @@
                     <button type="button" onclick="requestReview()" class="hover:text-[#0D3B66]">Dejar opinión</button>
                     <a href="/es/#publications" class="hover:text-[#0D3B66]">Publicaciones</a>
                     <a href="/es/#contact" class="hover:text-[#0D3B66]">Contacto</a>
+                
+                    <a href="/privacy/" class="hover:text-[#0D3B66]">Privacy</a>
+                    <a href="/cookies/" class="hover:text-[#0D3B66]">Cookies</a>
+                    <a href="/terms/" class="hover:text-[#0D3B66]">Terms</a>
                 </div>
 
                 <div class="text-[#6B7280] text-xs md:text-sm">
@@ -1210,5 +1222,6 @@
             }
         })();
     </script>
+    <script src="/js/cookie-notice.js" defer></script>
 </body>
 </html>

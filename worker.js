@@ -101,6 +101,11 @@ async function handleContactRequest(request, env) {
     const format = cleanField(payload.format || 'Not specified');
     const message = cleanField(payload.message);
 
+    const privacyConsent = String(payload.privacyConsent || '').toLowerCase();
+    if (!['yes', 'true', 'on', '1'].includes(privacyConsent)) {
+        return jsonResponse({ error: 'Please accept the Privacy Policy to continue' }, 400);
+    }
+
     if (!fullName || !isValidEmail(email) || !message) {
         return jsonResponse({ error: 'Please complete all required fields' }, 400);
     }
