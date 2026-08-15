@@ -10,8 +10,8 @@ const languages = {
     dir: 'ltr',
     button: 'FR',
     locale: 'fr_FR',
-    title: 'Dr Iliana Valiullina • Droit international et cours de langues',
-    meta: 'Je suis universitaire en droit international et je propose des cours d’anglais académique, d’anglais juridique, des formations linguistiques professionnelles, des collaborations de recherche et des conférences.',
+    title: 'Anglais juridique et russe pour juristes • Dr Iliana Valiullina',
+    meta: 'Anglais juridique et russe pour juristes avec Dr Iliana Valiullina, professeure associée en droit international. Consultation gratuite de 15 minutes. Tarifs en USD pour les cours d’anglais.',
     siteName: 'Dr Iliana Valiullina',
     translations: {
       'Skip to content': 'Aller au contenu',
@@ -145,8 +145,8 @@ const languages = {
     dir: 'ltr',
     button: 'ES',
     locale: 'es_ES',
-    title: 'Dra. Iliana Valiullina • Derecho internacional y clases de idiomas',
-    meta: 'Soy académica de derecho internacional y ofrezco inglés académico, inglés jurídico, clases profesionales de idiomas, colaboración investigadora y conferencias.',
+    title: 'Inglés jurídico y ruso para juristas • Dra. Iliana Valiullina',
+    meta: 'Inglés jurídico y ruso para juristas con la Dra. Iliana Valiullina, profesora asociada de derecho internacional. Consulta gratuita de 15 minutos. Precios en USD para las clases de inglés.',
     siteName: 'Dra. Iliana Valiullina',
     translations: {
       'Skip to content': 'Ir al contenido',
@@ -280,8 +280,8 @@ const shared = {
     dir: 'ltr',
     button: 'RU',
     locale: 'ru_RU',
-    title: 'Д-р Иляна Валиуллина • Международное право и языковые занятия',
-    meta: 'Я исследователь международного права и предлагаю академический английский, юридический английский, профессиональные языковые занятия, исследовательское сотрудничество и гостевые лекции.',
+    title: 'Юридический английский и русский для юристов • Д-р Иляна Валиуллина',
+    meta: 'Юридический английский и русский для юристов с д-ром Иляной Валиуллиной, доцентом международного права. Бесплатная консультация 15 минут. Цены на занятия английским в долларах США.',
     siteName: 'Д-р Иляна Валиуллина',
     translations: {
       'Skip to content': 'Перейти к содержанию',
@@ -396,8 +396,8 @@ const shared = {
     dir: 'ltr',
     button: 'ZH',
     locale: 'zh_CN',
-    title: 'Iliana Valiullina 博士 • 国际法与语言课程',
-    meta: '我是国际法学者，提供学术英语、法律英语、专业语言课程、研究合作和客座讲座。',
+    title: '法律英语与律师俄语 • Iliana Valiullina 博士',
+    meta: 'Iliana Valiullina 博士（国际法副教授）提供法律英语与律师俄语课程。可预约免费 15 分钟咨询。英语课程公开美元价格。',
     siteName: 'Iliana Valiullina 博士',
     translations: {
       'Skip to content': '跳至内容',
@@ -511,8 +511,8 @@ const shared = {
     dir: 'rtl',
     button: 'AR',
     locale: 'ar_AR',
-    title: 'د. إليانا فاليولينا • القانون الدولي ودروس اللغة',
-    meta: 'أنا باحثة في القانون الدولي وأقدم الإنجليزية الأكاديمية والإنجليزية القانونية ودروس اللغة المهنية والتعاون البحثي والمحاضرات الضيفة.',
+    title: 'الإنجليزية القانونية والروسية للمحامين • د. إليانا فاليولينا',
+    meta: 'الإنجليزية القانونية والروسية للمحامين مع د. إليانا فاليولينا، أستاذة مشاركة في القانون الدولي. استشارة مجانية لمدة 15 دقيقة. أسعار دروس الإنجليزية بالدولار الأمريكي.',
     siteName: 'د. إليانا فاليولينا',
     translations: {
       'Skip to content': 'انتقل إلى المحتوى',
@@ -625,6 +625,114 @@ const shared = {
 
 Object.assign(languages, shared);
 
+const leadCopy = {
+  fr: {
+    'Legal English &amp; Russian for Lawyers': 'Anglais juridique et russe pour juristes',
+    'Language lessons': 'Cours de langues',
+    'Programmes': 'Programmes',
+    'Courses': 'Cours',
+    'Coaching': 'Accompagnement',
+    'Book a free 15-minute consultation': 'Réserver une consultation gratuite de 15 minutes',
+    'Legal English · Russian for Lawyers': 'Anglais juridique · Russe pour juristes',
+    'Legal English and': 'Anglais juridique et',
+    'Russian for Lawyers': 'Russe pour juristes',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Cours individuels pour juristes, chercheurs et professionnels qui ont besoin d’une langue juridique précise.',
+    'Taught by Dr. Iliana Valiullina, Associate Professor of International Law and Human Rights.': 'Enseignée par Dr Iliana Valiullina, professeure associée en droit international et droits humains.',
+    'Academic profile: research, publications, and university teaching are set out below.': 'Profil académique : la recherche, les publications et l’enseignement universitaire sont présentés ci-dessous.',
+    'Language': 'Langue',
+    'ACADEMIC PROFILE': 'PROFIL ACADÉMIQUE',
+    'LESSONS &amp; PROGRAMMES': 'COURS ET PROGRAMMES',
+    'Legal language, courses, and academic support': 'Langue juridique, cours et accompagnement académique',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'L’anglais juridique et le russe pour juristes constituent l’offre d’enseignement principale. Les cours de langues, programmes intensifs, cours de droit russe et l’accompagnement académique sont indiqués ci-dessous.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Anglais juridique, russe pour juristes, anglais académique, langue professionnelle et russe général. Tarifs publics en USD.',
+    'View lessons and prices': 'Voir les cours et les tarifs'
+  },
+  es: {
+    'Legal English &amp; Russian for Lawyers': 'Inglés jurídico y ruso para juristas',
+    'Language lessons': 'Clases de idiomas',
+    'Programmes': 'Programas',
+    'Courses': 'Cursos',
+    'Coaching': 'Acompañamiento',
+    'Book a free 15-minute consultation': 'Reservar una consulta gratuita de 15 minutos',
+    'Legal English · Russian for Lawyers': 'Inglés jurídico · Ruso para juristas',
+    'Legal English and': 'Inglés jurídico y',
+    'Russian for Lawyers': 'Ruso para juristas',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Clases individuales para juristas, investigadores y profesionales que necesitan un lenguaje jurídico preciso.',
+    'Taught by Dr. Iliana Valiullina, Associate Professor of International Law and Human Rights.': 'Impartidas por la Dra. Iliana Valiullina, profesora asociada de derecho internacional y derechos humanos.',
+    'Academic profile: research, publications, and university teaching are set out below.': 'Perfil académico: la investigación, las publicaciones y la docencia universitaria se presentan a continuación.',
+    'ACADEMIC PROFILE': 'PERFIL ACADÉMICO',
+    'LESSONS &amp; PROGRAMMES': 'CLASES Y PROGRAMAS',
+    'Legal language, courses, and academic support': 'Lenguaje jurídico, cursos y apoyo académico',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'El inglés jurídico y el ruso para juristas constituyen la oferta principal de enseñanza. Las clases de idiomas, los programas intensivos, los cursos de derecho ruso y el acompañamiento académico se indican a continuación.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Inglés jurídico, ruso para juristas, inglés académico, lengua profesional y ruso general. Precios públicos en USD.',
+    'View lessons and prices': 'Ver clases y precios',
+    'Language': 'Idioma'
+  },
+  ru: {
+    'Legal English &amp; Russian for Lawyers': 'Юридический английский и русский для юристов',
+    'Language lessons': 'Языковые занятия',
+    'Programmes': 'Интенсивы',
+    'Courses': 'Курсы',
+    'Coaching': 'Сопровождение',
+    'Book a free 15-minute consultation': 'Записаться на бесплатную консультацию 15 минут',
+    'Legal English · Russian for Lawyers': 'Юридический английский · Русский для юристов',
+    'Legal English and': 'Юридический английский и',
+    'Russian for Lawyers': 'Русский для юристов',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Индивидуальные занятия для юристов, исследователей и специалистов, которым нужен точный юридический язык.',
+    'Taught by Dr. Iliana Valiullina, Associate Professor of International Law and Human Rights.': 'Преподает д-р Иляна Валиуллина, доцент международного права и прав человека.',
+    'Academic profile: research, publications, and university teaching are set out below.': 'Академический профиль: исследования, публикации и университетское преподавание представлены ниже.',
+    'ACADEMIC PROFILE': 'АКАДЕМИЧЕСКИЙ ПРОФИЛЬ',
+    'LESSONS &amp; PROGRAMMES': 'ЗАНЯТИЯ И ПРОГРАММЫ',
+    'Legal language, courses, and academic support': 'Юридический язык, курсы и академическая поддержка',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'Юридический английский и русский для юристов — основное направление преподавания. Языковые занятия, интенсивы, курсы по российскому праву и академическое сопровождение указаны ниже.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Юридический английский, русский для юристов, академический английский, профессиональный язык и общий русский. Открытые цены в долларах США.',
+    'View lessons and prices': 'Смотреть занятия и цены',
+    'Language': 'Язык'
+  },
+  zh: {
+    'Legal English &amp; Russian for Lawyers': '法律英语与律师俄语',
+    'Language lessons': '语言课程',
+    'Programmes': '项目',
+    'Courses': '课程',
+    'Coaching': '辅导',
+    'Book a free 15-minute consultation': '预约免费 15 分钟咨询',
+    'Legal English · Russian for Lawyers': '法律英语 · 律师俄语',
+    'Legal English and': '法律英语与',
+    'Russian for Lawyers': '律师俄语',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': '面向律师、研究人员和专业人士的一对一课程，注重准确的法律语言。',
+    'Taught by Dr. Iliana Valiullina, Associate Professor of International Law and Human Rights.': '由国际法与人权副教授 Iliana Valiullina 博士授课。',
+    'Academic profile: research, publications, and university teaching are set out below.': '学术简介：研究、出版物与大学教学见下文。',
+    'ACADEMIC PROFILE': '学术简介',
+    'LESSONS &amp; PROGRAMMES': '课程与项目',
+    'Legal language, courses, and academic support': '法律语言、课程与学术支持',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': '法律英语与律师俄语是主要教学内容。语言课程、强化项目、俄罗斯法课程与学术辅导见下列说明。',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': '法律英语、律师俄语、学术英语、专业语言与通用俄语。公开美元价格。',
+    'View lessons and prices': '查看课程与价格',
+    'Language': '语言'
+  },
+  ar: {
+    'Legal English &amp; Russian for Lawyers': 'الإنجليزية القانونية والروسية للمحامين',
+    'Language lessons': 'دروس اللغة',
+    'Programmes': 'البرامج',
+    'Courses': 'الدورات',
+    'Coaching': 'الإرشاد',
+    'Book a free 15-minute consultation': 'احجز استشارة مجانية لمدة 15 دقيقة',
+    'Legal English · Russian for Lawyers': 'الإنجليزية القانونية · الروسية للمحامين',
+    'Legal English and': 'الإنجليزية القانونية و',
+    'Russian for Lawyers': 'الروسية للمحامين',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'دروس فردية للمحامين والباحثين والمهنيين الذين يحتاجون إلى لغة قانونية دقيقة.',
+    'Taught by Dr. Iliana Valiullina, Associate Professor of International Law and Human Rights.': 'تُدرّسها د. إليانا فاليولينا، أستاذة مشاركة في القانون الدولي وحقوق الإنسان.',
+    'Academic profile: research, publications, and university teaching are set out below.': 'الملف الأكاديمي: البحث والمنشورات والتدريس الجامعي مبيّنة أدناه.',
+    'ACADEMIC PROFILE': 'الملف الأكاديمي',
+    'LESSONS &amp; PROGRAMMES': 'الدروس والبرامج',
+    'Legal language, courses, and academic support': 'اللغة القانونية والدورات والدعم الأكاديمي',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'الإنجليزية القانونية والروسية للمحامين هما العرض التدريسي الرئيسي. دروس اللغة والبرامج المكثفة ودورات القانون الروسي والإرشاد الأكاديمي مذكورة أدناه.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'الإنجليزية القانونية، الروسية للمحامين، الإنجليزية الأكاديمية، اللغة المهنية، والروسية العامة. أسعار معلنة بالدولار الأمريكي.',
+    'View lessons and prices': 'عرض الدروس والأسعار',
+    'Language': 'اللغة'
+  }
+};
+
 const runtimeTranslations = {
   fr: {
     'Sending...': 'Envoi...',
@@ -727,8 +835,7 @@ function localizeLinks(html, code) {
     'online-intensive-programmes',
     'online-courses-russian-law',
     'language-lessons',
-    'academic-coaching',
-    'lessons'
+    'academic-coaching'
   ];
   for (const slug of servicePaths) {
     html = html.replace(new RegExp(`href="/${slug}/"`, 'g'), `href="/${code}/${slug}/"`);
@@ -778,7 +885,7 @@ for (const [code, cfg] of Object.entries(languages)) {
   html = localizeLinks(html, code);
   html = updateLanguageSwitcher(html, cfg.button);
 
-  html = replaceVisibleText(html, { ...cfg.translations, ...runtimeTranslations[code] });
+  html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
   html = html.replace(/aria-label="Choose website language"/g, `aria-label="${runtimeTranslations[code]['Choose website language']}"`);
   html = html.replace(/aria-label="Switch to dark mode"/g, `aria-label="${runtimeTranslations[code]['Switch to dark mode']}"`);
   html = html.replace(/aria-label', isDark \? 'Switch to light mode' : 'Switch to dark mode'/g, `aria-label', isDark ? '${runtimeTranslations[code]['Switch to light mode']}' : '${runtimeTranslations[code]['Switch to dark mode']}'`);

@@ -35,6 +35,12 @@ body {
   white-space: nowrap;
 }
 
+.nav-link-lead {
+  white-space: normal;
+  max-width: 11.5rem;
+  line-height: 1.25;
+}
+
 .nav-link:hover {
   color: #0D3B66;
 }
@@ -94,31 +100,17 @@ body {
   line-height: 1;
 }
 
-@media (min-width: 768px) and (max-width: 1420px) {
-  html[lang="ru"] nav .max-w-7xl {
-    max-width: 100%;
-  }
-
-  html[lang="ru"] nav .gap-x-7 {
-    column-gap: 1.05rem;
-  }
-
-  html[lang="ru"] nav .gap-x-4 {
-    column-gap: 0.65rem;
+@media (min-width: 1280px) and (max-width: 1540px) {
+  html[lang="ru"] nav .nav-primary {
+    column-gap: 0.85rem;
   }
 
   html[lang="ru"] nav .nav-link {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
   }
 
-  html[lang="ru"] nav a[href="/ru/#contact"],
-  html[lang="ru"] nav a[href="/ru/#services"] {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  html[lang="ru"] nav a[href="/ru/#services"] span {
-    white-space: nowrap;
+  html[lang="ru"] nav .nav-link-lead {
+    max-width: 10.5rem;
   }
 }
 

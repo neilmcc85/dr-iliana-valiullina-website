@@ -1,5 +1,5 @@
 /**
- * Point locale book CTAs and homepage consultation buttons to EN /lessons/
+ * Point locale book CTAs to EN /lessons/
  * (the only page with a working Cal.com embed).
  */
 const fs = require('fs');
@@ -7,59 +7,6 @@ const path = require('path');
 
 const root = path.join(__dirname, '..', 'public');
 const locales = ['ar', 'zh', 'fr', 'ru', 'es'];
-
-const homepageHero = {
-  ar: {
-    from: `                        <a href="/ar/#contact" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            احجز استشارة
-                        </a>`,
-    to: `                        <a href="/lessons/" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            احجز استشارة
-                        </a>`,
-  },
-  zh: {
-    from: `                        <a href="/zh/#contact" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            预约咨询
-                        </a>`,
-    to: `                        <a href="/lessons/" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            预约咨询
-                        </a>`,
-  },
-  fr: {
-    from: `                        <a href="/fr/#contact" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Réserver une consultation
-                        </a>`,
-    to: `                        <a href="/lessons/" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Réserver une consultation
-                        </a>`,
-  },
-  ru: {
-    from: `                        <a href="/ru/#contact" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Записаться на консультацию
-                        </a>`,
-    to: `                        <a href="/lessons/" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Записаться на консультацию
-                        </a>`,
-  },
-  es: {
-    from: `                        <a href="/es/#contact" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Reservar consulta
-                        </a>`,
-    to: `                        <a href="/lessons/" 
-                           class="inline-flex items-center justify-center gap-x-2 px-7 py-4 text-base font-semibold rounded-3xl border border-[#0D3B66] text-[#0D3B66] hover:bg-[#0D3B66] hover:text-white transition-all">
-                            Reservar consulta
-                        </a>`,
-  },
-};
 
 const lessonsNote = {
   ar: '                    <p class="mt-4 text-sm text-[#6B7280]">التقويم والحجز متوفران باللغة الإنجليزية على <a href="/lessons/" class="font-semibold text-[#0D3B66] hover:text-[#C2A34F]">صفحة الحجز</a>.</p>',
@@ -83,12 +30,9 @@ function writeIfChanged(filePath, before, after, label) {
 
 for (const lang of locales) {
   const homePath = path.join(root, lang, 'index.html');
-  const homeBefore = fs.readFileSync(homePath, 'utf8');
-  const hero = homepageHero[lang];
-  if (!homeBefore.includes(hero.from)) {
-    console.warn('homepage hero pattern missing:', lang);
-  } else {
-    writeIfChanged(homePath, homeBefore, homeBefore.replace(hero.from, hero.to), `${lang}/index.html hero`);
+  const home = fs.readFileSync(homePath, 'utf8');
+  if (!home.includes('href="/lessons/"')) {
+    console.warn('homepage missing /lessons/ CTA:', lang);
   }
 
   const pages = [

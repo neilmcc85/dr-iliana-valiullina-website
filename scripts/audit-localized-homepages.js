@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const pages = ['ar', 'zh', 'fr', 'ru', 'es'];
-const expected = { sections: 6, h2: 6, h3: 10, forms: 1, fields: 6, cards: 4 };
+const expected = { sections: 6, h2: 6, h3: 10, forms: 1, fields: 7, cards: 4 };
 const count = (source, regex) => (source.match(regex) || []).length;
+const hedge = /lower end of the proposed range|where fixed package prices are ready/;
 
 for (const code of pages) {
   const file = `public/${code}/index.html`;
@@ -22,6 +23,18 @@ for (const code of pages) {
     if (actual[key] !== value) {
       throw new Error(`${file}: expected ${value} ${key}, found ${actual[key]}`);
     }
+  }
+
+  if (!source.includes('mailto:contact@drilianavaliullina.com')) {
+    throw new Error(`${file}: missing contact email`);
+  }
+
+  if (hedge.test(source)) {
+    throw new Error(`${file}: hedge copy still present`);
+  }
+
+  if (!source.includes('href="/lessons/"')) {
+    throw new Error(`${file}: booking CTA should point to /lessons/`);
   }
 
   if (code === 'ru' && !source.includes('Иляна Валиуллина')) {
