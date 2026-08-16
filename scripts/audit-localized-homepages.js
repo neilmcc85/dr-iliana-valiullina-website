@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const pages = ['ar', 'zh', 'fr', 'ru', 'es'];
-const expected = { sections: 6, h2: 6, h3: 10, forms: 1, fields: 7, cards: 4 };
+const expected = { sections: 3, h2: 3, h3: 5, forms: 1, fields: 7, cards: 4 };
 const count = (source, regex) => (source.match(regex) || []).length;
 const hedge = /lower end of the proposed range|where fixed package prices are ready/;
 
@@ -35,6 +35,22 @@ for (const code of pages) {
 
   if (!source.includes('href="/lessons/"')) {
     throw new Error(`${file}: booking CTA should point to /lessons/`);
+  }
+
+  if (source.includes('CLIENT FEEDBACK') || source.includes('Leave feedback')) {
+    throw new Error(`${file}: empty client feedback block should be hidden`);
+  }
+
+  if (!source.includes(`href="/${code}/academic/"`)) {
+    throw new Error(`${file}: missing localized academic profile link`);
+  }
+
+  if (!fs.existsSync(path.join('public', code, 'academic', 'index.html'))) {
+    throw new Error(`${file}: missing localized academic page`);
+  }
+
+  if (/I am an Associate Professor|Je suis[^<]*professeure associée et|Soy académica de derecho internacional, profesora asociada/.test(source)) {
+    throw new Error(`${file}: stale present-tense CEUB appointment`);
   }
 
   if (code === 'ru' && !source.includes('Иляна Валиуллина')) {
