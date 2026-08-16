@@ -37,6 +37,18 @@ for (const code of pages) {
     throw new Error(`${file}: booking CTA should point to /lessons/`);
   }
 
+  if (!source.includes(`href="/${code}/lessons/"`)) {
+    throw new Error(`${file}: lead nav should point to /${code}/lessons/`);
+  }
+
+  if (/rel="alternate" hreflang="[^"]+" href="https:\/\/drilianavaliullina\.com/.test(source)) {
+    throw new Error(`${file}: hreflang translations must be relative, not production URLs`);
+  }
+
+  if (/<a [^>]*href="https:\/\/drilianavaliullina\.com/.test(source)) {
+    throw new Error(`${file}: language/nav links must not point at production`);
+  }
+
   if (source.includes('CLIENT FEEDBACK') || source.includes('Leave feedback')) {
     throw new Error(`${file}: empty client feedback block should be hidden`);
   }
@@ -67,5 +79,27 @@ for (const code of pages) {
     }
   }
 
+  const academicFile = `public/${code}/academic/index.html`;
+  const academic = fs.readFileSync(academicFile, 'utf8');
+  if (!academic.includes('hreflang="en" href="/academic/"')) {
+    throw new Error(`${academicFile}: English hreflang must stay /academic/`);
+  }
+  if (!academic.includes('hreflang="x-default" href="/academic/"')) {
+    throw new Error(`${academicFile}: x-default hreflang must stay /academic/`);
+  }
+  if (!academic.includes('<a href="/academic/" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">EN · English</a>')) {
+    throw new Error(`${academicFile}: EN language switcher must stay on /academic/`);
+  }
+  if (!academic.includes(`href="/${code}/lessons/"`)) {
+    throw new Error(`${academicFile}: lead nav should point to /${code}/lessons/`);
+  }
+  if (/rel="alternate" hreflang="[^"]+" href="https:\/\/drilianavaliullina\.com/.test(academic)) {
+    throw new Error(`${academicFile}: hreflang translations must be relative, not production URLs`);
+  }
+  if (/<a [^>]*href="https:\/\/drilianavaliullina\.com/.test(academic)) {
+    throw new Error(`${academicFile}: language/nav links must not point at production`);
+  }
+
   console.log(`${file} ok`, actual);
+  console.log(`${academicFile} ok`);
 }

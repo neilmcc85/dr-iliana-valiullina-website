@@ -890,6 +890,41 @@ function replaceVisibleText(html, translations) {
   return html;
 }
 
+function makeHreflangRelative(html) {
+  return html.replace(
+    /(<link rel="alternate" hreflang="[^"]+" href=")https:\/\/drilianavaliullina\.com(\/[^"]*")/g,
+    '$1$2'
+  );
+}
+
+function applyRelativeHreflang(html, pagePath) {
+  const links = languageLinksFor(pagePath);
+  const order = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
+  const tags = order
+    .map((code) => `    <link rel="alternate" hreflang="${code}" href="${links[code]}">`)
+    .concat(`    <link rel="alternate" hreflang="x-default" href="${links.en}">`);
+  return html.replace(
+    /(?:    <link rel="alternate" hreflang="[^"]+" href="[^"]+">\n)+/,
+    `${tags.join('\n')}\n`
+  );
+}
+
+function localizeLeadLessonsNav(html, code) {
+  html = html.replace(
+    /href="\/lessons\/"( class="nav-link nav-link-lead)/g,
+    `href="/${code}/lessons/"$1`
+  );
+  html = html.replace(
+    /<a href="\/lessons\/" class="mobile-nav-link py-1 text-\[#0D3B66\] font-semibold">/,
+    `<a href="/${code}/lessons/" class="mobile-nav-link py-1 text-[#0D3B66] font-semibold">`
+  );
+  html = html.replace(
+    /<a href="\/lessons\/" class="mobile-nav-link py-1 text-\[#4B5563\]">/,
+    `<a href="/${code}/lessons/" class="mobile-nav-link py-1 text-[#4B5563]">`
+  );
+  return html;
+}
+
 function localizeLinks(html, code) {
   const servicePaths = [
     'online-intensive-programmes',
@@ -899,7 +934,7 @@ function localizeLinks(html, code) {
     'academic'
   ];
   for (const slug of servicePaths) {
-    html = html.replace(new RegExp(`href="/${slug}/`, 'g'), `href="/${code}/${slug}/`);
+    html = html.replace(new RegExp(`(<a\\b[^>]*\\bhref=")/${slug}/`, 'g'), `$1/${code}/${slug}/`);
   }
   html = html.replace(/href="#(about|research|teaching|services|publications|contact)"/g, `href="/${code}/#$1"`);
   html = html.replace(/href="\/#(about|research|teaching|services|publications|contact)"/g, `href="/${code}/#$1"`);
@@ -928,10 +963,13 @@ function updateLanguageSwitcher(html, current, pagePath = '/') {
     es: 'ES · Español'
   };
   const links = languageLinksFor(pagePath);
-  for (const [code, label] of Object.entries(labels)) {
-    const href = links[code];
-    html = html.replace(new RegExp(`<a href="[^"]*" class="block rounded-2xl px-4 py-2\\.5 hover:bg\\[#FAF9F6\\] text-\\[#0D3B66\\] font-semibold">${code.toUpperCase()}[^<]*</a>`, 'g'), `<a href="${href}" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">${label}</a>`);
-  }
+  const inner = Object.entries(labels)
+    .map(([code, label]) => `                            <a href="${links[code]}" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">${label}</a>`)
+    .join('\n');
+  html = html.replace(
+    /(<div class="w-44 rounded-3xl border border-\[#E5E2D9\] bg-white shadow-md p-3 text-sm">)[\s\S]*?(<\/div>)/,
+    `$1\n${inner}\n                        $2`
+  );
   html = html.replace(/aria-label="Choose website language">EN/g, `aria-label="Choose website language">${current}`);
   return html;
 }
@@ -949,7 +987,10 @@ for (const [code, cfg] of Object.entries(languages)) {
   html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${cfg.locale}">`);
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${cfg.title}">`);
   html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${cfg.meta}">`);
+  html = makeHreflangRelative(html);
+  html = applyRelativeHreflang(html, '/');
   html = localizeLinks(html, code);
+  html = localizeLeadLessonsNav(html, code);
   html = updateLanguageSwitcher(html, cfg.button);
 
   html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
@@ -1000,7 +1041,10 @@ for (const [code, cfg] of Object.entries(languages)) {
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${pageMeta.title}">`);
   html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${pageMeta.meta}">`);
   html = html.replace(/<a href="\/"/g, `<a href="/${code}/"`);
+  html = makeHreflangRelative(html);
+  html = applyRelativeHreflang(html, '/academic/');
   html = localizeLinks(html, code);
+  html = localizeLeadLessonsNav(html, code);
   html = updateLanguageSwitcher(html, cfg.button, '/academic/');
   html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
   html = html.replace(/aria-label="Choose website language"/g, `aria-label="${runtimeTranslations[code]['Choose website language']}"`);
