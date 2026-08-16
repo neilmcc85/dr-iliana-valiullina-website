@@ -10,8 +10,8 @@ const languages = {
     dir: 'ltr',
     button: 'FR',
     locale: 'fr_FR',
-    title: 'Dr Iliana Valiullina • Droit international et cours de langues',
-    meta: 'Je suis universitaire en droit international et je propose des cours d’anglais académique, d’anglais juridique, des formations linguistiques professionnelles, des collaborations de recherche et des conférences.',
+    title: 'Anglais juridique et russe pour juristes • Dr Iliana Valiullina',
+    meta: 'Anglais juridique et russe pour juristes avec Dr Iliana Valiullina. Consultation gratuite de 15 minutes. Tarifs publics en USD.',
     siteName: 'Dr Iliana Valiullina',
     translations: {
       'Skip to content': 'Aller au contenu',
@@ -145,8 +145,8 @@ const languages = {
     dir: 'ltr',
     button: 'ES',
     locale: 'es_ES',
-    title: 'Dra. Iliana Valiullina • Derecho internacional y clases de idiomas',
-    meta: 'Soy académica de derecho internacional y ofrezco inglés académico, inglés jurídico, clases profesionales de idiomas, colaboración investigadora y conferencias.',
+    title: 'Inglés jurídico y ruso para juristas • Dra. Iliana Valiullina',
+    meta: 'Inglés jurídico y ruso para juristas con la Dra. Iliana Valiullina. Consulta gratuita de 15 minutos. Precios públicos en USD.',
     siteName: 'Dra. Iliana Valiullina',
     translations: {
       'Skip to content': 'Ir al contenido',
@@ -280,8 +280,8 @@ const shared = {
     dir: 'ltr',
     button: 'RU',
     locale: 'ru_RU',
-    title: 'Д-р Иляна Валиуллина • Международное право и языковые занятия',
-    meta: 'Я исследователь международного права и предлагаю академический английский, юридический английский, профессиональные языковые занятия, исследовательское сотрудничество и гостевые лекции.',
+    title: 'Юридический английский и русский для юристов • Д-р Иляна Валиуллина',
+    meta: 'Юридический английский и русский для юристов с д-ром Иляной Валиуллиной. Бесплатная консультация 15 минут. Открытые цены в долларах США.',
     siteName: 'Д-р Иляна Валиуллина',
     translations: {
       'Skip to content': 'Перейти к содержанию',
@@ -396,8 +396,8 @@ const shared = {
     dir: 'ltr',
     button: 'ZH',
     locale: 'zh_CN',
-    title: 'Iliana Valiullina 博士 • 国际法与语言课程',
-    meta: '我是国际法学者，提供学术英语、法律英语、专业语言课程、研究合作和客座讲座。',
+    title: '法律英语与律师俄语 • Iliana Valiullina 博士',
+    meta: 'Iliana Valiullina 博士提供法律英语与律师俄语课程。可预约免费 15 分钟咨询。公开美元价格。',
     siteName: 'Iliana Valiullina 博士',
     translations: {
       'Skip to content': '跳至内容',
@@ -511,8 +511,8 @@ const shared = {
     dir: 'rtl',
     button: 'AR',
     locale: 'ar_AR',
-    title: 'د. إليانا فاليولينا • القانون الدولي ودروس اللغة',
-    meta: 'أنا باحثة في القانون الدولي وأقدم الإنجليزية الأكاديمية والإنجليزية القانونية ودروس اللغة المهنية والتعاون البحثي والمحاضرات الضيفة.',
+    title: 'الإنجليزية القانونية والروسية للمحامين • د. إليانا فاليولينا',
+    meta: 'الإنجليزية القانونية والروسية للمحامين مع د. إليانا فاليولينا. استشارة مجانية لمدة 15 دقيقة. أسعار معلنة بالدولار الأمريكي.',
     siteName: 'د. إليانا فاليولينا',
     translations: {
       'Skip to content': 'انتقل إلى المحتوى',
@@ -625,6 +625,174 @@ const shared = {
 
 Object.assign(languages, shared);
 
+const leadCopy = {
+  fr: {
+    'Legal English &amp; Russian for Lawyers': 'Anglais juridique et russe pour juristes',
+    'Language lessons': 'Cours de langues',
+    'Programmes': 'Programmes',
+    'Courses': 'Cours',
+    'Coaching': 'Accompagnement',
+    'Book a free 15-minute consultation': 'Réserver une consultation gratuite de 15 minutes',
+    'Legal English · Russian for Lawyers': 'Anglais juridique · Russe pour juristes',
+    'Legal English and': 'Anglais juridique et',
+    'Russian for Lawyers': 'Russe pour juristes',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Cours individuels pour juristes, chercheurs et professionnels qui ont besoin d’une langue juridique précise.',
+    'Taught by Dr. Iliana Valiullina, international law scholar and language teacher.': 'Enseignée par Dr Iliana Valiullina, universitaire en droit international et professeure de langues.',
+    'Research, publications, and university teaching are on the ': 'La recherche, les publications et l’enseignement universitaire figurent dans le ',
+    'academic profile': 'profil académique',
+    'Academic': 'Profil',
+    'Full academic profile': 'Profil académique complet',
+    'PUBLIC PRICES': 'TARIFS PUBLICS',
+    'Legal English and Russian for Lawyers are $120 per 60-minute lesson. Academic English is $90. General Russian is $60. Package prices are listed on the language lessons page.': 'L’anglais juridique et le russe pour juristes sont à 120 $ la leçon de 60 minutes. L’anglais académique est à 90 $. Le russe général est à 60 $. Les forfaits figurent sur la page des cours de langues.',
+    'I am an international law scholar and language teacher specializing in international public law, human rights, and the legal regulation of emerging technologies.': 'Je suis universitaire en droit international et professeure de langues, spécialisée en droit international public, droits humains et réglementation juridique des technologies émergentes.',
+    'I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026).': 'J’ai récemment achevé un poste de professeure associée au Centre universitaire de Brasília (CEUB) (juin 2025–juin 2026).',
+    'I hold three doctoral-level qualifications, including a Doctorate in Public International Law and International Relations from the University of Seville (2023, with distinction).': 'Je possède trois qualifications de niveau doctoral, dont un doctorat en droit international public et relations internationales de l’Université de Séville (2023, avec distinction).',
+    'I am an international law scholar and postdoctoral research fellow specializing in international public law, human rights, and the legal regulation of emerging technologies. I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026). I hold': 'Je suis universitaire en droit international et chercheuse postdoctorale spécialisée en droit international public, droits humains et réglementation juridique des technologies émergentes. J’ai récemment achevé un poste de professeure associée au Centre universitaire de Brasília (CEUB) (juin 2025–juin 2026). Je possède',
+    'In the 2025/26 academic year I taught the following courses at Brasília University Centre (CEUB).': 'Durant l’année académique 2025/26, j’ai enseigné les cours suivants au Centre universitaire de Brasília (CEUB).',
+    'Speaking / Guest Lecture': 'Intervention / conférence invitée',
+    'Academic Profile • Dr. Iliana Valiullina': 'Profil académique • Dr Iliana Valiullina',
+    'Language': 'Langue',
+    'ACADEMIC PROFILE': 'PROFIL ACADÉMIQUE',
+    'LESSONS &amp; PROGRAMMES': 'COURS ET PROGRAMMES',
+    'Legal language, courses, and academic support': 'Langue juridique, cours et accompagnement académique',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'L’anglais juridique et le russe pour juristes constituent l’offre d’enseignement principale. Les cours de langues, programmes intensifs, cours de droit russe et l’accompagnement académique sont indiqués ci-dessous.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Anglais juridique, russe pour juristes, anglais académique, langue professionnelle et russe général. Tarifs publics en USD.',
+    'View lessons and prices': 'Voir les cours et les tarifs'
+  },
+  es: {
+    'Legal English &amp; Russian for Lawyers': 'Inglés jurídico y ruso para juristas',
+    'Language lessons': 'Clases de idiomas',
+    'Programmes': 'Programas',
+    'Courses': 'Cursos',
+    'Coaching': 'Acompañamiento',
+    'Book a free 15-minute consultation': 'Reservar una consulta gratuita de 15 minutos',
+    'Legal English · Russian for Lawyers': 'Inglés jurídico · Ruso para juristas',
+    'Legal English and': 'Inglés jurídico y',
+    'Russian for Lawyers': 'Ruso para juristas',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Clases individuales para juristas, investigadores y profesionales que necesitan un lenguaje jurídico preciso.',
+    'Taught by Dr. Iliana Valiullina, international law scholar and language teacher.': 'Impartidas por la Dra. Iliana Valiullina, académica de derecho internacional y profesora de idiomas.',
+    'Research, publications, and university teaching are on the ': 'La investigación, las publicaciones y la docencia universitaria están en el ',
+    'academic profile': 'perfil académico',
+    'Academic': 'Perfil',
+    'Full academic profile': 'Perfil académico completo',
+    'PUBLIC PRICES': 'PRECIOS PÚBLICOS',
+    'Legal English and Russian for Lawyers are $120 per 60-minute lesson. Academic English is $90. General Russian is $60. Package prices are listed on the language lessons page.': 'El inglés jurídico y el ruso para juristas cuestan 120 $ por clase de 60 minutos. El inglés académico cuesta 90 $. El ruso general cuesta 60 $. Los paquetes aparecen en la página de clases de idiomas.',
+    'I am an international law scholar and language teacher specializing in international public law, human rights, and the legal regulation of emerging technologies.': 'Soy académica de derecho internacional y profesora de idiomas, especializada en derecho internacional público, derechos humanos y regulación jurídica de tecnologías emergentes.',
+    'I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026).': 'Recientemente concluí un nombramiento como profesora asociada en el Centro Universitario de Brasília (CEUB) (junio de 2025–junio de 2026).',
+    'I hold three doctoral-level qualifications, including a Doctorate in Public International Law and International Relations from the University of Seville (2023, with distinction).': 'Cuento con tres cualificaciones de nivel doctoral, incluido un Doctorado en Derecho Internacional Público y Relaciones Internacionales por la Universidad de Sevilla (2023, con distinción).',
+    'I am an international law scholar and postdoctoral research fellow specializing in international public law, human rights, and the legal regulation of emerging technologies. I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026). I hold': 'Soy académica de derecho internacional e investigadora posdoctoral especializada en derecho internacional público, derechos humanos y regulación jurídica de tecnologías emergentes. Recientemente concluí un nombramiento como profesora asociada en el Centro Universitario de Brasília (CEUB) (junio de 2025–junio de 2026). Cuento con',
+    'In the 2025/26 academic year I taught the following courses at Brasília University Centre (CEUB).': 'En el año académico 2025/26 impartí los siguientes cursos en el Centro Universitario de Brasília (CEUB).',
+    'Speaking / Guest Lecture': 'Conferencia / clase invitada',
+    'Academic Profile • Dr. Iliana Valiullina': 'Perfil académico • Dra. Iliana Valiullina',
+    'ACADEMIC PROFILE': 'PERFIL ACADÉMICO',
+    'LESSONS &amp; PROGRAMMES': 'CLASES Y PROGRAMAS',
+    'Legal language, courses, and academic support': 'Lenguaje jurídico, cursos y apoyo académico',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'El inglés jurídico y el ruso para juristas constituyen la oferta principal de enseñanza. Las clases de idiomas, los programas intensivos, los cursos de derecho ruso y el acompañamiento académico se indican a continuación.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Inglés jurídico, ruso para juristas, inglés académico, lengua profesional y ruso general. Precios públicos en USD.',
+    'View lessons and prices': 'Ver clases y precios',
+    'Language': 'Idioma'
+  },
+  ru: {
+    'Legal English &amp; Russian for Lawyers': 'Юридический английский и русский для юристов',
+    'Language lessons': 'Языковые занятия',
+    'Programmes': 'Интенсивы',
+    'Courses': 'Курсы',
+    'Coaching': 'Сопровождение',
+    'Book a free 15-minute consultation': 'Записаться на бесплатную консультацию 15 минут',
+    'Legal English · Russian for Lawyers': 'Юридический английский · Русский для юристов',
+    'Legal English and': 'Юридический английский и',
+    'Russian for Lawyers': 'Русский для юристов',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'Индивидуальные занятия для юристов, исследователей и специалистов, которым нужен точный юридический язык.',
+    'Taught by Dr. Iliana Valiullina, international law scholar and language teacher.': 'Преподает д-р Иляна Валиуллина, исследователь международного права и преподаватель языков.',
+    'Research, publications, and university teaching are on the ': 'Исследования, публикации и университетское преподавание — в ',
+    'academic profile': 'академическом профиле',
+    'Academic': 'Профиль',
+    'Full academic profile': 'Полный академический профиль',
+    'PUBLIC PRICES': 'ОТКРЫТЫЕ ЦЕНЫ',
+    'Legal English and Russian for Lawyers are $120 per 60-minute lesson. Academic English is $90. General Russian is $60. Package prices are listed on the language lessons page.': 'Юридический английский и русский для юристов — 120 $ за занятие 60 минут. Академический английский — 90 $. Общий русский — 60 $. Пакеты указаны на странице языковых занятий.',
+    'I am an international law scholar and language teacher specializing in international public law, human rights, and the legal regulation of emerging technologies.': 'Я исследователь международного права и преподаватель языков, специализирующийся на международном публичном праве, правах человека и правовом регулировании новых технологий.',
+    'I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026).': 'Недавно я завершила работу в должности доцента в Университетском центре Бразилиа (CEUB) (июнь 2025–июнь 2026).',
+    'I hold three doctoral-level qualifications, including a Doctorate in Public International Law and International Relations from the University of Seville (2023, with distinction).': 'У меня три квалификации докторского уровня, включая докторскую степень по международному публичному праву и международным отношениям Севильского университета (2023, с отличием).',
+    'I am an international law scholar and postdoctoral research fellow specializing in international public law, human rights, and the legal regulation of emerging technologies. I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026). I hold': 'Я исследователь международного права и постдокторант, специализирующийся на международном публичном праве, правах человека и правовом регулировании новых технологий. Недавно я завершила работу в должности доцента в Университетском центре Бразилиа (CEUB) (июнь 2025–июнь 2026). У меня есть',
+    'In the 2025/26 academic year I taught the following courses at Brasília University Centre (CEUB).': 'В 2025/26 учебном году я преподавала следующие курсы в Университетском центре Бразилиа (CEUB).',
+    'Speaking / Guest Lecture': 'Выступление / приглашенная лекция',
+    'Academic Profile • Dr. Iliana Valiullina': 'Академический профиль • Д-р Иляна Валиуллина',
+    'ACADEMIC PROFILE': 'АКАДЕМИЧЕСКИЙ ПРОФИЛЬ',
+    'LESSONS &amp; PROGRAMMES': 'ЗАНЯТИЯ И ПРОГРАММЫ',
+    'Legal language, courses, and academic support': 'Юридический язык, курсы и академическая поддержка',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'Юридический английский и русский для юристов — основное направление преподавания. Языковые занятия, интенсивы, курсы по российскому праву и академическое сопровождение указаны ниже.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'Юридический английский, русский для юристов, академический английский, профессиональный язык и общий русский. Открытые цены в долларах США.',
+    'View lessons and prices': 'Смотреть занятия и цены',
+    'Language': 'Язык'
+  },
+  zh: {
+    'Legal English &amp; Russian for Lawyers': '法律英语与律师俄语',
+    'Language lessons': '语言课程',
+    'Programmes': '项目',
+    'Courses': '课程',
+    'Coaching': '辅导',
+    'Book a free 15-minute consultation': '预约免费 15 分钟咨询',
+    'Legal English · Russian for Lawyers': '法律英语 · 律师俄语',
+    'Legal English and': '法律英语与',
+    'Russian for Lawyers': '律师俄语',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': '面向律师、研究人员和专业人士的一对一课程，注重准确的法律语言。',
+    'Taught by Dr. Iliana Valiullina, international law scholar and language teacher.': '由国际法学者兼语言教师 Iliana Valiullina 博士授课。',
+    'Research, publications, and university teaching are on the ': '研究、出版物与大学教学见',
+    'academic profile': '学术简介',
+    'Academic': '学术',
+    'Full academic profile': '完整学术简介',
+    'PUBLIC PRICES': '公开价格',
+    'Legal English and Russian for Lawyers are $120 per 60-minute lesson. Academic English is $90. General Russian is $60. Package prices are listed on the language lessons page.': '法律英语与律师俄语为每节 60 分钟 120 美元。学术英语为 90 美元。通用俄语为 60 美元。套餐价格见语言课程页面。',
+    'I am an international law scholar and language teacher specializing in international public law, human rights, and the legal regulation of emerging technologies.': '我是国际法学者和语言教师，专注于国际公法、人权以及新兴技术的法律规制。',
+    'I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026).': '我最近结束了在巴西利亚大学中心（CEUB）的副教授任期（2025年6月至2026年6月）。',
+    'I hold three doctoral-level qualifications, including a Doctorate in Public International Law and International Relations from the University of Seville (2023, with distinction).': '我拥有三项博士层级资历，包括塞维利亚大学国际公法与国际关系博士学位（2023，优秀）。',
+    'I am an international law scholar and postdoctoral research fellow specializing in international public law, human rights, and the legal regulation of emerging technologies. I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026). I hold': '我是国际法学者和博士后研究员，专注于国际公法、人权以及新兴技术的法律规制。我最近结束了在巴西利亚大学中心（CEUB）的副教授任期（2025年6月至2026年6月）。我拥有',
+    'In the 2025/26 academic year I taught the following courses at Brasília University Centre (CEUB).': '在 2025/26 学年，我在巴西利亚大学中心（CEUB）教授了以下课程。',
+    'Speaking / Guest Lecture': '演讲 / 客座讲座',
+    'Academic Profile • Dr. Iliana Valiullina': '学术简介 • Iliana Valiullina 博士',
+    'ACADEMIC PROFILE': '学术简介',
+    'LESSONS &amp; PROGRAMMES': '课程与项目',
+    'Legal language, courses, and academic support': '法律语言、课程与学术支持',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': '法律英语与律师俄语是主要教学内容。语言课程、强化项目、俄罗斯法课程与学术辅导见下列说明。',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': '法律英语、律师俄语、学术英语、专业语言与通用俄语。公开美元价格。',
+    'View lessons and prices': '查看课程与价格',
+    'Language': '语言'
+  },
+  ar: {
+    'Legal English &amp; Russian for Lawyers': 'الإنجليزية القانونية والروسية للمحامين',
+    'Language lessons': 'دروس اللغة',
+    'Programmes': 'البرامج',
+    'Courses': 'الدورات',
+    'Coaching': 'الإرشاد',
+    'Book a free 15-minute consultation': 'احجز استشارة مجانية لمدة 15 دقيقة',
+    'Legal English · Russian for Lawyers': 'الإنجليزية القانونية · الروسية للمحامين',
+    'Legal English and': 'الإنجليزية القانونية و',
+    'Russian for Lawyers': 'الروسية للمحامين',
+    'One-to-one lessons for lawyers, researchers, and professionals who need precise legal language.': 'دروس فردية للمحامين والباحثين والمهنيين الذين يحتاجون إلى لغة قانونية دقيقة.',
+    'Taught by Dr. Iliana Valiullina, international law scholar and language teacher.': 'تُدرّسها د. إليانا فاليولينا، باحثة في القانون الدولي ومعلّمة لغات.',
+    'Research, publications, and university teaching are on the ': 'البحث والمنشورات والتدريس الجامعي موجودة في ',
+    'academic profile': 'الملف الأكاديمي',
+    'Academic': 'أكاديمي',
+    'Full academic profile': 'الملف الأكاديمي الكامل',
+    'PUBLIC PRICES': 'أسعار معلنة',
+    'Legal English and Russian for Lawyers are $120 per 60-minute lesson. Academic English is $90. General Russian is $60. Package prices are listed on the language lessons page.': 'الإنجليزية القانونية والروسية للمحامين بسعر 120 دولاراً للدرس الواحد (60 دقيقة). الإنجليزية الأكاديمية 90 دولاراً. الروسية العامة 60 دولاراً. أسعار الباقات على صفحة دروس اللغة.',
+    'I am an international law scholar and language teacher specializing in international public law, human rights, and the legal regulation of emerging technologies.': 'أنا باحثة في القانون الدولي ومعلّمة لغات، متخصصة في القانون الدولي العام وحقوق الإنسان والتنظيم القانوني للتقنيات الناشئة.',
+    'I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026).': 'أنهيت مؤخراً تعييناً كأستاذة مشاركة في مركز جامعة برازيليا (CEUB) (يونيو 2025–يونيو 2026).',
+    'I hold three doctoral-level qualifications, including a Doctorate in Public International Law and International Relations from the University of Seville (2023, with distinction).': 'أحمل ثلاثة مؤهلات على مستوى الدكتوراه، منها دكتوراه في القانون الدولي العام والعلاقات الدولية من جامعة إشبيلية (2023، بامتياز).',
+    'I am an international law scholar and postdoctoral research fellow specializing in international public law, human rights, and the legal regulation of emerging technologies. I recently completed an appointment as Associate Professor at Brasília University Centre (CEUB) (June 2025–June 2026). I hold': 'أنا باحثة في القانون الدولي وباحثة ما بعد الدكتوراه، متخصصة في القانون الدولي العام وحقوق الإنسان والتنظيم القانوني للتقنيات الناشئة. أنهيت مؤخراً تعييناً كأستاذة مشاركة في مركز جامعة برازيليا (CEUB) (يونيو 2025–يونيو 2026). أحمل',
+    'In the 2025/26 academic year I taught the following courses at Brasília University Centre (CEUB).': 'في السنة الأكاديمية 2025/26 درّست المقررات التالية في مركز جامعة برازيليا (CEUB).',
+    'Speaking / Guest Lecture': 'محاضرة / درس ضيف',
+    'Academic Profile • Dr. Iliana Valiullina': 'الملف الأكاديمي • د. إليانا فاليولينا',
+    'ACADEMIC PROFILE': 'الملف الأكاديمي',
+    'LESSONS &amp; PROGRAMMES': 'الدروس والبرامج',
+    'Legal language, courses, and academic support': 'اللغة القانونية والدورات والدعم الأكاديمي',
+    'Legal English and Russian for Lawyers are the principal teaching offer. Language lessons, intensive programmes, Russian law courses, and academic coaching are listed below.': 'الإنجليزية القانونية والروسية للمحامين هما العرض التدريسي الرئيسي. دروس اللغة والبرامج المكثفة ودورات القانون الروسي والإرشاد الأكاديمي مذكورة أدناه.',
+    'Legal English, Russian for Lawyers, Academic English, professional language, and General Russian. Public USD prices.': 'الإنجليزية القانونية، الروسية للمحامين، الإنجليزية الأكاديمية، اللغة المهنية، والروسية العامة. أسعار معلنة بالدولار الأمريكي.',
+    'View lessons and prices': 'عرض الدروس والأسعار',
+    'Language': 'اللغة'
+  }
+};
+
 const runtimeTranslations = {
   fr: {
     'Sending...': 'Envoi...',
@@ -722,22 +890,70 @@ function replaceVisibleText(html, translations) {
   return html;
 }
 
+function makeHreflangRelative(html) {
+  return html.replace(
+    /(<link rel="alternate" hreflang="[^"]+" href=")https:\/\/drilianavaliullina\.com(\/[^"]*")/g,
+    '$1$2'
+  );
+}
+
+function applyRelativeHreflang(html, pagePath) {
+  const links = languageLinksFor(pagePath);
+  const order = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
+  const tags = order
+    .map((code) => `    <link rel="alternate" hreflang="${code}" href="${links[code]}">`)
+    .concat(`    <link rel="alternate" hreflang="x-default" href="${links.en}">`);
+  return html.replace(
+    /(?:    <link rel="alternate" hreflang="[^"]+" href="[^"]+">\n)+/,
+    `${tags.join('\n')}\n`
+  );
+}
+
+function localizeLeadLessonsNav(html, code) {
+  html = html.replace(
+    /href="\/lessons\/"( class="nav-link nav-link-lead)/g,
+    `href="/${code}/lessons/"$1`
+  );
+  html = html.replace(
+    /<a href="\/lessons\/" class="mobile-nav-link py-1 text-\[#0D3B66\] font-semibold">/,
+    `<a href="/${code}/lessons/" class="mobile-nav-link py-1 text-[#0D3B66] font-semibold">`
+  );
+  html = html.replace(
+    /<a href="\/lessons\/" class="mobile-nav-link py-1 text-\[#4B5563\]">/,
+    `<a href="/${code}/lessons/" class="mobile-nav-link py-1 text-[#4B5563]">`
+  );
+  return html;
+}
+
 function localizeLinks(html, code) {
   const servicePaths = [
     'online-intensive-programmes',
     'online-courses-russian-law',
     'language-lessons',
     'academic-coaching',
-    'lessons'
+    'academic'
   ];
   for (const slug of servicePaths) {
-    html = html.replace(new RegExp(`href="/${slug}/"`, 'g'), `href="/${code}/${slug}/"`);
+    html = html.replace(new RegExp(`(<a\\b[^>]*\\bhref=")/${slug}/`, 'g'), `$1/${code}/${slug}/`);
   }
   html = html.replace(/href="#(about|research|teaching|services|publications|contact)"/g, `href="/${code}/#$1"`);
+  html = html.replace(/href="\/#(about|research|teaching|services|publications|contact)"/g, `href="/${code}/#$1"`);
   return html;
 }
 
-function updateLanguageSwitcher(html, current) {
+function languageLinksFor(pagePath) {
+  const suffix = pagePath === '/' ? '/' : pagePath;
+  return {
+    en: suffix,
+    ar: suffix === '/' ? '/ar/' : `/ar${suffix}`,
+    zh: suffix === '/' ? '/zh/' : `/zh${suffix}`,
+    fr: suffix === '/' ? '/fr/' : `/fr${suffix}`,
+    ru: suffix === '/' ? '/ru/' : `/ru${suffix}`,
+    es: suffix === '/' ? '/es/' : `/es${suffix}`
+  };
+}
+
+function updateLanguageSwitcher(html, current, pagePath = '/') {
   const labels = {
     en: 'EN · English',
     ar: 'AR · العربية',
@@ -746,18 +962,14 @@ function updateLanguageSwitcher(html, current) {
     ru: 'RU · Русский',
     es: 'ES · Español'
   };
-  const links = {
-    en: '/',
-    ar: '/ar/',
-    zh: '/zh/',
-    fr: '/fr/',
-    ru: '/ru/',
-    es: '/es/'
-  };
-  for (const [code, label] of Object.entries(labels)) {
-    const href = links[code];
-    html = html.replace(new RegExp(`<a href="[^"]*" class="block rounded-2xl px-4 py-2\\.5 hover:bg\\[#FAF9F6\\] text-\\[#0D3B66\\] font-semibold">${code.toUpperCase()}[^<]*</a>`, 'g'), `<a href="${href}" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">${label}</a>`);
-  }
+  const links = languageLinksFor(pagePath);
+  const inner = Object.entries(labels)
+    .map(([code, label]) => `                            <a href="${links[code]}" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">${label}</a>`)
+    .join('\n');
+  html = html.replace(
+    /(<div class="w-44 rounded-3xl border border-\[#E5E2D9\] bg-white shadow-md p-3 text-sm">)[\s\S]*?(<\/div>)/,
+    `$1\n${inner}\n                        $2`
+  );
   html = html.replace(/aria-label="Choose website language">EN/g, `aria-label="Choose website language">${current}`);
   return html;
 }
@@ -775,14 +987,70 @@ for (const [code, cfg] of Object.entries(languages)) {
   html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${cfg.locale}">`);
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${cfg.title}">`);
   html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${cfg.meta}">`);
+  html = makeHreflangRelative(html);
+  html = applyRelativeHreflang(html, '/');
   html = localizeLinks(html, code);
+  html = localizeLeadLessonsNav(html, code);
   html = updateLanguageSwitcher(html, cfg.button);
 
-  html = replaceVisibleText(html, { ...cfg.translations, ...runtimeTranslations[code] });
+  html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
   html = html.replace(/aria-label="Choose website language"/g, `aria-label="${runtimeTranslations[code]['Choose website language']}"`);
   html = html.replace(/aria-label="Switch to dark mode"/g, `aria-label="${runtimeTranslations[code]['Switch to dark mode']}"`);
   html = html.replace(/aria-label', isDark \? 'Switch to light mode' : 'Switch to dark mode'/g, `aria-label', isDark ? '${runtimeTranslations[code]['Switch to light mode']}' : '${runtimeTranslations[code]['Switch to dark mode']}'`);
 
   fs.mkdirSync(path.join(root, 'public', code), { recursive: true });
   fs.writeFileSync(path.join(root, 'public', code, 'index.html'), html);
+}
+
+const academicEnglish = fs.readFileSync(path.join(root, 'public', 'academic', 'index.html'), 'utf8');
+const academicMeta = {
+  fr: {
+    title: 'Profil académique • Dr Iliana Valiullina',
+    meta: 'Profil académique de Dr Iliana Valiullina : recherche, enseignement universitaire en 2025/26 et publications.'
+  },
+  es: {
+    title: 'Perfil académico • Dra. Iliana Valiullina',
+    meta: 'Perfil académico de la Dra. Iliana Valiullina: investigación, docencia universitaria en 2025/26 y publicaciones.'
+  },
+  ru: {
+    title: 'Академический профиль • Д-р Иляна Валиуллина',
+    meta: 'Академический профиль д-ра Иляны Валиуллиной: исследования, университетское преподавание в 2025/26 и публикации.'
+  },
+  zh: {
+    title: '学术简介 • Iliana Valiullina 博士',
+    meta: 'Iliana Valiullina 博士的学术简介：研究、2025/26 学年大学教学与出版物。'
+  },
+  ar: {
+    title: 'الملف الأكاديمي • د. إليانا فاليولينا',
+    meta: 'الملف الأكاديمي لد. إليانا فاليولينا: البحث والتدريس الجامعي في 2025/26 والمنشورات.'
+  }
+};
+
+for (const [code, cfg] of Object.entries(languages)) {
+  let html = academicEnglish;
+  const pageMeta = academicMeta[code];
+  html = html.replace('<html lang="en">', `<html lang="${cfg.lang}" dir="${cfg.dir}">`);
+  html = html.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${pageMeta.meta}">`);
+  html = html.replace(/<link rel="canonical" href="https:\/\/drilianavaliullina.com\/academic\/">/, `<link rel="canonical" href="https://drilianavaliullina.com/${code}/academic/">`);
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${pageMeta.title}</title>`);
+  html = html.replace(/<meta property="og:site_name" content="[^"]*">/, `<meta property="og:site_name" content="${cfg.siteName}">`);
+  html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${pageMeta.title}">`);
+  html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${pageMeta.meta}">`);
+  html = html.replace(/<meta property="og:url" content="https:\/\/drilianavaliullina.com\/academic\/">/, `<meta property="og:url" content="https://drilianavaliullina.com/${code}/academic/">`);
+  html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${cfg.locale}">`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${pageMeta.title}">`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${pageMeta.meta}">`);
+  html = html.replace(/<a href="\/"/g, `<a href="/${code}/"`);
+  html = makeHreflangRelative(html);
+  html = applyRelativeHreflang(html, '/academic/');
+  html = localizeLinks(html, code);
+  html = localizeLeadLessonsNav(html, code);
+  html = updateLanguageSwitcher(html, cfg.button, '/academic/');
+  html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
+  html = html.replace(/aria-label="Choose website language"/g, `aria-label="${runtimeTranslations[code]['Choose website language']}"`);
+  html = html.replace(/aria-label="Switch to dark mode"/g, `aria-label="${runtimeTranslations[code]['Switch to dark mode']}"`);
+  html = html.replace(/aria-label', isDark \? 'Switch to light mode' : 'Switch to dark mode'/g, `aria-label', isDark ? '${runtimeTranslations[code]['Switch to light mode']}' : '${runtimeTranslations[code]['Switch to dark mode']}'`);
+
+  fs.mkdirSync(path.join(root, 'public', code, 'academic'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'public', code, 'academic', 'index.html'), html);
 }
