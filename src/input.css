@@ -38,8 +38,10 @@ body {
 .nav-link-lead {
   display: inline-block;
   white-space: normal;
-  max-width: 12.75rem;
+  max-width: 10.25rem;
+  min-width: 9.5rem;
   line-height: 1.35;
+  flex-shrink: 0;
   text-wrap: balance;
 }
 
