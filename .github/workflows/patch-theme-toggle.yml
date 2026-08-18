@@ -1,0 +1,41 @@
+name: Patch theme toggle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/theme-toggle-style]
+    paths:
+      - 'scripts/patch-theme-toggle.sh'
+      - '.github/workflows/patch-theme-toggle.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/theme-toggle-style
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Apply CSS patch and rebuild
+        run: bash scripts/patch-theme-toggle.sh
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/input.css public/css/site.css
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "fix: match theme toggle shape and border to EN control"
+            git push origin fix/theme-toggle-style
+          fi
