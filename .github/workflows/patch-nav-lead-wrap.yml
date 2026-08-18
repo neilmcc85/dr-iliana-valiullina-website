@@ -1,0 +1,41 @@
+name: Patch nav lead wrap
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/nav-lead-wrap]
+    paths:
+      - 'scripts/patch-nav-lead-wrap.sh'
+      - '.github/workflows/patch-nav-lead-wrap.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/nav-lead-wrap
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Apply CSS patch and rebuild
+        run: bash scripts/patch-nav-lead-wrap.sh
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/input.css public/css/site.css
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "fix: prevent Legal English nav lead from crushing to one word per line"
+            git push origin fix/nav-lead-wrap
+          fi
