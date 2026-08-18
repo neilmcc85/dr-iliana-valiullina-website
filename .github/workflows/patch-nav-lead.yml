@@ -1,0 +1,42 @@
+name: Patch nav lead CSS
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/nav-lead-spacing]
+    paths:
+      - 'scripts/patch-nav-lead.sh'
+      - '.github/workflows/patch-nav-lead.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/nav-lead-spacing
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Restore input.css from main and apply nav fix
+        run: bash scripts/patch-nav-lead.sh
+
+      - name: Commit CSS if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/input.css public/css/site.css
+          if git diff --staged --quiet; then
+            echo "No CSS changes"
+          else
+            git commit -m "fix: ease cramped nav lead label (Legal English & Russian for Lawyers)"
+            git push origin fix/nav-lead-spacing
+          fi
