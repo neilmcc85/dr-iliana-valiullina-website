@@ -55,3 +55,423 @@ body {
 .nav-link:hover {
   color: #0D3B66;
 }
+
+.academic-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.academic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+}
+
+.navy-text {
+  color: #0D3B66;
+}
+
+.gold-accent {
+  color: #C2A34F;
+}
+
+.btn-primary {
+  background-color: #0D3B66;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  background-color: #0A2F52;
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background-color: #C2A34F;
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+  background-color: #A98432;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1px solid #0D3B66;
+  color: #0D3B66;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-outline:hover {
+  background-color: #0D3B66;
+  color: white;
+}
+
+.theme-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 1;
+}
+
+@media (min-width: 1280px) and (max-width: 1540px) {
+  html[lang="ru"] nav .nav-primary {
+    column-gap: 0.85rem;
+  }
+
+  html[lang="ru"] nav .nav-link {
+    font-size: 0.75rem;
+  }
+
+  html[lang="ru"] nav .nav-link-lead {
+    max-width: 12rem;
+  }
+}
+
+.elegant-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E5E2D9, transparent);
+}
+
+.publication-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.publication-item:hover {
+  background-color: #FAF9F6;
+}
+
+.service-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expertise-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.academic-card:hover .expertise-icon {
+  transform: scale(1.05);
+}
+
+.nav-active {
+  color: #0D3B66;
+  font-weight: 500;
+}
+
+.minimal-shadow {
+  box-shadow: 0 10px 15px -3px rgb(13 59 102 / 0.05), 0 4px 6px -4px rgb(13 59 102 / 0.05);
+}
+
+.prose-academic {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.form-input {
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #0D3B66;
+  box-shadow: 0 0 0 3px rgba(13, 59, 102, 0.08);
+  outline: none;
+}
+
+.gold-underline {
+  position: relative;
+}
+
+.gold-underline:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 42px;
+  height: 1.5px;
+  background-color: #C2A34F;
+}
+
+.section {
+  scroll-margin-top: 80px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 16px;
+  z-index: 100;
+  background: #0D3B66;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid #C2A34F;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.icon-xs {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.icon-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.icon-lg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.icon-xl {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-2xl {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-3xl {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(184, 151, 120, 0.75);
+  outline-offset: 3px;
+}
+
+html[data-theme="dark"] body {
+  background-color: #081827;
+  color: #E8EEF5;
+}
+
+html[data-theme="dark"] .bg-\[\#FAF9F6\],
+html[data-theme="dark"] .bg-\[\#FAF9F6\]\/95,
+html[data-theme="dark"] .bg-\[\#F8F7F4\] {
+  background-color: #081827 !important;
+}
+
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .bg-white\/90,
+html[data-theme="dark"] .hover\:bg-white:hover,
+html[data-theme="dark"] .hover\:bg-white\/80:hover {
+  background-color: #102337 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#E5E2D9\],
+html[data-theme="dark"] .hover\:bg-\[\#F1EDE4\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#FAF9F6\]:hover {
+  background-color: #183047 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#0D3B66\] {
+  background-color: #123F68 !important;
+}
+
+html[data-theme="dark"] .bg-\[\#0D3B66\]\/5,
+html[data-theme="dark"] .bg-\[\#0D3B66\]\/10 {
+  background-color: rgba(215, 177, 139, 0.12) !important;
+}
+
+html[data-theme="dark"] .bg-\[\#C2A34F\],
+html[data-theme="dark"] .btn-gold {
+  background-color: #C2A34F !important;
+}
+
+html[data-theme="dark"] .bg-\[\#C2A34F\]\/10 {
+  background-color: rgba(184, 151, 120, 0.16) !important;
+}
+
+html[data-theme="dark"] .text-\[\#0D3B66\],
+html[data-theme="dark"] .navy-text,
+html[data-theme="dark"] .nav-active {
+  color: #EED389 !important;
+}
+
+html[data-theme="dark"] .text-\[\#2D3748\],
+html[data-theme="dark"] .text-\[\#374151\],
+html[data-theme="dark"] .text-\[\#4B5563\],
+html[data-theme="dark"] .prose-academic {
+  color: #D8E2EC !important;
+}
+
+html[data-theme="dark"] .text-\[\#6B7280\],
+html[data-theme="dark"] .text-\[\#0D3B66\]\/60 {
+  color: #AAB7C4 !important;
+}
+
+html[data-theme="dark"] .text-\[\#C2A34F\],
+html[data-theme="dark"] .gold-accent {
+  color: #E4C56F !important;
+}
+
+html[data-theme="dark"] .text-white,
+html[data-theme="dark"] .text-white\/80 {
+  color: #F7F1EA !important;
+}
+
+html[data-theme="dark"] .text-white\/70 {
+  color: rgba(247, 241, 234, 0.74) !important;
+}
+
+html[data-theme="dark"] .border-\[\#E5E2D9\],
+html[data-theme="dark"] .border-\[\#D1D5DB\],
+html[data-theme="dark"] .border-white,
+html[data-theme="dark"] .hover\:border-\[\#E5E2D9\]:hover {
+  border-color: #263B50 !important;
+}
+
+html[data-theme="dark"] .border-\[\#0D3B66\],
+html[data-theme="dark"] .btn-outline {
+  border-color: #E4C56F !important;
+}
+
+html[data-theme="dark"] .btn-primary {
+  background-color: #E4C56F !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .hover\:bg-\[\#0A2F52\]:hover,
+html[data-theme="dark"] .hover\:bg-\[\#0D3B66\]:hover {
+  background-color: #D3AD52 !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .btn-outline {
+  color: #EED389 !important;
+}
+
+html[data-theme="dark"] .btn-outline:hover,
+html[data-theme="dark"] .hover\:text-white:hover {
+  background-color: #E4C56F !important;
+  color: #081827 !important;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background-color: #102337;
+  border-color: #E4C56F !important;
+  color: #EED389 !important;
+}
+
+html[data-theme="dark"] .form-input,
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: #102337;
+  color: #E8EEF5;
+}
+
+html[data-theme="dark"] .placeholder\:text-\[\#9CA3AF\]::placeholder {
+  color: #8FA0B2 !important;
+}
+
+html[data-theme="dark"] .elegant-divider {
+  background: linear-gradient(to right, transparent, #263B50, transparent);
+}
+
+html[data-theme="dark"] .academic-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .minimal-shadow {
+  box-shadow: 0 18px 35px -18px rgba(0, 0, 0, 0.75);
+}
+
+html[data-theme="dark"] img {
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.booking-picker-shell {
+  display: flex;
+  flex-direction: column;
+}
+
+.lessons-landing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .booking-picker-shell {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .booking-picker-nav {
+    width: 18rem;
+    max-width: 20rem;
+    flex-shrink: 0;
+    border-bottom: 0;
+    border-right: 1px solid #E5E2D9;
+  }
+
+  .booking-picker-calendar {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lessons-landing-grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .lessons-landing-intro {
+    width: 16.5rem;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+
+  .lessons-landing-booking {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
