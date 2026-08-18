@@ -36,9 +36,20 @@ body {
 }
 
 .nav-link-lead {
+  display: inline-block;
   white-space: normal;
-  max-width: 11.5rem;
-  line-height: 1.25;
+  max-width: 12.75rem;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+/* Keep brand and primary links from colliding at xl */
+@media (min-width: 1280px) {
+  nav .nav-primary {
+    margin-left: 0.75rem;
+    margin-right: 0.5rem;
+    column-gap: 1.15rem;
+  }
 }
 
 .nav-link:hover {
@@ -110,7 +121,7 @@ body {
   }
 
   html[lang="ru"] nav .nav-link-lead {
-    max-width: 10.5rem;
+    max-width: 12rem;
   }
 }
 
