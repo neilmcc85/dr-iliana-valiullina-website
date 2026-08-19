@@ -27,16 +27,16 @@ Durable project facts and rules for agents and maintainers. Public repository; n
 
 Current 60-minute lesson prices (USD):
 
-- Legal English: $120
-- Academic English: $90
-- Professional language: $90
+- Legal English: $100
+- Academic English: $85
+- Professional language: $80
 - Academic coaching: $150
 - General Russian: $60
 - Russian for Business: $90
 - Russian for Lawyers: $120
 - Russian Legal Terminology: $150
 
-Preserve existing package prices and published programme “from” prices exactly as published on the site. Do not invent testimonials, clients, reviews, student counts, outcomes, credentials, or prices.
+English 5-lesson packages that exist on Cal.com: Legal English $440, Academic English $390, professional language $360. Leave other package prices and programme “from” prices as published unless they are tied to a live Cal.com event. Do not invent testimonials, clients, reviews, student counts, outcomes, credentials, or prices.
 
 ## Content & claims rules
 
