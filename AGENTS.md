@@ -14,7 +14,7 @@ Durable project facts and rules for agents and maintainers. Public repository; n
 ## Key routes (English)
 
 - `/` — commercial homepage (Legal English & Russian for Lawyers first)
-- `/lessons/` — booking page (Cal.com free 15-min consultation + lesson types)
+- `/lessons/` — booking page (Cal.com free 15-min consultation calendar only; paid events from `/language-lessons/`)
 - `/language-lessons/` — full public USD price list and lesson descriptions
 - `/online-intensive-programmes/` — intensive programmes
 - `/online-courses-russian-law/` — Russian-law courses

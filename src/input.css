@@ -450,35 +450,10 @@ html[data-theme="dark"] img {
   filter: saturate(0.95) contrast(1.02);
 }
 
-.booking-picker-shell {
-  display: flex;
-  flex-direction: column;
-}
-
 .lessons-landing-grid {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-}
-
-@media (min-width: 768px) {
-  .booking-picker-shell {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .booking-picker-nav {
-    width: 18rem;
-    max-width: 20rem;
-    flex-shrink: 0;
-    border-bottom: 0;
-    border-right: 1px solid #E5E2D9;
-  }
-
-  .booking-picker-calendar {
-    flex: 1 1 0%;
-    min-width: 0;
-  }
 }
 
 @media (min-width: 1024px) {
