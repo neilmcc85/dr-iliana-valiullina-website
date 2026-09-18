@@ -45,6 +45,30 @@ body {
   text-wrap: balance;
 }
 
+.nav-secondary {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  column-gap: 0.85rem;
+}
+
+.nav-link-secondary {
+  color: #6B7280;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.nav-link-secondary:hover {
+  color: #0D3B66;
+}
+
+.mobile-nav-secondary {
+  border-left: 1px solid #E5E2D9;
+  margin-left: 0.15rem;
+  padding-left: 0.85rem;
+}
+
 /* Even horizontal spacing: brand | centered links | CTA */
 @media (min-width: 1280px) {
   nav[aria-label="Main navigation"] > .max-w-7xl > .flex {
@@ -56,7 +80,11 @@ body {
     justify-content: center;
     margin-left: 1.25rem;
     margin-right: 1.25rem;
-    column-gap: 1.35rem;
+    column-gap: 1.5rem;
+  }
+
+  nav .nav-secondary {
+    column-gap: 0.85rem;
   }
 
   /* Name stays on one line; logo+name block does not shrink */
@@ -353,6 +381,14 @@ html[data-theme="dark"] .nav-active {
   color: #EED389 !important;
 }
 
+html[data-theme="dark"] .nav-link-secondary {
+  color: #AAB7C4;
+}
+
+html[data-theme="dark"] .nav-link-secondary:hover {
+  color: #EED389;
+}
+
 html[data-theme="dark"] .text-\[\#2D3748\],
 html[data-theme="dark"] .text-\[\#374151\],
 html[data-theme="dark"] .text-\[\#4B5563\],
@@ -448,6 +484,84 @@ html[data-theme="dark"] .minimal-shadow {
 
 html[data-theme="dark"] img {
   filter: saturate(0.95) contrast(1.02);
+}
+
+.lesson-chips-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.lesson-chips-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lesson-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #E5E2D9;
+  background-color: #ffffff;
+  color: #6B7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lesson-chip:hover {
+  border-color: #C2A34F;
+  color: #0D3B66;
+  background-color: #FAF9F6;
+}
+
+.lesson-chip-featured {
+  background-color: #0D3B66;
+  border-color: #0D3B66;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.55rem 0.95rem;
+}
+
+.lesson-chip-featured:hover {
+  background-color: #0A2F52;
+  border-color: #0A2F52;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .lesson-chip {
+  background-color: #102337;
+  border-color: #263B50;
+  color: #AAB7C4;
+}
+
+html[data-theme="dark"] .lesson-chip:hover {
+  border-color: #E4C56F;
+  color: #EED389;
+  background-color: #183047;
+}
+
+html[data-theme="dark"] .lesson-chip-featured {
+  background-color: #E4C56F;
+  border-color: #E4C56F;
+  color: #081827;
+}
+
+html[data-theme="dark"] .lesson-chip-featured:hover {
+  background-color: #D3AD52;
+  border-color: #D3AD52;
+  color: #081827;
+}
+
+html[data-theme="dark"] .mobile-nav-secondary {
+  border-left-color: #263B50;
 }
 
 .lessons-landing-grid {
