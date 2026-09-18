@@ -633,6 +633,15 @@ const leadCopy = {
     'Courses': 'Cours',
     'Coaching': 'Accompagnement',
     'Book a free 15-minute consultation': 'Réserver une consultation gratuite de 15 minutes',
+    'Book a free 15-minute consult': 'Consultation gratuite de 15 min',
+    'More pages': 'Autres pages',
+    'Public lesson prices': 'Tarifs publics des cours',
+    'Russian for Lawyers · from $120/60min': 'Russe pour juristes · dès 120 $/60 min',
+    'Legal English $100/60min': 'Anglais juridique 100 $/60 min',
+    'Academic English $85': 'Anglais académique 85 $',
+    'Professional language $80': 'Langue professionnelle 80 $',
+    'Business Russian $90': 'Russe des affaires 90 $',
+    'General Russian $60': 'Russe général 60 $',
     'Legal English · Russian for Lawyers': 'Anglais juridique · Russe pour juristes',
     'Legal English and': 'Anglais juridique et',
     'Russian for Lawyers': 'Russe pour juristes',
@@ -666,6 +675,15 @@ const leadCopy = {
     'Courses': 'Cursos',
     'Coaching': 'Acompañamiento',
     'Book a free 15-minute consultation': 'Reservar una consulta gratuita de 15 minutos',
+    'Book a free 15-minute consult': 'Consulta gratuita de 15 min',
+    'More pages': 'Más páginas',
+    'Public lesson prices': 'Precios públicos de las clases',
+    'Russian for Lawyers · from $120/60min': 'Ruso para juristas · desde 120 $/60 min',
+    'Legal English $100/60min': 'Inglés jurídico 100 $/60 min',
+    'Academic English $85': 'Inglés académico 85 $',
+    'Professional language $80': 'Lengua profesional 80 $',
+    'Business Russian $90': 'Ruso para negocios 90 $',
+    'General Russian $60': 'Ruso general 60 $',
     'Legal English · Russian for Lawyers': 'Inglés jurídico · Ruso para juristas',
     'Legal English and': 'Inglés jurídico y',
     'Russian for Lawyers': 'Ruso para juristas',
@@ -699,6 +717,15 @@ const leadCopy = {
     'Courses': 'Курсы',
     'Coaching': 'Сопровождение',
     'Book a free 15-minute consultation': 'Записаться на бесплатную консультацию 15 минут',
+    'Book a free 15-minute consult': 'Бесплатная консультация 15 мин',
+    'More pages': 'Другие страницы',
+    'Public lesson prices': 'Открытые цены на занятия',
+    'Russian for Lawyers · from $120/60min': 'Русский для юристов · от 120 $/60 мин',
+    'Legal English $100/60min': 'Юридический английский 100 $/60 мин',
+    'Academic English $85': 'Академический английский 85 $',
+    'Professional language $80': 'Профессиональный язык 80 $',
+    'Business Russian $90': 'Русский для бизнеса 90 $',
+    'General Russian $60': 'Общий русский 60 $',
     'Legal English · Russian for Lawyers': 'Юридический английский · Русский для юристов',
     'Legal English and': 'Юридический английский и',
     'Russian for Lawyers': 'Русский для юристов',
@@ -732,6 +759,15 @@ const leadCopy = {
     'Courses': '课程',
     'Coaching': '辅导',
     'Book a free 15-minute consultation': '预约免费 15 分钟咨询',
+    'Book a free 15-minute consult': '预约免费 15 分钟咨询',
+    'More pages': '更多页面',
+    'Public lesson prices': '公开课程价格',
+    'Russian for Lawyers · from $120/60min': '律师俄语 · 120 美元起/60分钟',
+    'Legal English $100/60min': '法律英语 100 美元/60分钟',
+    'Academic English $85': '学术英语 85 美元',
+    'Professional language $80': '专业语言 80 美元',
+    'Business Russian $90': '商务俄语 90 美元',
+    'General Russian $60': '通用俄语 60 美元',
     'Legal English · Russian for Lawyers': '法律英语 · 律师俄语',
     'Legal English and': '法律英语与',
     'Russian for Lawyers': '律师俄语',
@@ -765,6 +801,15 @@ const leadCopy = {
     'Courses': 'الدورات',
     'Coaching': 'الإرشاد',
     'Book a free 15-minute consultation': 'احجز استشارة مجانية لمدة 15 دقيقة',
+    'Book a free 15-minute consult': 'احجز استشارة مجانية 15 دقيقة',
+    'More pages': 'المزيد من الصفحات',
+    'Public lesson prices': 'أسعار الدروس المعلنة',
+    'Russian for Lawyers · from $120/60min': 'الروسية للمحامين · من 120 $/60 دقيقة',
+    'Legal English $100/60min': 'الإنجليزية القانونية 100 $/60 دقيقة',
+    'Academic English $85': 'الإنجليزية الأكاديمية 85 $',
+    'Professional language $80': 'اللغة المهنية 80 $',
+    'Business Russian $90': 'الروسية للأعمال 90 $',
+    'General Russian $60': 'الروسية العامة 60 $',
     'Legal English · Russian for Lawyers': 'الإنجليزية القانونية · الروسية للمحامين',
     'Legal English and': 'الإنجليزية القانونية و',
     'Russian for Lawyers': 'الروسية للمحامين',
@@ -991,9 +1036,12 @@ for (const [code, cfg] of Object.entries(languages)) {
   html = applyRelativeHreflang(html, '/');
   html = localizeLinks(html, code);
   html = localizeLeadLessonsNav(html, code);
+  html = html.replace(/href="\/lessons\/"/g, `href="/${code}/lessons/"`);
   html = updateLanguageSwitcher(html, cfg.button);
 
   html = replaceVisibleText(html, { ...cfg.translations, ...leadCopy[code], ...runtimeTranslations[code] });
+  html = html.replace(/aria-label="More pages"/g, `aria-label="${leadCopy[code]['More pages']}"`);
+  html = html.replace(/aria-label="Public lesson prices"/g, `aria-label="${leadCopy[code]['Public lesson prices']}"`);
   html = html.replace(/aria-label="Choose website language"/g, `aria-label="${runtimeTranslations[code]['Choose website language']}"`);
   html = html.replace(/aria-label="Switch to dark mode"/g, `aria-label="${runtimeTranslations[code]['Switch to dark mode']}"`);
   html = html.replace(/aria-label', isDark \? 'Switch to light mode' : 'Switch to dark mode'/g, `aria-label', isDark ? '${runtimeTranslations[code]['Switch to light mode']}' : '${runtimeTranslations[code]['Switch to dark mode']}'`);

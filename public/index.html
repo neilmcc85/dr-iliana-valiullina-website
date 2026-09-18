@@ -164,11 +164,13 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden xl:flex items-center gap-x-5 text-[13px] nav-primary">
                     <a href="/lessons/" class="nav-link nav-link-lead text-[#0D3B66] font-semibold">Legal English &amp; Russian for Lawyers</a>
-                    <a href="/language-lessons/" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Language lessons</a>
-                    <a href="/online-intensive-programmes/" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Programmes</a>
-                    <a href="/online-courses-russian-law/" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Courses</a>
-                    <a href="/academic-coaching/" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Coaching</a>
-                    <a href="/academic/" class="nav-link text-[#4B5563] hover:text-[#0D3B66] font-medium">Academic</a>
+                    <div class="nav-secondary" role="group" aria-label="More pages">
+                        <a href="/language-lessons/" class="nav-link nav-link-secondary">Language lessons</a>
+                        <a href="/online-intensive-programmes/" class="nav-link nav-link-secondary">Programmes</a>
+                        <a href="/online-courses-russian-law/" class="nav-link nav-link-secondary">Courses</a>
+                        <a href="/academic-coaching/" class="nav-link nav-link-secondary">Coaching</a>
+                        <a href="/academic/" class="nav-link nav-link-secondary">Academic</a>
+                    </div>
                 </div>
 
                 <!-- CTA Button -->
@@ -176,7 +178,7 @@
                     <a href="/lessons/"
                        class="px-5 py-2.5 text-sm font-semibold rounded-2xl text-white btn-primary flex items-center gap-x-2 shadow-sm">
                         <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
-                        <span>Book a free 15-minute consultation</span>
+                        <span>Book a free 15-minute consult</span>
                     </a>
                 </div>
 
@@ -211,11 +213,13 @@
         <div id="mobile-menu" class="hidden xl:hidden border-t border-[#E5E2D9] bg-[#FAF9F6]">
             <div class="px-6 py-8 flex flex-col gap-y-5 text-base">
                 <a href="/lessons/" class="mobile-nav-link py-1 text-[#0D3B66] font-semibold">Legal English &amp; Russian for Lawyers</a>
-                <a href="/language-lessons/" class="mobile-nav-link py-1 text-[#4B5563]">Language lessons</a>
-                <a href="/online-intensive-programmes/" class="mobile-nav-link py-1 text-[#4B5563]">Programmes</a>
-                <a href="/online-courses-russian-law/" class="mobile-nav-link py-1 text-[#4B5563]">Courses</a>
-                <a href="/academic-coaching/" class="mobile-nav-link py-1 text-[#4B5563]">Coaching</a>
-                <a href="/academic/" class="mobile-nav-link py-1 text-[#4B5563]">Academic</a>
+                <div class="mobile-nav-secondary flex flex-col gap-y-3 text-sm" role="group" aria-label="More pages">
+                    <a href="/language-lessons/" class="mobile-nav-link py-1 text-[#6B7280]">Language lessons</a>
+                    <a href="/online-intensive-programmes/" class="mobile-nav-link py-1 text-[#6B7280]">Programmes</a>
+                    <a href="/online-courses-russian-law/" class="mobile-nav-link py-1 text-[#6B7280]">Courses</a>
+                    <a href="/academic-coaching/" class="mobile-nav-link py-1 text-[#6B7280]">Coaching</a>
+                    <a href="/academic/" class="mobile-nav-link py-1 text-[#6B7280]">Academic</a>
+                </div>
                 <div class="pt-4 border-t border-[#E5E2D9] flex flex-col gap-y-5">
                     <a href="#contact" class="mobile-nav-link py-1 text-[#4B5563]">Contact</a>
                 </div>
@@ -235,7 +239,7 @@
                     <a href="mailto:contact@drilianavaliullina.com" class="w-full text-center py-3 text-sm font-semibold rounded-2xl border border-[#0D3B66] text-[#0D3B66]">contact@drilianavaliullina.com</a>
                     <a href="/lessons/" class="w-full text-center py-3 text-sm font-semibold rounded-2xl bg-[#0D3B66] text-white flex items-center justify-center gap-x-2">
                         <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
-                        <span>Book a free 15-minute consultation</span>
+                        <span>Book a free 15-minute consult</span>
                     </a>
                 </div>
             </div>
@@ -270,7 +274,7 @@
                         <a href="/lessons/" 
                            class="inline-flex items-center justify-center gap-x-3 px-8 py-4 text-base font-semibold rounded-3xl text-white btn-primary shadow-sm">
                             <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-calendar-check"/></svg>
-                            <span>Book a free 15-minute consultation</span>
+                            <span>Book a free 15-minute consult</span>
                         </a>
                     </div>
 
@@ -316,6 +320,17 @@
             </div>
         </div>
     </header>
+
+    <div class="lesson-chips-band max-w-7xl mx-auto px-6 pb-10 md:pb-12" aria-label="Public lesson prices">
+        <a href="/lessons/" class="lesson-chip lesson-chip-featured">Russian for Lawyers · from $120/60min</a>
+        <div class="lesson-chips-secondary">
+            <a href="/lessons/" class="lesson-chip">Legal English $100/60min</a>
+            <a href="/lessons/" class="lesson-chip">Academic English $85</a>
+            <a href="/lessons/" class="lesson-chip">Professional language $80</a>
+            <a href="/lessons/" class="lesson-chip">Business Russian $90</a>
+            <a href="/lessons/" class="lesson-chip">General Russian $60</a>
+        </div>
+    </div>
 
     <!-- Services Overview -->
     <section id="services" class="section max-w-7xl mx-auto px-6 py-16 md:py-20 bg-white border-t border-[#E5E2D9]">

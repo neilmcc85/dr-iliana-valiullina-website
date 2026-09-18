@@ -89,6 +89,15 @@ assert(home.includes('Legal English is $100 per 60-minute lesson'), 'public/inde
 assert(home.includes('Academic English is $85'), 'public/index.html: homepage must show Academic English $85');
 assert(home.includes('Professional language is $80'), 'public/index.html: homepage must show Professional language $80');
 assert(home.includes('Russian for Lawyers is $120'), 'public/index.html: homepage must keep Russian for Lawyers $120');
+assert(home.includes('Book a free 15-minute consult'), 'public/index.html: primary CTA should use the shorter consult label');
+assert((home.match(/<header[\s\S]*?btn-primary[\s\S]*?<\/header>/) || []).length === 1, 'public/index.html: hero should keep one primary CTA');
+assert(home.includes('Russian for Lawyers · from $120/60min'), 'public/index.html: featured chip must use listed Russian for Lawyers price');
+assert(home.includes('Legal English $100/60min'), 'public/index.html: Legal English chip must be $100');
+assert(home.includes('Academic English $85'), 'public/index.html: Academic English chip must be $85');
+assert(home.includes('Professional language $80'), 'public/index.html: Professional language chip must be $80');
+assert(home.includes('Business Russian $90'), 'public/index.html: Business Russian chip must be $90');
+assert(home.includes('General Russian $60'), 'public/index.html: General Russian chip must be $60');
+assert(home.includes('nav-secondary'), 'public/index.html: secondary nav should be visually grouped');
 assert(!home.includes('Legal English and Russian for Lawyers are $120'), 'public/index.html: leftover combined $120 English/Russian price line');
 
 const englishLessonPages = [
