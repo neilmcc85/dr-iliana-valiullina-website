@@ -41,8 +41,22 @@ for (const code of pages) {
     throw new Error(`${file}: lead nav should point to /${code}/lessons/`);
   }
 
-  if (/rel="alternate" hreflang="[^"]+" href="https:\/\/drilianavaliullina\.com/.test(source)) {
-    throw new Error(`${file}: hreflang translations must be relative, not production URLs`);
+  const homeHreflang = [
+    ['en', 'https://drilianavaliullina.com/'],
+    ['ar', 'https://drilianavaliullina.com/ar/'],
+    ['zh', 'https://drilianavaliullina.com/zh/'],
+    ['fr', 'https://drilianavaliullina.com/fr/'],
+    ['ru', 'https://drilianavaliullina.com/ru/'],
+    ['es', 'https://drilianavaliullina.com/es/'],
+    ['x-default', 'https://drilianavaliullina.com/'],
+  ];
+  for (const [lang, href] of homeHreflang) {
+    if (!source.includes(`hreflang="${lang}" href="${href}"`)) {
+      throw new Error(`${file}: hreflang ${lang} must be ${href}`);
+    }
+  }
+  if (/rel="alternate" hreflang="[^"]+" href="\//.test(source)) {
+    throw new Error(`${file}: hreflang hrefs must be absolute https://drilianavaliullina.com URLs`);
   }
 
   if (/<a [^>]*href="https:\/\/drilianavaliullina\.com/.test(source)) {
@@ -81,11 +95,11 @@ for (const code of pages) {
 
   const academicFile = `public/${code}/academic/index.html`;
   const academic = fs.readFileSync(academicFile, 'utf8');
-  if (!academic.includes('hreflang="en" href="/academic/"')) {
-    throw new Error(`${academicFile}: English hreflang must stay /academic/`);
+  if (!academic.includes('hreflang="en" href="https://drilianavaliullina.com/academic/"')) {
+    throw new Error(`${academicFile}: English hreflang must stay https://drilianavaliullina.com/academic/`);
   }
-  if (!academic.includes('hreflang="x-default" href="/academic/"')) {
-    throw new Error(`${academicFile}: x-default hreflang must stay /academic/`);
+  if (!academic.includes('hreflang="x-default" href="https://drilianavaliullina.com/academic/"')) {
+    throw new Error(`${academicFile}: x-default hreflang must stay https://drilianavaliullina.com/academic/`);
   }
   if (!academic.includes('<a href="/academic/" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">EN · English</a>')) {
     throw new Error(`${academicFile}: EN language switcher must stay on /academic/`);
@@ -93,8 +107,8 @@ for (const code of pages) {
   if (!academic.includes(`href="/${code}/lessons/"`)) {
     throw new Error(`${academicFile}: lead nav should point to /${code}/lessons/`);
   }
-  if (/rel="alternate" hreflang="[^"]+" href="https:\/\/drilianavaliullina\.com/.test(academic)) {
-    throw new Error(`${academicFile}: hreflang translations must be relative, not production URLs`);
+  if (/rel="alternate" hreflang="[^"]+" href="\//.test(academic)) {
+    throw new Error(`${academicFile}: hreflang hrefs must be absolute https://drilianavaliullina.com URLs`);
   }
   if (/<a [^>]*href="https:\/\/drilianavaliullina\.com/.test(academic)) {
     throw new Error(`${academicFile}: language/nav links must not point at production`);
