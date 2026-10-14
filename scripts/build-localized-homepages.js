@@ -416,7 +416,6 @@ const shared = {
       'Research &amp; Expertise': '研究与专长',
       'University of Arizona • University of Seville': '亚利桑那大学 • 塞维利亚大学',
       'Dr. Iliana': 'Iliana Valiullina',
-      'Valiullina': '博士',
       'Associate Professor of': '国际法与人权',
       'International Law and Human Rights': '副教授',
       'Bridging International Law, Human Rights, and Emerging Technologies': '连接国际法、人权与新兴技术',
