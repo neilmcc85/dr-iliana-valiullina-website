@@ -7,4 +7,5 @@ directory = "public"
 binding = "ASSETS"
 not_found_handling = "404-page"
 # /404 is a real asset (404.html), so asset-first routing would serve it as 200.
-run_worker_first = ["/404", "/404/", "/404.html"]
+# /api/* must stay on this list so those routes are not swallowed by static routing.
+run_worker_first = ["/404", "/404/", "/404.html", "/api/*"]
