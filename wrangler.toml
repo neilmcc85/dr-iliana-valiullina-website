@@ -6,3 +6,5 @@ compatibility_date = "2026-06-18"
 directory = "public"
 binding = "ASSETS"
 not_found_handling = "404-page"
+# /404 is a real asset (404.html), so asset-first routing would serve it as 200.
+run_worker_first = ["/404", "/404/", "/404.html"]
