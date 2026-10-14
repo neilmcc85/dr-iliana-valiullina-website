@@ -889,10 +889,16 @@ function replaceVisibleText(html, translations) {
   return html;
 }
 
+const HREFLANG_ORIGIN = 'https://drilianavaliullina.com';
+
+function absoluteHreflangHref(path) {
+  return path.startsWith(HREFLANG_ORIGIN) ? path : `${HREFLANG_ORIGIN}${path}`;
+}
+
 function makeHreflangRelative(html) {
   return html.replace(
-    /(<link rel="alternate" hreflang="[^"]+" href=")https:\/\/drilianavaliullina\.com(\/[^"]*")/g,
-    '$1$2'
+    /(<link rel="alternate" hreflang="[^"]+" href=")(\/[^"]*")/g,
+    `$1${HREFLANG_ORIGIN}$2`
   );
 }
 
@@ -900,8 +906,8 @@ function applyRelativeHreflang(html, pagePath) {
   const links = languageLinksFor(pagePath);
   const order = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
   const tags = order
-    .map((code) => `    <link rel="alternate" hreflang="${code}" href="${links[code]}">`)
-    .concat(`    <link rel="alternate" hreflang="x-default" href="${links.en}">`);
+    .map((code) => `    <link rel="alternate" hreflang="${code}" href="${absoluteHreflangHref(links[code])}">`)
+    .concat(`    <link rel="alternate" hreflang="x-default" href="${absoluteHreflangHref(links.en)}">`);
   return html.replace(
     /(?:    <link rel="alternate" hreflang="[^"]+" href="[^"]+">\n)+/,
     `${tags.join('\n')}\n`
