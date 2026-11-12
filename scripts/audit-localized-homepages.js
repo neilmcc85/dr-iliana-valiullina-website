@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const pages = ['ar', 'zh', 'fr', 'ru', 'es'];
-const expected = { sections: 3, h2: 3, h3: 5, forms: 1, fields: 7, cards: 4 };
+const expected = { sections: 3, h2: 4, h3: 5, forms: 1, fields: 7, cards: 4 };
 const count = (source, regex) => (source.match(regex) || []).length;
 const hedge = /lower end of the proposed range|where fixed package prices are ready/;
 
