@@ -38,13 +38,27 @@
         </div>
     `;
 
+    const syncOffset = () => {
+        if (!bar.isConnected) {
+            document.documentElement.style.removeProperty('--cookie-notice-offset');
+            return;
+        }
+        document.documentElement.style.setProperty('--cookie-notice-offset', `${bar.offsetHeight}px`);
+    };
+
     const mount = () => {
         document.body.appendChild(bar);
+        syncOffset();
+        window.addEventListener('resize', syncOffset);
+        if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(syncOffset).observe(bar);
+        }
         document.getElementById('cookie-notice-ack')?.addEventListener('click', () => {
             try {
                 localStorage.setItem(STORAGE_KEY, '1');
             } catch {}
             bar.remove();
+            document.documentElement.style.removeProperty('--cookie-notice-offset');
         });
     };
 

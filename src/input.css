@@ -564,6 +564,12 @@ html[data-theme="dark"] .mobile-nav-secondary {
   border-left-color: #263B50;
 }
 
+/* Keep the open mobile menu above the fixed cookie bar. The bar sets --cookie-notice-offset. */
+#mobile-menu:not(.hidden) {
+  max-height: calc(100dvh - 5rem - var(--cookie-notice-offset, 0px));
+  overflow-y: auto;
+}
+
 .lessons-landing-grid {
   display: flex;
   flex-direction: column;
