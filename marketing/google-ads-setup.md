@@ -56,7 +56,7 @@ Tracking is **free** inside Google Ads (auto-tagging + conversions). No GTM requ
 
 1. Learn Legal & Academic English with an international law professor. Free consultation.
 
-2. Online lessons for lawyers, academics & executives. 3 doctorates, 37+ publications.
+2. Online lessons for lawyers, academics & executives. 2 doctorates, 37+ publications.
 
 3. I tailor every session to your goals — legal writing, articles, presentations & more.
 
@@ -109,7 +109,7 @@ Tracking is **free** inside Google Ads (auto-tagging + conversions). No GTM requ
 - Free 15-minute consultation
 - Online worldwide
 - Law professor
-- 3 doctoral degrees
+- 2 doctoral degrees
 - 37+ publications
 
 **Structured snippet:** Types: Legal English, Academic English, Professional English
