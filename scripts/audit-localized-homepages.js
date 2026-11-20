@@ -34,11 +34,39 @@ for (const code of pages) {
   }
 
   if (source.includes('href="/lessons/"')) {
-    throw new Error(`${file}: booking links should point to /${code}/lessons/`);
+    throw new Error(`${file}: homepage consult CTAs should use /${code}/lessons/, not EN /lessons/`);
   }
 
   if (!source.includes(`href="/${code}/lessons/"`)) {
     throw new Error(`${file}: lead nav should point to /${code}/lessons/`);
+  }
+
+  const heroCta = source.match(/<header[\s\S]*?<\/header>/);
+  if (!heroCta) {
+    throw new Error(`${file}: missing hero header`);
+  }
+  const heroPrimary = [...heroCta[0].matchAll(/<a href="([^"]+)"[^>]*btn-primary/g)].map((match) => match[1]);
+  if (heroPrimary.length !== 1 || heroPrimary[0] !== `/${code}/lessons/`) {
+    throw new Error(`${file}: hero should have one primary CTA to /${code}/lessons/`);
+  }
+
+  if (!source.includes('lesson-chip-featured') || !source.includes('lesson-chips-secondary')) {
+    throw new Error(`${file}: missing featured + secondary lesson chips`);
+  }
+
+  const featuredChip = source.match(/<a href="([^"]+)" class="lesson-chip lesson-chip-featured">/);
+  const featuredHref = 'https://cal.com/iliana-valiullina/russian-for-lawyers?utm_source=site&amp;utm_medium=homepage&amp;utm_campaign=russian-for-lawyers';
+  if (!featuredChip || featuredChip[1] !== featuredHref) {
+    throw new Error(`${file}: featured chip should point to the russian-for-lawyers Cal.com event`);
+  }
+
+  const mobilePrimary = [...source.matchAll(/<a href="([^"]+)" class="w-full text-center py-3 text-sm font-semibold rounded-2xl bg-\[#0D3B66\] text-white/g)].map((match) => match[1]);
+  if (mobilePrimary.length !== 1 || mobilePrimary[0] !== `/${code}/lessons/`) {
+    throw new Error(`${file}: mobile primary CTA should point to /${code}/lessons/`);
+  }
+
+  if (!source.includes('nav-secondary') || !source.includes('mobile-nav-secondary')) {
+    throw new Error(`${file}: secondary nav grouping missing`);
   }
 
   const homeHreflang = [

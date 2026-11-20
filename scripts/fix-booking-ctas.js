@@ -31,8 +31,8 @@ function writeIfChanged(filePath, before, after, label) {
 for (const lang of locales) {
   const homePath = path.join(root, lang, 'index.html');
   const home = fs.readFileSync(homePath, 'utf8');
-  if (!home.includes('href="/lessons/"')) {
-    console.warn('homepage missing /lessons/ CTA:', lang);
+  if (!home.includes(`href="/${lang}/lessons/"`)) {
+    console.warn('homepage missing localized /lessons/ CTA:', lang);
   }
 
   const pages = [
