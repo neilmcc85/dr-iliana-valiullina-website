@@ -71,9 +71,27 @@ export default {
             return handleTelegramWebhook(request, env);
         }
 
+        if (isNotFoundDocument(url.pathname)) {
+            return notFoundDocument(request, env);
+        }
+
         return env.ASSETS.fetch(request);
     }
 };
+
+function isNotFoundDocument(pathname) {
+    return pathname === '/404' || pathname === '/404/' || pathname === '/404.html';
+}
+
+function notFoundDocument(request, env) {
+    // 404.html is a real asset at /404, so a direct fetch would be HTTP 200.
+    // A missing path makes not_found_handling serve that page with HTTP 404.
+    const missing = new URL(request.url);
+    missing.pathname = '/__not-found__';
+    missing.search = '';
+    const method = request.method === 'HEAD' ? 'HEAD' : 'GET';
+    return env.ASSETS.fetch(new Request(missing, { method }));
+}
 
 async function handleContactRequest(request, env) {
     if (request.method !== 'POST') {
