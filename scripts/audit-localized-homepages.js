@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const pages = ['ar', 'zh', 'fr', 'ru', 'es'];
-const expected = { sections: 3, h2: 3, h3: 5, forms: 1, fields: 7, cards: 4 };
+const expected = { sections: 3, h2: 4, h3: 5, forms: 1, fields: 7, cards: 4 };
 const count = (source, regex) => (source.match(regex) || []).length;
 const hedge = /lower end of the proposed range|where fixed package prices are ready/;
 
@@ -33,8 +33,8 @@ for (const code of pages) {
     throw new Error(`${file}: hedge copy still present`);
   }
 
-  if (!source.includes('href="/lessons/"')) {
-    throw new Error(`${file}: booking CTA should point to /lessons/`);
+  if (source.includes('href="/lessons/"')) {
+    throw new Error(`${file}: booking links should point to /${code}/lessons/`);
   }
 
   if (!source.includes(`href="/${code}/lessons/"`)) {
@@ -103,6 +103,9 @@ for (const code of pages) {
   }
   if (!academic.includes('<a href="/academic/" class="block rounded-2xl px-4 py-2.5 hover:bg-[#FAF9F6] text-[#0D3B66] font-semibold">EN · English</a>')) {
     throw new Error(`${academicFile}: EN language switcher must stay on /academic/`);
+  }
+  if (academic.includes('href="/lessons/"')) {
+    throw new Error(`${academicFile}: booking links should point to /${code}/lessons/`);
   }
   if (!academic.includes(`href="/${code}/lessons/"`)) {
     throw new Error(`${academicFile}: lead nav should point to /${code}/lessons/`);
