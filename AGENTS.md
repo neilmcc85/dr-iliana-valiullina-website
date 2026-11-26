@@ -27,7 +27,7 @@ Durable project facts and rules for agents and maintainers. Public repository; n
 
 Current 60-minute lesson prices (USD):
 
-- Legal English: $100
+- Legal English: $75
 - Academic English: $85
 - Professional language: $80
 - Academic coaching: $150
