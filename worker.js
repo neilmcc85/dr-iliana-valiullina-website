@@ -263,8 +263,14 @@ function cleanField(value) {
     return String(value || '').trim().slice(0, MAX_FIELD_LENGTH);
 }
 
+function honeypotValue(payload, key) {
+    return String(payload && payload[key] || '').trim();
+}
+
 function isHoneypotTripped(payload) {
-    return Boolean(String(payload && payload.website || '').trim());
+    // `website` remains for any older client that still posts that field.
+    // The live field is `leave_blank`, which is not an autofill token.
+    return Boolean(honeypotValue(payload, 'leave_blank') || honeypotValue(payload, 'website'));
 }
 
 function isTooFastSubmission(payload, now = Date.now()) {

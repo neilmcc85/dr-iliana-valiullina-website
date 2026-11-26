@@ -57,8 +57,9 @@ for (const testCase of phraseCases) {
   console.log(`${testCase.name}: ${actual ? 'blocked' : 'allowed'}`);
 }
 
-assert(context.isHoneypotTripped({ website: 'http://spam.example' }), 'filled honeypot must trip');
-assert(!context.isHoneypotTripped({ website: '   ' }), 'blank honeypot must not trip');
+assert(context.isHoneypotTripped({ leave_blank: 'filled by a bot' }), 'filled leave_blank honeypot must trip');
+assert(context.isHoneypotTripped({ website: 'http://spam.example' }), 'legacy website honeypot must still trip');
+assert(!context.isHoneypotTripped({ leave_blank: '   ', website: '' }), 'blank honeypot must not trip');
 assert(!context.isHoneypotTripped({}), 'missing honeypot must not trip');
 console.log('honeypot checks: ok');
 
@@ -174,7 +175,7 @@ async function post(payload, headerMap) {
 }
 
 (async () => {
-  const honeypot = await post(legitimatePayload({ website: 'https://spam.example' }));
+  const honeypot = await post(legitimatePayload({ leave_blank: 'https://spam.example' }));
   assert(honeypot.status === 200 && honeypot.body.ok === true, 'honeypot must be a silent success');
   assert(resendCalls.length === 0, 'honeypot must not send email');
 
@@ -237,13 +238,15 @@ async function post(payload, headerMap) {
     'public/ru/index.html',
     'public/es/index.html'
   ];
-  const honeypotMarkup = /<div class="contact-honeypot" aria-hidden="true">\s*<label for="contact-company">Company<\/label>\s*<input type="text" id="contact-company" name="website" tabindex="-1" autocomplete="off">\s*<\/div>/;
+  const honeypotMarkup = /<div class="contact-honeypot" aria-hidden="true">\s*<label for="hp-leave-blank">Leave blank<\/label>\s*<input type="text" id="hp-leave-blank" name="leave_blank" tabindex="-1" autocomplete="off" data-1p-ignore="true" data-lpignore="true" data-bwignore="true">\s*<\/div>/;
   for (const file of homePages) {
     const html = fs.readFileSync(file, 'utf8');
     assert(honeypotMarkup.test(html), `${file}: honeypot must be accessible-hidden with tabindex and autocomplete off`);
     assert(html.includes('const formStartedAt = Date.now();'), `${file}: form timer must start when the form is set up`);
     assert(html.includes('payload.formStartedAt = formStartedAt;'), `${file}: submit payload must include formStartedAt`);
-    assert(!html.includes('name="website" tabindex="-1" autocomplete="off" class="hidden"'), `${file}: honeypot must not use display:none`);
+    assert(!html.includes('name="website"'), `${file}: honeypot must not use an autofill name`);
+    assert(!html.includes('contact-company'), `${file}: honeypot must not use a company id`);
+    assert(!html.includes('>Company<'), `${file}: honeypot must not be labeled Company`);
   }
   console.log('contact form markup: ok');
 
