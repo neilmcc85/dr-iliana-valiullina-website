@@ -1,6 +1,14 @@
 const CONTACT_EMAIL = 'contact@drilianavaliullina.com';
 const FROM_EMAIL = 'Dr. Iliana Valiullina <contact@drilianavaliullina.com>';
 const MAX_FIELD_LENGTH = 2000;
+const MIN_SUBMIT_MS = 3000;
+const MAX_CLOCK_SKEW_MS = 2 * 60 * 1000;
+const MAX_FORM_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+const METADATA_LIMITS = {
+    ip: 64,
+    country: 8,
+    userAgent: 300
+};
 const BLOCKED_EMAILS = [
     'devansh@designapp.in'
 ];
@@ -109,7 +117,11 @@ async function handleContactRequest(request, env) {
         return jsonResponse({ error: 'Invalid request' }, 400);
     }
 
-    if (payload.website) {
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+        return jsonResponse({ error: 'Invalid request' }, 400);
+    }
+
+    if (isHoneypotTripped(payload) || isTooFastSubmission(payload)) {
         return jsonResponse({ ok: true });
     }
 
@@ -133,24 +145,15 @@ async function handleContactRequest(request, env) {
     }
 
     const subject = `Website inquiry: ${inquiryType} from ${fullName}`;
-    const text = [
-        `Name: ${fullName}`,
-        `Email: ${email}`,
-        `Inquiry type: ${inquiryType}`,
-        `Preferred format: ${format}`,
-        '',
-        message
-    ].join('\n');
-
-    const html = `
-        <h2>New website inquiry</h2>
-        <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
-        <p><strong>Preferred format:</strong> ${escapeHtml(format)}</p>
-        <hr>
-        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
-    `;
+    const metadata = readVisitorMetadata(request);
+    const { text, html } = buildInquiryEmail({
+        fullName,
+        email,
+        inquiryType,
+        format,
+        message,
+        metadata
+    });
 
     const resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -258,6 +261,77 @@ async function sendTelegramMessage(token, chatId, text) {
 
 function cleanField(value) {
     return String(value || '').trim().slice(0, MAX_FIELD_LENGTH);
+}
+
+function honeypotValue(payload, key) {
+    return String(payload && payload[key] || '').trim();
+}
+
+function isHoneypotTripped(payload) {
+    // `website` remains for any older client that still posts that field.
+    // The live field is `leave_blank`, which is not an autofill token.
+    return Boolean(honeypotValue(payload, 'leave_blank') || honeypotValue(payload, 'website'));
+}
+
+function isTooFastSubmission(payload, now = Date.now()) {
+    const started = Number(payload && payload.formStartedAt);
+    if (!Number.isFinite(started)) return true;
+    const elapsed = now - started;
+    if (elapsed < -MAX_CLOCK_SKEW_MS || elapsed > MAX_FORM_AGE_MS) return true;
+    if (elapsed >= 0 && elapsed < MIN_SUBMIT_MS) return true;
+    return false;
+}
+
+function sanitizeHeaderValue(value, maxLength) {
+    return String(value == null ? '' : value)
+        .replace(/[\u0000-\u001F\u007F\u2028\u2029]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, maxLength);
+}
+
+function readVisitorMetadata(request) {
+    const headers = request && request.headers;
+    const read = (name) => (headers && typeof headers.get === 'function' ? headers.get(name) : '');
+    return {
+        ip: sanitizeHeaderValue(read('CF-Connecting-IP'), METADATA_LIMITS.ip) || 'unknown',
+        country: sanitizeHeaderValue(read('CF-IPCountry'), METADATA_LIMITS.country) || 'unknown',
+        userAgent: sanitizeHeaderValue(read('User-Agent'), METADATA_LIMITS.userAgent) || 'unknown'
+    };
+}
+
+function buildInquiryEmail({ fullName, email, inquiryType, format, message, metadata }) {
+    const text = [
+        `Name: ${fullName}`,
+        `Email: ${email}`,
+        `Inquiry type: ${inquiryType}`,
+        `Preferred format: ${format}`,
+        '',
+        message,
+        '',
+        '---',
+        'Technical metadata (spam prevention):',
+        `IP: ${metadata.ip}`,
+        `Country: ${metadata.country}`,
+        `User-Agent: ${metadata.userAgent}`
+    ].join('\n');
+
+    const html = `
+        <h2>New website inquiry</h2>
+        <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
+        <p><strong>Preferred format:</strong> ${escapeHtml(format)}</p>
+        <hr>
+        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><strong>Technical metadata (spam prevention)</strong><br>
+        IP: ${escapeHtml(metadata.ip)}<br>
+        Country: ${escapeHtml(metadata.country)}<br>
+        User-Agent: ${escapeHtml(metadata.userAgent)}</p>
+    `;
+
+    return { text, html };
 }
 
 function isValidEmail(value) {

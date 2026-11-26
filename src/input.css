@@ -595,6 +595,20 @@ html[data-theme="dark"] .mobile-nav-secondary {
   }
 }
 
+/* Off-screen honeypot: kept in the DOM (not display:none) so naive bots still fill it. */
+.contact-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -631,7 +631,10 @@
                                     <a href="/privacy/" class="font-semibold text-[#0D3B66] hover:text-[#C2A34F]" onclick="event.stopPropagation()">Privacy Policy</a>.</span>
                             </label>
 
-                            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+                            <div class="contact-honeypot" aria-hidden="true">
+                                <label for="hp-leave-blank">Leave blank</label>
+                                <input type="text" id="hp-leave-blank" name="leave_blank" tabindex="-1" autocomplete="off" data-1p-ignore="true" data-lpignore="true" data-bwignore="true">
+                            </div>
 
                             <button type="submit" 
                                     class="w-full py-[17px] rounded-3xl bg-[#0D3B66] text-white font-semibold text-base tracking-wider transition-all hover:bg-[#0A2F52] flex items-center justify-center gap-x-2">
@@ -753,6 +756,7 @@
             const form = document.getElementById('contact-form');
             const formContainer = document.getElementById('form-container');
             const successMessage = document.getElementById('success-message');
+            const formStartedAt = Date.now();
 
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -761,6 +765,7 @@
                 const originalText = submitBtn.innerHTML;
                 const formData = new FormData(form);
                 const payload = Object.fromEntries(formData.entries());
+                payload.formStartedAt = formStartedAt;
                 
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = `
