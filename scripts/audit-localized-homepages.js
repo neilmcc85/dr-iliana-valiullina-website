@@ -5,6 +5,22 @@ const pages = ['ar', 'zh', 'fr', 'ru', 'es'];
 const expected = { sections: 3, h2: 4, h3: 5, forms: 1, fields: 7, cards: 4 };
 const count = (source, regex) => (source.match(regex) || []).length;
 const hedge = /lower end of the proposed range|where fixed package prices are ready/;
+const lessonPackagePriceCopy = /Package prices are listed on the language lessons page|Les forfaits figurent sur la page des cours de langues|Los paquetes aparecen en la página de clases de idiomas|Пакеты указаны на странице языковых занятий|套餐价格见语言课程页面|أسعار الباقات على صفحة دروس اللغة/;
+const singleLessonNote = {
+  ar: 'الدروس الفردية لمدة 60 دقيقة على صفحة دروس اللغة، وتتوفر استشارة مجانية لمدة 15 دقيقة.',
+  zh: '60 分钟单节课见语言课程页面，并可预约免费 15 分钟咨询。',
+  fr: 'Les leçons individuelles de 60 minutes figurent sur la page des cours de langues, et une consultation gratuite de 15 minutes est disponible.',
+  ru: 'Отдельные занятия по 60 минут указаны на странице языковых занятий, и доступна бесплатная консультация на 15 минут.',
+  es: 'Las clases individuales de 60 minutos aparecen en la página de clases de idiomas, y hay una consulta gratuita de 15 minutos.',
+};
+
+const englishHome = fs.readFileSync('public/index.html', 'utf8');
+if (lessonPackagePriceCopy.test(englishHome)) {
+  throw new Error('public/index.html: lesson package price copy must be removed');
+}
+if (!englishHome.includes('Single 60-minute lessons are listed on the language lessons page, and a free 15-minute consultation is available.')) {
+  throw new Error('public/index.html: public prices must name single lessons and the free consultation');
+}
 
 for (const code of pages) {
   const file = `public/${code}/index.html`;
@@ -31,6 +47,14 @@ for (const code of pages) {
 
   if (hedge.test(source)) {
     throw new Error(`${file}: hedge copy still present`);
+  }
+
+  if (lessonPackagePriceCopy.test(source)) {
+    throw new Error(`${file}: lesson package price copy must be removed`);
+  }
+
+  if (!source.includes(singleLessonNote[code])) {
+    throw new Error(`${file}: public prices must name single lessons and the free consultation`);
   }
 
   if (source.includes('href="/lessons/"')) {
