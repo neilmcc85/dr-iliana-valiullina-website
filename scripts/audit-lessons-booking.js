@@ -1,19 +1,28 @@
 /**
  * /lessons/ embeds only the free consultation.
  * A direct button may link to the $100 / 60-minute Legal English lesson on Cal.com.
- * Other paid Cal.com event types stay reachable from /language-lessons/.
+ * /language-lessons/ lists single 60-minute lessons only. Package events are not linked.
  * English Cal.com event prices must match live Cal.com; Russian/coaching stay as published.
  */
 const fs = require('fs');
 const path = require('path');
 
-const paidEvents = [
+const singleLessonEvents = [
   'legal-english-lesson',
   'academic',
   'language-lesson',
+  'general-russian',
+  'russian-for-business',
+  'russian-for-lawyers',
+  'russian-legal-terminology',
+];
+
+const removedPackageEvents = [
   '5-lesson-legal-english-package',
   '5-lesson-academic-english-package',
   '5-lesson-language-package',
+  '5-lesson-general-russian-package',
+  '5-lesson-legal-russian-package',
 ];
 
 function assert(condition, message) {
@@ -72,7 +81,7 @@ assert(
 );
 
 const prices = fs.readFileSync(path.join('public', 'language-lessons', 'index.html'), 'utf8');
-for (const slug of paidEvents) {
+for (const slug of singleLessonEvents) {
   assert(
     prices.includes(`https://cal.com/iliana-valiullina/${slug}`),
     `public/language-lessons/index.html: missing Cal.com link for ${slug}`
@@ -82,16 +91,13 @@ for (const slug of paidEvents) {
 assert(prices.includes('>Legal English</div>\n                            <div class="mt-2 text-2xl font-semibold">$100</div>'), 'public/language-lessons/index.html: Legal English must be $100');
 assert(prices.includes('>Academic English</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$85</div>'), 'public/language-lessons/index.html: Academic English must be $85');
 assert(prices.includes('>Professional language</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$80</div>'), 'public/language-lessons/index.html: Professional language must be $80');
-assert(prices.includes('LEGAL ENGLISH</div>\n                        <h3 class="mt-3 text-2xl font-semibold">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-white/80">5 lessons</dt><dd class="font-semibold">$440</dd></div>'), 'public/language-lessons/index.html: Legal English 5-pack must be $440');
-const legalEnglishPackages = prices.slice(prices.indexOf('>LEGAL ENGLISH</div>'), prices.indexOf('>ACADEMIC ENGLISH</div>'));
-assert(!legalEnglishPackages.includes('$1,050') && !legalEnglishPackages.includes('>10 lessons</dt>'), 'public/language-lessons/index.html: Legal English must not list a $1,050 10-lesson package');
-assert(prices.includes('ACADEMIC ENGLISH</div>\n                        <h3 class="mt-3 text-2xl font-semibold text-[#0D3B66]">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-[#4B5563]">5 lessons</dt><dd class="font-semibold text-[#0D3B66]">$390</dd></div>'), 'public/language-lessons/index.html: Academic English 5-pack must be $390');
-assert(prices.includes('PROFESSIONAL LANGUAGE</div>\n                        <h3 class="mt-3 text-2xl font-semibold text-[#0D3B66]">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-[#4B5563]">5 lessons</dt><dd class="font-semibold text-[#0D3B66]">$360</dd></div>'), 'public/language-lessons/index.html: Professional language 5-pack must be $360');
-
+assert(prices.includes('>General Russian</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$60</div>'), 'public/language-lessons/index.html: General Russian must be $60');
+assert(prices.includes('>Russian for Business</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$90</div>'), 'public/language-lessons/index.html: Russian for Business must be $90');
 assert(prices.includes('>Russian for Lawyers</h2>') || prices.includes('>Russian for Lawyers</div>'), 'public/language-lessons/index.html: Russian for Lawyers must remain');
 assert(prices.includes('>Russian for Lawyers</div>\n                            <div class="mt-2 text-2xl font-semibold">$120</div>'), 'public/language-lessons/index.html: Russian for Lawyers $120 must stay');
-assert(prices.includes('RUSSIAN FOR LAWYERS</div>\n                        <h3 class="mt-3 text-2xl font-semibold">Legal Russian Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-white/80">5 lessons</dt><dd class="font-semibold">$550</dd></div>'), 'public/language-lessons/index.html: Russian for Lawyers 5-pack $550 must stay');
+assert(prices.includes('>Russian Legal Terminology</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$150</div>'), 'public/language-lessons/index.html: Russian Legal Terminology must be $150');
 assert(prices.includes('>Academic coaching</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$150</div>'), 'public/language-lessons/index.html: academic coaching $150 must stay');
+assert(prices.includes('Book a free 15-minute consultation'), 'public/language-lessons/index.html: free consultation CTA must stay');
 
 const leftoverEnglish = [
   [/>Legal English<\/div>\s*<div class="mt-2 text-2xl font-semibold">\$120<\/div>/, 'Legal English $120'],
@@ -188,16 +194,15 @@ for (const file of languageLessonPages) {
   assertCardLink(html, '>Russian for Business</div>', 'russian-for-business', file);
   assertCardLink(html, '>Russian for Lawyers</div>', 'russian-for-lawyers', file);
   assertCardLink(html, '>Russian Legal Terminology</div>', 'russian-legal-terminology', file);
-  if (file === 'public/language-lessons/index.html') {
-    assertCardLink(html, '>GENERAL RUSSIAN</div>', '5-lesson-general-russian-package', file);
-    assertCardLink(html, '>Legal Russian Packages</h3>', '5-lesson-legal-russian-package', file);
-  } else {
-    assertCardLink(html, '>General Russian</div>', '5-lesson-general-russian-package', file);
-    assertCardLink(html, '>Russian for Lawyers</div>', '5-lesson-legal-russian-package', file);
-    const legalEnglishCard = html.slice(html.indexOf('>Legal English</div>'), html.indexOf('>Academic English</div>'));
-    assert(legalEnglishCard.includes('5 · $440') && !legalEnglishCard.includes('$1,050') && !legalEnglishCard.includes('10 ·'), `${file}: Legal English must list the $440 5-pack and not a $1,050 10-pack`);
-    assert(html.includes('5 · $550 · 10 · $1,050'), `${file}: Russian for Lawyers 10-pack $1,050 must stay`);
+  for (const slug of singleLessonEvents) {
+    assert(html.includes(`https://cal.com/iliana-valiullina/${slug}`), `${file}: missing single-lesson Cal.com link for ${slug}`);
   }
+  for (const slug of removedPackageEvents) {
+    assert(!html.includes(slug), `${file}: package Cal.com link must be removed (${slug})`);
+  }
+  assert(!/5 · \$|10 · \$|20 · \$/.test(html), `${file}: package price lines must be removed`);
+  assert(!/\b(5|10|20) lessons\b/i.test(html), `${file}: lesson package rows must be removed`);
+  assert(html.includes('$100') && html.includes('$120') && html.includes('$150') && html.includes('$90') && html.includes('$60') && html.includes('$80') && html.includes('$85'), `${file}: single-lesson prices must stay`);
 }
 
 console.log('audit-lessons-booking.js ok');
