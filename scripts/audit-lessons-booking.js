@@ -83,6 +83,8 @@ assert(prices.includes('>Legal English</div>\n                            <div c
 assert(prices.includes('>Academic English</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$85</div>'), 'public/language-lessons/index.html: Academic English must be $85');
 assert(prices.includes('>Professional language</div>\n                            <div class="mt-2 text-2xl font-semibold text-[#0D3B66]">$80</div>'), 'public/language-lessons/index.html: Professional language must be $80');
 assert(prices.includes('LEGAL ENGLISH</div>\n                        <h3 class="mt-3 text-2xl font-semibold">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-white/80">5 lessons</dt><dd class="font-semibold">$440</dd></div>'), 'public/language-lessons/index.html: Legal English 5-pack must be $440');
+const legalEnglishPackages = prices.slice(prices.indexOf('>LEGAL ENGLISH</div>'), prices.indexOf('>ACADEMIC ENGLISH</div>'));
+assert(!legalEnglishPackages.includes('$1,050') && !legalEnglishPackages.includes('>10 lessons</dt>'), 'public/language-lessons/index.html: Legal English must not list a $1,050 10-lesson package');
 assert(prices.includes('ACADEMIC ENGLISH</div>\n                        <h3 class="mt-3 text-2xl font-semibold text-[#0D3B66]">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-[#4B5563]">5 lessons</dt><dd class="font-semibold text-[#0D3B66]">$390</dd></div>'), 'public/language-lessons/index.html: Academic English 5-pack must be $390');
 assert(prices.includes('PROFESSIONAL LANGUAGE</div>\n                        <h3 class="mt-3 text-2xl font-semibold text-[#0D3B66]">Packages</h3>\n                        <dl class="mt-5 space-y-3 text-sm">\n                            <div class="flex items-center justify-between gap-4"><dt class="text-[#4B5563]">5 lessons</dt><dd class="font-semibold text-[#0D3B66]">$360</dd></div>'), 'public/language-lessons/index.html: Professional language 5-pack must be $360');
 
@@ -192,6 +194,9 @@ for (const file of languageLessonPages) {
   } else {
     assertCardLink(html, '>General Russian</div>', '5-lesson-general-russian-package', file);
     assertCardLink(html, '>Russian for Lawyers</div>', '5-lesson-legal-russian-package', file);
+    const legalEnglishCard = html.slice(html.indexOf('>Legal English</div>'), html.indexOf('>Academic English</div>'));
+    assert(legalEnglishCard.includes('5 · $440') && !legalEnglishCard.includes('$1,050') && !legalEnglishCard.includes('10 ·'), `${file}: Legal English must list the $440 5-pack and not a $1,050 10-pack`);
+    assert(html.includes('5 · $550 · 10 · $1,050'), `${file}: Russian for Lawyers 10-pack $1,050 must stay`);
   }
 }
 
