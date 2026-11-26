@@ -1,6 +1,7 @@
 /**
- * /lessons/ must embed only the free consultation.
- * Paid Cal.com event types stay reachable from /language-lessons/.
+ * /lessons/ embeds only the free consultation.
+ * A direct button may link to the $100 / 60-minute Legal English lesson on Cal.com.
+ * Other paid Cal.com event types stay reachable from /language-lessons/.
  * English Cal.com event prices must match live Cal.com; Russian/coaching stay as published.
  */
 const fs = require('fs');
@@ -30,11 +31,27 @@ assert(
   lessons.includes("calLink: 'iliana-valiullina/free-15-minute-consultation'"),
   'public/lessons/index.html: embed must point at the free consultation event'
 );
+const lessonsCalLinks = lessons.match(/iliana-valiullina\/[a-z0-9-]+/g) || [];
+const allowedLessonsCal = new Set([
+  'iliana-valiullina/free-15-minute-consultation',
+  'iliana-valiullina/legal-english-lesson',
+]);
 assert(
-  (lessons.match(/iliana-valiullina\/[a-z0-9-]+/g) || []).every((match) =>
-    match === 'iliana-valiullina/free-15-minute-consultation'
-  ),
-  'public/lessons/index.html: must not embed or link other Cal.com event types'
+  lessonsCalLinks.length > 0 && lessonsCalLinks.every((match) => allowedLessonsCal.has(match)),
+  'public/lessons/index.html: only the free consultation and the Legal English lesson may use Cal.com'
+);
+assert(
+  (lessons.match(/calLink:\s*'iliana-valiullina\/[^']+'/g) || []).join('\n') ===
+    "calLink: 'iliana-valiullina/free-15-minute-consultation'",
+  'public/lessons/index.html: the embed must stay on the free consultation'
+);
+assert(
+  (lessons.match(/href="https:\/\/cal\.com\/iliana-valiullina\/legal-english-lesson"/g) || []).length === 1,
+  'public/lessons/index.html: Legal English booking button must link directly to the Cal.com event'
+);
+assert(
+  lessons.includes('Book Legal English') && lessons.includes('$100 / 60 min') && lessons.includes('$100 / 60 minutes'),
+  'public/lessons/index.html: Legal English booking CTA must show $100 / 60 minutes'
 );
 assert(lessons.includes('href="/language-lessons/"'), 'public/lessons/index.html: See all prices must stay');
 assert(
