@@ -114,9 +114,11 @@ assert(home.includes('Legal English is $75 per 60-minute lesson'), 'public/index
 assert(home.includes('Academic English is $85'), 'public/index.html: homepage must show Academic English $85');
 assert(home.includes('Professional language is $80'), 'public/index.html: homepage must show Professional language $80');
 assert(home.includes('Russian for Lawyers is $120'), 'public/index.html: homepage must keep Russian for Lawyers $120');
+assert(home.includes('Russian for Business is $90 (professional Russian for clients, companies, and negotiations). Russian for Lawyers is $120 (legal Russian).'), 'public/index.html: public prices must list Russian for Business $90 apart from Russian for Lawyers $120');
 assert(home.includes('Book a free 15-minute consult'), 'public/index.html: primary CTA should use the shorter consult label');
 assert((home.match(/<header[\s\S]*?btn-primary[\s\S]*?<\/header>/) || []).length === 1, 'public/index.html: hero should keep one primary CTA');
-assert(home.includes('Russian for Lawyers · from $120/60min'), 'public/index.html: featured chip must use listed Russian for Lawyers price');
+assert(home.includes('Russian for Lawyers · $120/60min'), 'public/index.html: featured chip must use the flat Russian for Lawyers price');
+assert(!home.includes('Russian for Lawyers · from $120'), 'public/index.html: featured chip must not say from $120');
 assert(home.includes('Legal English $75/60min'), 'public/index.html: Legal English chip must be $75');
 assert(home.includes('Academic English $85'), 'public/index.html: Academic English chip must be $85');
 assert(home.includes('Professional language $80'), 'public/index.html: Professional language chip must be $80');
@@ -187,6 +189,30 @@ const homepageLegalEnglishPrice = {
   'public/zh/index.html': ['法律英语 75 美元/60分钟', '法律英语为每节 60 分钟 75 美元'],
   'public/ar/index.html': ['الإنجليزية القانونية 75 $/60 دقيقة', 'الإنجليزية القانونية بسعر 75 دولاراً للدرس الواحد (60 دقيقة)'],
 };
+const homepageFeaturedChip = {
+  'public/index.html': 'Russian for Lawyers · $120/60min',
+  'public/fr/index.html': 'Russe pour juristes · 120 $/60 min',
+  'public/es/index.html': 'Ruso para juristas · 120 $/60 min',
+  'public/ru/index.html': 'Русский для юристов · 120 $/60 мин',
+  'public/zh/index.html': '律师俄语 · 120 美元/60分钟',
+  'public/ar/index.html': 'الروسية للمحامين · 120 $/60 دقيقة',
+};
+const homepageBusinessVersusLawyers = {
+  'public/index.html': 'Russian for Business is $90 (professional Russian for clients, companies, and negotiations). Russian for Lawyers is $120 (legal Russian).',
+  'public/fr/index.html': 'Le russe des affaires est à 90 $ (russe professionnel pour les clients, les entreprises et les négociations). Le russe pour juristes est à 120 $ (russe juridique).',
+  'public/es/index.html': 'El ruso para negocios cuesta 90 $ (ruso profesional para clientes, empresas y negociaciones). El ruso para juristas cuesta 120 $ (ruso jurídico).',
+  'public/ru/index.html': 'Русский для бизнеса — 90 $ (профессиональный русский для клиентов, компаний и переговоров). Русский для юристов — 120 $ (юридический русский).',
+  'public/zh/index.html': '商务俄语为 90 美元（面向客户、公司与谈判的专业俄语）。律师俄语为 120 美元（法律俄语）。',
+  'public/ar/index.html': 'الروسية للأعمال 90 دولاراً (روسية مهنية للعملاء والشركات والمفاوضات). الروسية للمحامين 120 دولاراً (روسية قانونية).',
+};
+const homepageFromPrice = {
+  'public/index.html': 'from $120',
+  'public/fr/index.html': 'dès 120 $',
+  'public/es/index.html': 'desde 120 $',
+  'public/ru/index.html': 'от 120 $',
+  'public/zh/index.html': '120 美元起',
+  'public/ar/index.html': 'من 120 $',
+};
 
 for (const file of homePages) {
   const html = fs.readFileSync(file, 'utf8');
@@ -203,6 +229,9 @@ for (const file of homePages) {
   for (const snippet of homepageLegalEnglishPrice[file]) {
     assert(html.includes(snippet), `${file}: missing Legal English $75 copy: ${snippet}`);
   }
+  assert(html.includes(homepageFeaturedChip[file]), `${file}: featured chip must use the flat Russian for Lawyers price`);
+  assert(!html.includes(homepageFromPrice[file]), `${file}: featured chip must not use a from-price`);
+  assert(html.includes(homepageBusinessVersusLawyers[file]), `${file}: public prices must distinguish Russian for Business $90 from Russian for Lawyers $120`);
 }
 
 function assertCardLink(html, marker, slug, file) {

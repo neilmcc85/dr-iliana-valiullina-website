@@ -13,6 +13,27 @@ const singleLessonNote = {
   ru: 'Отдельные занятия по 60 минут указаны на странице языковых занятий, и доступна бесплатная консультация на 15 минут.',
   es: 'Las clases individuales de 60 minutos aparecen en la página de clases de idiomas, y hay una consulta gratuita de 15 minutos.',
 };
+const featuredChipCopy = {
+  ar: 'الروسية للمحامين · 120 $/60 دقيقة',
+  zh: '律师俄语 · 120 美元/60分钟',
+  fr: 'Russe pour juristes · 120 $/60 min',
+  ru: 'Русский для юристов · 120 $/60 мин',
+  es: 'Ruso para juristas · 120 $/60 min',
+};
+const businessVersusLawyersPrice = {
+  ar: 'الروسية للأعمال 90 دولاراً (روسية مهنية للعملاء والشركات والمفاوضات). الروسية للمحامين 120 دولاراً (روسية قانونية).',
+  zh: '商务俄语为 90 美元（面向客户、公司与谈判的专业俄语）。律师俄语为 120 美元（法律俄语）。',
+  fr: 'Le russe des affaires est à 90 $ (russe professionnel pour les clients, les entreprises et les négociations). Le russe pour juristes est à 120 $ (russe juridique).',
+  ru: 'Русский для бизнеса — 90 $ (профессиональный русский для клиентов, компаний и переговоров). Русский для юристов — 120 $ (юридический русский).',
+  es: 'El ruso para negocios cuesta 90 $ (ruso profesional para clientes, empresas y negociaciones). El ruso para juristas cuesta 120 $ (ruso jurídico).',
+};
+const featuredFromPrice = {
+  ar: 'من 120 $',
+  zh: '120 美元起',
+  fr: 'dès 120 $',
+  ru: 'от 120 $',
+  es: 'desde 120 $',
+};
 
 const englishHome = fs.readFileSync('public/index.html', 'utf8');
 if (lessonPackagePriceCopy.test(englishHome)) {
@@ -20,6 +41,15 @@ if (lessonPackagePriceCopy.test(englishHome)) {
 }
 if (!englishHome.includes('Single 60-minute lessons are listed on the language lessons page, and a free 15-minute consultation is available.')) {
   throw new Error('public/index.html: public prices must name single lessons and the free consultation');
+}
+if (!englishHome.includes('Russian for Lawyers · $120/60min')) {
+  throw new Error('public/index.html: featured chip must use the flat Russian for Lawyers price');
+}
+if (englishHome.includes('Russian for Lawyers · from $120')) {
+  throw new Error('public/index.html: featured chip must not say from $120');
+}
+if (!englishHome.includes('Russian for Business is $90 (professional Russian for clients, companies, and negotiations). Russian for Lawyers is $120 (legal Russian).')) {
+  throw new Error('public/index.html: public prices must distinguish Russian for Business $90 from Russian for Lawyers $120');
 }
 
 for (const code of pages) {
@@ -55,6 +85,18 @@ for (const code of pages) {
 
   if (!source.includes(singleLessonNote[code])) {
     throw new Error(`${file}: public prices must name single lessons and the free consultation`);
+  }
+
+  if (!source.includes(featuredChipCopy[code])) {
+    throw new Error(`${file}: featured chip must use the flat Russian for Lawyers price`);
+  }
+
+  if (source.includes(featuredFromPrice[code])) {
+    throw new Error(`${file}: featured chip must not use a from-price`);
+  }
+
+  if (!source.includes(businessVersusLawyersPrice[code])) {
+    throw new Error(`${file}: public prices must distinguish Russian for Business $90 from Russian for Lawyers $120`);
   }
 
   if (source.includes('href="/lessons/"')) {
